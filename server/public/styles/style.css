@@ -83,3 +83,20 @@ li a:hover {
   background-color: orange;
   height:200px;
 }
+
+.col-sm {
+  background-color: tomato;
+  border-width: 2px;
+  height: 300px;
+}
+
+.container-fluid {
+  height:300px;
+  background-color: tomato;
+}
+
+.col-md-8 {
+  height:300px;
+  background-color: blueviolet;
+}
+

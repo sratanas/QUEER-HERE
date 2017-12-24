@@ -16,7 +16,10 @@ vm.getEvents = function () {
                 title: `${response.data[i].title}`,
                 startsAt: moment().subtract(1, 'day').toDate(),
                 endsAt: new Date(2017,11,26),
-                color: '#000000',
+                color: { 
+                    primary: '#e3bc08', // the primary event color (should be darker than secondary)
+                    secondary: '#fdf1ba' // the secondary event color (should be lighter than primary)
+                  },
                 draggable: true,
                 resizable: true
             })
@@ -35,14 +38,15 @@ vm.addEvent = function (newEvent) {
         data: newEvent
     }).then(function (response) {
         console.log('response', response);
-        vm.response.push({
-          title:'New event',
-          startsAt: moment().startOf('day').toDate(),
-          endsAt: moment().endOf('day').toDate(),
-          color: calendarConfig.colorTypes.important,
-          draggable: true,
-          resizable: true
-        })
+        // vm.events.push({
+        //     title: `${response.data.title}`,
+        //     startsAt: moment().subtract(1, 'day').toDate(),
+        //     endsAt: new Date(2017,11,26),
+        //     color: '#000000',
+        //     draggable: true,
+        //     resizable: true
+        
+        // })
  
     });
 };

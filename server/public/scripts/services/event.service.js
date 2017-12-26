@@ -1,4 +1,4 @@
-myApp.service('EventService', ['$http', function($http, $location){
+myApp.service('EventService', ['$http', function($http, $location, calendarConfig){
     console.log('Event Serivice loaded');
     var vm = this;
 
@@ -14,8 +14,9 @@ vm.getEvents = function () {
         for (var i = 0; i<response.data.length; i++){
             vm.events.push({
                 title: `${response.data[i].title}`,
-                startsAt: moment().subtract(1, 'day').toDate(),
+                startsAt: new Date(2017,11,26),
                 endsAt: new Date(2017,11,26),
+                date: new Date(2017,11,26),
                 color: { 
                     primary: '#e3bc08', // the primary event color (should be darker than secondary)
                     secondary: '#fdf1ba' // the secondary event color (should be lighter than primary)
@@ -51,34 +52,6 @@ vm.addEvent = function (newEvent) {
     });
 };
 
-// vm.events = [
-//     {
-        // title: 'An event',
-        // color: {primary: '#e3bc08'},
-        // startsAt: new Date(2017,11,1,1), // A javascript date object for when the event starts
-        // endsAt: new Date(2017,11,4,1),
-        // draggable: true,
-        // resizable: true,
-//       //   actions: actions
-//       }, {
-//         title: '<i class="glyphicon glyphicon-asterisk"></i> <span class="text-primary">Another event</span>, with a <i>html</i> title',
-//         color: {primary: '#e3bc08'},
-//         startsAt: moment().subtract(1, 'day').toDate(),
-//         endsAt: moment().add(5, 'days').toDate(),
-//         draggable: true,
-//         resizable: true,
-//       //   actions: actions
-//       }, {
-//         title: 'This is a really long event title that occurs on every year',
-//         color: {primary: '#e3bc08'},
-//         startsAt: moment().startOf('day').add(7, 'hours').toDate(),
-//         endsAt: moment().startOf('day').add(19, 'hours').toDate(),
-//         recursOn: 'year',
-//         draggable: true,
-//         resizable: true,
-//       //   actions: actions
-//       }];
-    
 
 }]);
 

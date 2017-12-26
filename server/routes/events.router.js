@@ -32,7 +32,7 @@ router.post('/', function (req, res) {
             res.sendStatus(500);
 
         } else {
-            client.query(`INSERT INTO event (title) VALUES ($1);`, [newEvent.title],
+            client.query(`INSERT INTO event (title, date) VALUES ($1, $2);`, [newEvent.title, newEvent.date],
                 function (errorMakingDatabaseQuery, result) {
                     done();
                     if (errorMakingDatabaseQuery) {

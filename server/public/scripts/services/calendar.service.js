@@ -14,7 +14,6 @@ myApp.service('CalendarService', ['$http', function($http){
 
       });
   };
-  vm.getEvents();
 
 
 

@@ -17,6 +17,10 @@ myApp.config(function($routeProvider, $locationProvider) {
       templateUrl: '/views/templates/organizations.html',
       controller: 'LoginController as lc'
     })
+    .when('/calendar', {
+      templateUrl: '/views/templates/calendar.html',
+      controller: 'LoginController as lc'
+    })
     .when('/user', {
       templateUrl: '/views/templates/user.html',
       controller: 'UserController as uc',
@@ -29,6 +33,15 @@ myApp.config(function($routeProvider, $locationProvider) {
     .when('/info', {
       templateUrl: '/views/templates/info.html',
       controller: 'InfoController',
+      resolve: {
+        getuser : function(UserService){
+          return UserService.getuser();
+        }
+      }
+    })
+    .when('/createorg', {
+      templateUrl: '/views/templates/createorg.html',
+      controller: 'UserController as uc',
       resolve: {
         getuser : function(UserService){
           return UserService.getuser();

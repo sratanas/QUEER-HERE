@@ -11,9 +11,10 @@ body, html {
 }
 
 .instructions {
-  background-color: #333333;
-  color: #DDDDDD;
+  background-color: #acaaaa;
+  color: black;
   padding: 15px;
+  padding-right: 50px;
 }
 
 #entryForm {
@@ -118,4 +119,10 @@ li a:hover {
   margin-top: 35px;
   /* border-width: 1px;
   border-style: solid; */
+}
+
+#sidebarEvents {
+  border-width: 1px;
+  border-style: solid;
+  padding: 20px;
 }

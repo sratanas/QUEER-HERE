@@ -26,6 +26,8 @@ vm.addOrg = function (newOrg) {
         data: newOrg
     }).then(function (response) {
         console.log('response', response);
+
+        
         alert('Thank you for adding an organization!')
         newOrg.org_name = '';
         newOrg.website = '';

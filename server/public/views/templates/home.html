@@ -1,51 +1,18 @@
+<div ng-include="'views/partials/nav.html'"></div>
 
-<div class="navbar">
-    <div class="container">
-      <ul>
-        <li><a href="#/user">User Home</a></li>
-        <li><a href="#/calendar">Calendar</a></li>        
-        <li><a href="#/info">Info Page</a></li>
-        <li><a href="#/organizations">Organizations</a></li>
-      </ul>
+
+<div ng-controller="KitchenSinkCtrl as vm">
+
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6">Things</div>
+
+
+      <div class="col-md-6" id = "sidebarEvents">
+
+        <ul ng-repeat="event in vm.EventService.events">
+          <li>{{event.title}}</li>
+        </ul>
+      </div>
     </div>
   </div>
-  
-
-
-
-<!-- <div class="container">
-
-</div> -->
-<div class = "container">
-  <div class = "row">
-      <div class="col-md-4">column 1</div>
-      <div class="col-md-8">
-        <div class = "pull-right">
-          <h1 class="lead">Login</h1>
-          <h1 class="lead alert alert-danger" role="alert" ng-if="lc.message != ''">{{lc.message}}</h2>
-          <form ng-submit="lc.login()">
-            <div>
-                <label for="username">Username:</label>
-                <input type="text" ng-model="lc.user.username" />
-            </div>
-            <div>
-                <label for="password">Password:</label>
-                <input type="password" ng-model="lc.user.password" />
-            </div>
-            <div>
-                <input class="btn btn-default" type="submit" name="submit" value="Log In" />
-                <a href="#register">Register</a>
-            </div>
-          </form>
-        </div>
-<div ng-controller="KitchenSinkCtrl as vm">
-  <!-- {{vm}} -->
-<!-- {{vm.events}} -->
-
-<tbody>
-    <ul ng-repeat="event in vm.events">
-        <li>{{event.title}}</li>
-
-    </ul>
-</tbody>
-</div></div>

@@ -2,10 +2,11 @@ myApp.service('EventService', ['$http', function($http, $location, calendarConfi
     console.log('Event Serivice loaded');
     var vm = this;
 
-vm.events = []
+vm.events = [];
 vm.newEvent = {};
 
 vm.getEvents = function () {
+    vm.events = [];
     $http({
         method: 'GET',
         url: '/events'
@@ -25,13 +26,14 @@ vm.getEvents = function () {
                 resizable: true
             })
         }
+     
         
-
     });
 };
 
 
 vm.addEvent = function (newEvent) {
+
     console.log('Add event button clicked');
     $http({
         method: 'POST',
@@ -39,15 +41,6 @@ vm.addEvent = function (newEvent) {
         data: newEvent
     }).then(function (response) {
         console.log('response', response);
-        // vm.events.push({
-        //     title: `${response.data.title}`,
-        //     startsAt: moment().subtract(1, 'day').toDate(),
-        //     endsAt: new Date(2017,11,26),
-        //     color: '#000000',
-        //     draggable: true,
-        //     resizable: true
-        
-        // })
  
     });
 };

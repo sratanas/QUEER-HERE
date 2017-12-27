@@ -1,20 +1,35 @@
-<div ng-controller="KitchenSinkCtrl as vm">
-<div class="instructions">
+<div ng-controller="LoginController as lc">
+    <div class="instructions">
 
-    <div class="row">
-        <div class="col-md-8">
-            <div class="container">
-                <h1 class="lead"> <a href="#/">QUEER HERE</a></h1>
-        
-                
+        <div class="row">
+            <div class="col-md-8">
+                <div class="container">
+                    <h1 class="lead">
+                        <a href="#/">QUEER HERE</a>
+                    </h1>
+                </div>
             </div>
+
+            <div class="col-md-4">
+                <div class = "pull-right">
+                <h2>Login</h2>
+                <h1 class="lead alert alert-danger" role="alert" ng-if="lc.message != ''">{{lc.message}}</h2>
+                    <form ng-submit="lc.login()">
+                        <div>
+                            <label for="username">Username:</label>
+                            <input type="text" ng-model="lc.user.username" />
+                        </div>
+                        <div>
+                            <label for="password">Password:</label>
+                            <input type="password" ng-model="lc.user.password" />
+                        </div>
+                        <div>
+                            <input class="btn btn-default" type="submit" name="submit" value="Log In" />
+                            <a href="#register">Register</a>
+                        </div>
+                    </form>
         </div>
-
-
-
-
     </div>
-</div>
-
+    </div>
 
 </div>

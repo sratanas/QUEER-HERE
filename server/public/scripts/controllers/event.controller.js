@@ -3,5 +3,5 @@ myApp.controller('EventController',['CalendarService', function(CalendarService)
     var vm = this;
     vm.CalendarService = CalendarService;
     vm.getEvents = CalendarService.getEvents;
-    
+    getEvents();
   }]);

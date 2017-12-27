@@ -6,11 +6,13 @@ vm.organizations = []
 vm.newOrg = {};
 
 vm.getOrgs = function () {
+
     $http({
         method: 'GET',
         url: '/organizations'
     }).then(function (response) {
         console.log('response', response);
+        vm.organizations = response.data;
     
         
 

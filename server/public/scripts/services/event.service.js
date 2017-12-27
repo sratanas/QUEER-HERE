@@ -15,7 +15,7 @@ vm.getEvents = function () {
         for (var i = 0; i<response.data.length; i++){
             vm.events.push({
                 title: `${response.data[i].title}`,
-                startsAt: new Date(2017,11,26),
+                startsAt: new Date(`${response.data[i].date}`),
                 endsAt: new Date(2017,11,26),
                 date: new Date(2017,11,26),
                 color: { 

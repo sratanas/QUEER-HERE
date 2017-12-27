@@ -1,5 +1,22 @@
 <div ng-include="'views/partials/nav.html'"></div>
-<div ng-controller="KitchenSinkCtrl as vm">
+
+<!-- {{oc.OrganizationService.organizations}} -->
+
+<!-- {{oc}} -->
+<div class = "container">
+<ul ng-repeat="orgs in oc.OrganizationService.organizations">
+        <li><strong>{{orgs.org_name}}</strong> {{orgs.about}}
+        </li>
+      </ul>
+    </div>
+
+
+
+
+
+
+<!-- CODE TO CREATE ORG BELOW -->
+<!-- <div ng-controller="KitchenSinkCtrl as vm">
     <div class="container">
         <div class="row">
             <div class="col-md-4">column 1</div>
@@ -20,4 +37,4 @@
     <div class="col-md-4">column 3</div>
 </div>
 </div>
-</div>
+</div> -->

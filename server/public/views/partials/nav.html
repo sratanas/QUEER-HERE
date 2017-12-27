@@ -1,5 +1,5 @@
-<div class="navbar">
-  <!-- <div class="container">
+<div class="navbar" ng-controller = "UserController as uc">
+  <div class="container" ng-hide = "uc.userService.userObject.userName">
     <ul>
       <li><a href="#/user">Home</a></li>
       <li><a href="#/calendar">Calendar</a></li>
@@ -7,9 +7,9 @@
       <li><a href="#/organizations">Organizations</a></li>
      
     </ul>
-  </div> -->
+  </div>
 
-  <div class="container" >
+  <div class="container" ng-show = "uc.userService.userObject.userName">
       <ul>
         <li><a href="#/user">My home</a></li>
         <li><a href="#/calendar">Calendar</a></li>

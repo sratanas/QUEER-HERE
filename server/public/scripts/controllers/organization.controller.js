@@ -4,5 +4,7 @@ myApp.controller('OrganizationController',['OrganizationService', function(Organ
     vm.OrganizationService = OrganizationService;
     vm.addOrg = OrganizationService.addOrg;
     vm.newOrg = OrganizationService.newOrg;
-    
+    vm.getOrgs = OrganizationService.getOrgs;
+    vm.organizations = OrganizationService.organizations;
+    OrganizationService.getOrgs();
   }]);

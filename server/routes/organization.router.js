@@ -9,7 +9,7 @@ router.get('/', function (req, res) {
             console.log('error', errorConnectingToDatabase);
             res.sendStatus(500);
         } else {
-            client.query(`SELECT * FROM organiations;`, function (errorMakingDatabaseQuery, result) {
+            client.query(`SELECT * FROM organizations;`, function (errorMakingDatabaseQuery, result) {
                 done();
                 if (errorMakingDatabaseQuery) {
                     console.log('error', errorMakingDatabaseQuery);

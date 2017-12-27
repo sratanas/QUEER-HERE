@@ -4,6 +4,7 @@ myApp.controller('LoginController', function($http, $location, UserService) {
     vm.user = {
       username: '',
       password: ''
+
     };
     vm.message = '';
 
@@ -37,7 +38,8 @@ myApp.controller('LoginController', function($http, $location, UserService) {
         console.log('LoginController -- registerUser -- sending to server...', vm.user);
         $http.post('/register', vm.user).then(function(response) {
           console.log('LoginController -- registerUser -- success');
-          $location.path('/home');
+          // alert('Thank you for registering!');
+          $location.path('/registerthankyou');
         }).catch(function(response) {
           console.log('LoginController -- registerUser -- error');
           vm.message = "Please try again."

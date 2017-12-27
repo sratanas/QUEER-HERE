@@ -2,16 +2,103 @@
   <h1 class="lead">Register User</h1>
   <h1 class="lead alert alert-danger" role="alert" ng-if="lc.message != ''">{{lc.message}}</h2>
   <form ng-submit="lc.registerUser()">
-    <div>
-        <label for="username">Username:</label>
-        <input type="text" ng-model="lc.user.username" />
+      <div class="form-group row">
+          <label for="username" class="col-sm-2 col-form-label">Username:</label>
+          <div class="col-sm-10">
+              <input type="text" ng-model="lc.user.username" class="form-control" placeholder="Create a username">
+          </div>
+      </div>
+      <div class="form-group row">
+          <label for="password" class="col-sm-2 col-form-label">Password:</label>
+          <div class="col-sm-10">
+              <input type="password" ng-model="lc.user.password" class="form-control" placeholder="Create a password">
+          </div>
+      </div>
+
+      <div class="form-group row">
+          <label for="bio" class="col-sm-2 col-form-label">About</label>
+          <div class="col-sm-10">
+              <textarea class="form-control" ng-model="lc.user.bio"  placeholder="Share what you're all about!"></textarea>
+          </div>
+      </div>
+
+
+    <div class="form-group row">
+        <div class="col-sm-2">
+            <b>What types of events would you like to hear about?
+              <br>(Check all that apply):</b>
+        </div>
+        <div class="col-sm-10">
+            <div class="form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" ng-model="lc.user.gay" type="checkbox" > Gay
+                </label>
+                <br>
+                <label class="form-check-label">
+                    <input class="form-check-input" ng-model="lc.user.lesbian" type="checkbox"> Lesbian
+                </label>
+                <br>
+                <label class="form-check-label">
+                    <input class="form-check-input" ng-model="lc.user.bi" type="checkbox"> Bi
+                </label>
+                <br>
+                <label class="form-check-label">
+                    <input class="form-check-input" ng-model="lc.user.trans" type="checkbox"> Trans
+                </label>
+                <br>
+                <label class="form-check-label">
+                    <input class="form-check-input" ng-model="lc.user.entertainment" type="checkbox"> Entertainment
+                </label>
+                <br>
+                <label class="form-check-label">
+                    <input class="form-check-input" ng-model="lc.user.literary"type="checkbox"> Literary
+                </label>
+                <br>
+                <label class="form-check-label">
+                    <input class="form-check-input" ng-model="lc.user.activism"type="checkbox"> Activism
+                </label>
+                <br>
+                <label class="form-check-label">
+                    <input class="form-check-input" ng-model="lc.user.healthcare"type="checkbox"> Healthcare
+                </label>
+                <br>
+                <label class="form-check-label">
+                    <input class="form-check-input" ng-model="lc.user.mental_health"type="checkbox"> Mental Health
+                </label>
+                <br>
+                <label class="form-check-label">
+                    <input class="form-check-input" ng-model="lc.user.youth" type="checkbox"> Youth
+                </label>
+                <br>
+                <label class="form-check-label">
+                    <input class="form-check-input" ng-model="lc.user.political" type="checkbox"> Political
+                </label>
+                <br>
+                <label class="form-check-label">
+                    <input class="form-check-input" ng-model="lc.user.legal" type="checkbox"> Legal
+                </label>
+                <br>
+                <label class="form-check-label">
+                    <input class="form-check-input" ng-model="lc.user.support_group" type="checkbox"> Support Group
+                </label>
+                <br>
+                <label class="form-check-label">
+                    <input class="form-check-input" ng-model="lc.user.other"type="checkbox"> Other
+                </label>
+                <br>
+  
+            </div>
+        </div>
     </div>
-    <div>
-        <label for="password">Password:</label>
-        <input type="password" ng-model="lc.user.password" />
-    </div>
+  
+
     <input class="btn btn-default" type="submit" name="submit" value="Register" />
+    
     <a href="#home">Cancel</a>
   </form>
+<br><br>
 
+
+
+  
 </div>

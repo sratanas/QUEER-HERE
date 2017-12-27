@@ -1,4 +1,5 @@
 <div ng-include="'views/partials/nav.html'"></div>
+<div ng-controller = "UserController as uc">
 <div class="container">
 
     <h1 id="welcome" class="lead">Welcome, {{uc.userObject.userName}}!</h1>
@@ -7,8 +8,11 @@
 
 <div class="container">
         <div class="row">
-            <div class="col-md-3">column 1</div>
-
+            <div class="col-md-3">column 1
+                    <!-- oc.OrganizationService.organizations" -->
+                   Bio: {{uc.userObject.bio}}
+                    
+            </div>
 
 
 
@@ -25,5 +29,6 @@
 
     </div>
 
+</div>
 </div>
 </div>

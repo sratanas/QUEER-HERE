@@ -16,7 +16,7 @@ vm.getEvents = function () {
             vm.events.push({
                 title: `${response.data[i].title}`,
                 startsAt: new Date(`${response.data[i].date}`),
-                endsAt: new Date(2017,11,26),
+                endsAt: new Date(`${response.data[i].endDate}`),
                 date: new Date(2017,11,26),
                 color: { 
                     primary: '#e3bc08', // the primary event color (should be darker than secondary)

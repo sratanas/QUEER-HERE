@@ -57,4 +57,26 @@ router.post('/', function (req, res) {
     })
 })
 
+//Getting games associated with user
+router.get('/userorgs', function (req, res) {
+    pool.connect(function (errorConnectingToDatabase, client, done) {
+        if (errorConnectingToDatabase) {
+            console.log('error', errorConnectingToDatabase);
+            res.sendStatus(500);
+        } else {
+            client.query(`SELECT org_name, about FROM organizations
+            JOIN users_orgs ON organizations.id = users_orgs.org_id
+            WHERE users_orgs.user_id = 19`, function (errorMakingDatabaseQuery, result) {
+                done();
+                if (errorMakingDatabaseQuery) {
+                    console.log('error', errorMakingDatabaseQuery);
+                    res.sendStatus(500);
+                } else {
+                    res.send(result.rows);
+                }
+            });
+        }
+    });
+});
+
 module.exports = router;

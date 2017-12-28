@@ -25,6 +25,10 @@ myApp.config(function($routeProvider, $locationProvider) {
       templateUrl: '/views/templates/registerthankyou.html',
       controller: 'LoginController as lc'
     })
+    .when('/organizations/:id', {
+      templateUrl:'/views/templates/orgdetails/.html',
+      controller:'OrganizationController as oc'
+    })
     .when('/user', {
       templateUrl: '/views/templates/user.html',
       controller: 'UserController as uc',

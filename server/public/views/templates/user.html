@@ -25,13 +25,16 @@
 
 
     <div class="col-md-4"><h3>My Organizations</h3>
-            <!-- {{uc.OrganizationService.userOrgs}} -->
             <ul ng-repeat="userOrg in uc.OrganizationService.userOrgs">
-                    <li>{{userOrg.org_name}}</li>
+                    <!-- This is what works -->
+                    <!-- <li>{{userOrg.org_name}}</li> -->
+                   
+                    <li><a href="/organizations/{{userOrg.id}}"> {{userOrg.org_name}}</a></li>
+                    
                   </ul>
         </div>
         
-           
+       
 </div>
 <br><br><br>
 </div>

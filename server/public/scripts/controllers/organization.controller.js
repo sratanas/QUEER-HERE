@@ -7,5 +7,6 @@ myApp.controller('OrganizationController',['OrganizationService', function(Organ
     vm.getOrgs = OrganizationService.getOrgs;
     vm.organizations = OrganizationService.organizations;
     vm.getClickedOrg = OrganizationService.getClickedOrg;
+    vm.userOrgs = OrganizationService.userOrgs;
     OrganizationService.getOrgs();
   }]);

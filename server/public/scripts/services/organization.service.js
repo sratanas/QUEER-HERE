@@ -71,17 +71,17 @@ vm.getUserOrgs = function () {
         });
     };
 
-// vm.getClickedOrg = function (clickedOrg){
+vm.getClickedOrg = function (clickedOrg){
 
-//     $http({
-//         method: 'GET',
-//         url: '/organizations/' + clickedOrg.id
-//     }).then(function(response){
-//         console.log('response', response);
+    $http({
+        method: 'GET',
+        url: '/organizations/' + clickedOrg.id
+    }).then(function(response){
+        console.log('response', response);
 
         
-//     })
-// }
+    })
+}
 
 
 

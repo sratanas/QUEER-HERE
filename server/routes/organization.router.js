@@ -32,9 +32,7 @@ router.post('/', function (req, res) {
 
         } else {
             client.query(`WITH new_org AS (INSERT INTO organizations 
-                (org_name, website, email, address, phone, about, lesbian, gay, bi, trans,
-                entertainment, literary, activism, healthcare, mental_health, youth, political,
-                legal, support_group, other) 
+                (org_name, website, email, address, phone, about, lesbian, gay, bi, trans, entertainment, literary, activism, healthcare, mental_health, youth, political, legal, support_group, other) 
                 VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20)
                 RETURNING id)
                 INSERT INTO users_orgs ("user_id", "org_id")
@@ -57,14 +55,14 @@ router.post('/', function (req, res) {
     })
 })
 
-//Getting games associated with user
+// THIS ONE WORKS SORT OF
 router.get('/userorgs', function (req, res) {
     pool.connect(function (errorConnectingToDatabase, client, done) {
         if (errorConnectingToDatabase) {
             console.log('error', errorConnectingToDatabase);
             res.sendStatus(500);
         } else {
-            client.query(`SELECT org_name, about FROM organizations
+            client.query(`SELECT * FROM organizations
             JOIN users_orgs ON organizations.id = users_orgs.org_id
             WHERE users_orgs.user_id = 19`, function (errorMakingDatabaseQuery, result) {
                 done();
@@ -79,24 +77,28 @@ router.get('/userorgs', function (req, res) {
     });
 });
 
-// router.get('/:id', function (req, res) {
-//     pool.connect(function (errorConnectingToDatabase, client, done) {
-//         if (errorConnectingToDatabase) {
-//             console.log('error', errorConnectingToDatabase);
-//             res.sendStatus(500);
-//         } else {
-//             client.query(`SELECT org_name, about FROM organizations
-//             WHERE id = $1;`,[req.query.id], function (errorMakingDatabaseQuery, result) {
-//                 done();
-//                 if (errorMakingDatabaseQuery) {
-//                     console.log('error', errorMakingDatabaseQuery);
-//                     res.sendStatus(500);
-//                 } else {
-//                     res.send(result.rows);
-//                 }
-//             });
-//         }
-//     });
-// });
+
+// Getting games associated with user
+
+router.get('/:id', function (req, res) {
+    let orgToGet = req.params.id;
+    pool.connect(function (errorConnectingToDatabase, client, done) {
+        if (errorConnectingToDatabase) {
+            console.log('error', errorConnectingToDatabase);
+            res.sendStatus(500);
+        } else {
+            client.query(`SELECT org_name FROM organizations WHERE id = $1;`, [orgToGet], function (errorMakingDatabaseQuery, result) {
+                done();
+                if (errorMakingDatabaseQuery) {
+                    console.log('error', errorMakingDatabaseQuery);
+                    res.sendStatus(500);
+                } else {
+                    res.send(result.rows);
+                }
+            });
+        }
+    });
+});
 
 module.exports = router;
+

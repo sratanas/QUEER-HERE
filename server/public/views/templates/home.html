@@ -5,13 +5,51 @@
 
   <div class="container">
     <div class="row">
-      <div class="col-md-6">Things</div>
+        <div class="col-md-1"></div>
+      <div class="col-md-5">
+        <h2 id="welcomeText">WELCOME!</h2>
+        <div class= "container" id="homePageAboutBlurb">
+          Queer Here Twin Cities is a place for the queer community and allies to find out about and share events and resources. Check out our public calendar, and register to create and share events!
+        </div>
+
+      </div>
 
 
-      <div class="col-md-6" id = "sidebarEvents">
+      <div class="col-md-6" id="sidebarEvents">
+
+        <table class="table">
+          <thead>
+            <tr>
+              <th>UPCOMING EVENTS</th>
+
+            </tr>
+          </thead>
+          <tbody>
+            <tr ng-repeat="event in vm.EventService.events">
+              <td><strong>{{event.title}}</strong><br>{{event.description}}</td>
+
+            </tr>
+
+          </tbody>
+        </table>
+
+
+
+
+
+        <!-- <h3 id="upcomingEventsHeader">UPCOMING EVENTS</h3>
         <ul ng-repeat="event in vm.EventService.events">
-          <li>{{event.title}}</li>
-        </ul>
+          <li></li>
+        </ul> -->
       </div>
     </div>
+
+
+
+
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
   </div>

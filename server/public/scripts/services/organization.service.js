@@ -71,6 +71,18 @@ vm.getUserOrgs = function () {
         });
     };
 
+// vm.getClickedOrg = function (clickedOrg){
+
+//     $http({
+//         method: 'GET',
+//         url: '/organizations/' + clickedOrg.id
+//     }).then(function(response){
+//         console.log('response', response);
+
+        
+//     })
+// }
+
 
 
 }]);

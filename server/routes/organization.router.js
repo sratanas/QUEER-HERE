@@ -79,4 +79,24 @@ router.get('/userorgs', function (req, res) {
     });
 });
 
+// router.get('/:id', function (req, res) {
+//     pool.connect(function (errorConnectingToDatabase, client, done) {
+//         if (errorConnectingToDatabase) {
+//             console.log('error', errorConnectingToDatabase);
+//             res.sendStatus(500);
+//         } else {
+//             client.query(`SELECT org_name, about FROM organizations
+//             WHERE id = $1;`,[req.query.id], function (errorMakingDatabaseQuery, result) {
+//                 done();
+//                 if (errorMakingDatabaseQuery) {
+//                     console.log('error', errorMakingDatabaseQuery);
+//                     res.sendStatus(500);
+//                 } else {
+//                     res.send(result.rows);
+//                 }
+//             });
+//         }
+//     });
+// });
+
 module.exports = router;

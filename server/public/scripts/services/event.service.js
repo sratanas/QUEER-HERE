@@ -23,7 +23,8 @@ vm.getEvents = function () {
                     secondary: '#fdf1ba' // the secondary event color (should be lighter than primary)
                   },
                 draggable: true,
-                resizable: true
+                resizable: true,
+                description: `${response.data[i].description}`
             })
         }
      
@@ -44,6 +45,7 @@ vm.addEvent = function (newEvent) {
  
     });
 };
+
 
 
 }]);

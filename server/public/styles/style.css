@@ -7,25 +7,58 @@ body, html {
 
 .footer {
   /* position: fixed; */
-  height:100px;
+  height:125px;
   left: 0;
   bottom: 0; 
   width: 100%;
-  background-color: #333333;
+  /* background-color: #5e5c5c; */
   color: white;
+  background-color: -webkit-gradient(linear, left top, left bottom, from(white), to(rgb(58, 57, 57)));
+  background-image: -webkit-linear-gradient(top, white, rgb(58, 57, 57));
+  background-image: -moz-linear-gradient(top, white, rgb(58, 57, 57));
+  background-image: linear-gradient(to bottom, white, rgb(58, 57, 57));
   /* text-align: center; */
+
 }
+
+#homePageAboutBlurb {
+  height: 325px;
+  width: 325px;
+  background-color:tomato;
+  border-radius: 100%;
+  text-align: center;
+  vertical-align: middle;
+  display: table-cell;
+  font-size: 18px;
+  padding:35px;
+  font-weight: bold;
+  color: black;
+}
+
 
 .instructions .container h1 {
   font-size: 32px;
   font-weight: 600;
+  width: 125%;
+  transform: skewY(-6deg);  
+  transform-origin: top left;
+  height: 165px;
+  padding-top: 75px;
+  padding-left:30px;
+  /* background-color: -webkit-gradient(linear, left top, left bottom, from(white), to(rgb(58, 57, 57)));
+  background-image: -webkit-linear-gradient(top, white, rgb(58, 57, 57));
+  background-image: -moz-linear-gradient(top, white, rgb(58, 57, 57));
+  background-image: linear-gradient(to bottom, white, rgb(58, 57, 57)); */
 }
 
 .instructions {
-  background-color:#f8f8f8;
+  background-color:#ffffff;
   color: black;
   padding: 15px;
   padding-right: 50px;
+  padding-left: 25px;
+  width: 100%
+  
 }
 
 #entryForm {
@@ -67,9 +100,13 @@ body, html {
 }
 
 .navbar {
-  background-color: #333333;
-  width: 100%;
+  background-color: rgb(253, 253, 253);
+  color: black;
   border-radius: 0px;
+  font-size: 18px;
+  font-weight: bold;
+  letter-spacing: 1px;
+
 }
 
 ul {
@@ -85,7 +122,7 @@ li {
 
 li a {
   display: block;
-  color: white;
+  color: black;
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
@@ -108,10 +145,10 @@ li a:hover {
   height: 300px;
 }
 
-.container-fluid {
+/* .container-fluid {
   height:300px;
   background-color: tomato;
-}
+} */
 
 /* .col-md-8 {
   height:300px;
@@ -133,7 +170,36 @@ li a:hover {
 }
 
 #sidebarEvents {
-  border-width: 1px;
-  border-style: solid;
-  padding: 20px;
+  /* border-width: 3px;
+  border-style: dotted; */
+  /* border-style: solid; */
+  /* padding: 20px;
+  padding-top: 5px;
+  background-color: rgb(253, 123, 123) */
+}
+
+#upcomingEventsHeader {
+  background-color: rgb(58, 57, 57);
+  color: white;
+  letter-spacing: 1px;
+  padding:8px;
+  border-radius: 10px;
+
+
+}
+.table {
+  background-color: white;
+}
+
+.table th{
+  background-color: rgb(58, 57, 57);
+  font-size: 18px;
+  color: white;
+  letter-spacing: 2px;
+}
+
+#welcomeText {
+  font-weight: bold;
+  transform: skewY(-6deg);  
+  transform-origin: top left;
 }

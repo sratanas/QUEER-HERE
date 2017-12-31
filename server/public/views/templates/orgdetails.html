@@ -1,12 +1,28 @@
 <div ng-include="'views/partials/nav.html'"></div>
-<p>Hello world</p>
 
-{{oc.userOrgs}}
 
-<ul ng-repeat="userOrg in uc.OrganizationService.userOrgs">
-        <!-- This is what works -->
-        <!-- <li>{{userOrg.org_name}}</li> -->
-       
-        <li> {{userOrg.org_name}}</li>
-        </ul>
-        
+<div class = "container">
+  <table class="table" id = "orgDetailsTable">
+    <thead>
+      <tr>
+        <th><h2>{{oc.organizations.org_name}}</h2></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr >
+        <td>{{oc.organizations.website}} <br><br>
+        {{oc.organizations.phone}} <br><br>
+        {{oc.organizations.about}}</td>
+
+      </tr>
+
+    </tbody>
+  </table>
+
+</div>
+<br>
+<br>
+<br>
+<br>
+
+

@@ -15,7 +15,7 @@ myApp.config(function($routeProvider, $locationProvider) {
     })
     .when('/organizations', {
       templateUrl: '/views/templates/organizations.html',
-      controller: 'OrganizationController as oc'
+      controller: 'OrgdetailsController as oc' //change back to OrganizationController as oc, this is for an experiment
     })
     .when('/calendar', {
       templateUrl: '/views/templates/calendar.html',
@@ -26,8 +26,8 @@ myApp.config(function($routeProvider, $locationProvider) {
       controller: 'LoginController as lc'
     })
     .when('/organizations/:id', {
-      templateUrl:'/views/templates/orgdetails/.html',
-      controller:'OrganizationController as oc'
+      templateUrl:'/views/templates/orgdetails.html',
+      controller:'OrgdetailsController as oc'
     })
     .when('/user', {
       templateUrl: '/views/templates/user.html',

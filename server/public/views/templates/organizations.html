@@ -1,11 +1,10 @@
 <div ng-include="'views/partials/nav.html'"></div>
 
 <!-- {{oc.OrganizationService.organizations}} -->
-
 <!-- {{oc}} -->
 <div class = "container">
 <ul ng-repeat="orgs in oc.OrganizationService.organizations">
-        <li><strong>{{orgs.org_name}}</strong> {{orgs.about}}
+        <li><strong><a href="#/organizations/{{orgs.id}}"> {{orgs.org_name}}</a></strong>
         </li>
       </ul>
     </div>

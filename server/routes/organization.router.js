@@ -9,7 +9,7 @@ router.get('/', function (req, res) {
             console.log('error', errorConnectingToDatabase);
             res.sendStatus(500);
         } else {
-            client.query(`SELECT * FROM organizations;`, function (errorMakingDatabaseQuery, result) {
+            client.query(`SELECT * FROM organizations ORDER BY org_name;`, function (errorMakingDatabaseQuery, result) {
                 done();
                 if (errorMakingDatabaseQuery) {
                     console.log('error', errorMakingDatabaseQuery);
@@ -21,7 +21,7 @@ router.get('/', function (req, res) {
         }
     });
 });
-
+//Adding new org and attaching to user
 router.post('/', function (req, res) {
     console.log('in router post');
     var newOrg = req.body;
@@ -55,30 +55,9 @@ router.post('/', function (req, res) {
     })
 })
 
-// THIS ONE WORKS SORT OF
-router.get('/userorgs', function (req, res) {
-    pool.connect(function (errorConnectingToDatabase, client, done) {
-        if (errorConnectingToDatabase) {
-            console.log('error', errorConnectingToDatabase);
-            res.sendStatus(500);
-        } else {
-            client.query(`SELECT * FROM organizations
-            JOIN users_orgs ON organizations.id = users_orgs.org_id
-            WHERE users_orgs.user_id = 19`, function (errorMakingDatabaseQuery, result) {
-                done();
-                if (errorMakingDatabaseQuery) {
-                    console.log('error', errorMakingDatabaseQuery);
-                    res.sendStatus(500);
-                } else {
-                    res.send(result.rows);
-                }
-            });
-        }
-    });
-});
 
 
-// Getting games associated with user
+// Getting orgs associated with user
 
 router.get('/:id', function (req, res) {
     let orgToGet = req.params.id;
@@ -87,7 +66,7 @@ router.get('/:id', function (req, res) {
             console.log('error', errorConnectingToDatabase);
             res.sendStatus(500);
         } else {
-            client.query(`SELECT org_name FROM organizations WHERE id = $1;`, [orgToGet], function (errorMakingDatabaseQuery, result) {
+            client.query(`SELECT * FROM organizations WHERE id = $1;`, [orgToGet], function (errorMakingDatabaseQuery, result) {
                 done();
                 if (errorMakingDatabaseQuery) {
                     console.log('error', errorMakingDatabaseQuery);

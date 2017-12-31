@@ -15,7 +15,7 @@ myApp.service('CalendarService', ['$http', function($http){
       });
   };
 
-
+  
 
 
 

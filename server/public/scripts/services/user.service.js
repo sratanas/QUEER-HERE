@@ -2,6 +2,10 @@ myApp.service('UserService', function($http, $location){
   console.log('UserService Loaded');
   var self = this;
   self.userObject = {};
+  self.userOrgs = [];
+  self.eventToSave = {};
+  self.userEvents = [];
+  
 
   self.getuser = function(){
     console.log('UserService -- getuser');
@@ -30,4 +34,36 @@ myApp.service('UserService', function($http, $location){
       $location.path("/home");
     });
   }
+
+  // for getting orgs associated with one user
+self.getUserOrgs = function () {
+    
+        $http({
+            method: 'GET',
+            url: '/user/userorgs'
+        }).then(function (response) {
+            console.log('response', response);
+            self.userOrgs = response.data;
+        
+            
+    
+        });
+    };
+
+     // for getting events associated with one user
+ self.getUserEvents = function () {
+    
+        $http({
+            method: 'GET',
+            url: '/user/userevents'
+        }).then(function (response) {
+            console.log('response', response);
+            self.userEvents = response.data;
+        
+            
+    
+        });
+    };
+
+
 });

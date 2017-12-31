@@ -26,7 +26,9 @@
           </thead>
           <tbody>
             <tr ng-repeat="event in vm.EventService.events">
-              <td><strong>{{event.title}}</strong><br>{{event.description}}</td>
+              <td> <strong>{{event.title}} {{event.website}}</strong><br>{{event.description}}
+                <button ng-click = "vm.saveEventToProfile(event.event_id)"> Save to My Events </button>
+              </td>
 
             </tr>
 

@@ -19,17 +19,20 @@
 
 
 
-            <div class="col-md-4"><h3>My Events</h3></div>
+<div class="col-md-4">
+        <h3>My Events</h3>
+        <ul ng-repeat="myEvents in uc.userService.userEvents">
+                <li>{{myEvents.title}}</li>
+        </ul>
 
 
+</div>
 
 
-    <div class="col-md-4"><h3>My Organizations</h3>
-            <ul ng-repeat="userOrg in uc.OrganizationService.userOrgs">
-                    <!-- This is what works -->
-                    <!-- <li>{{userOrg.org_name}}</li> -->
-                   
-                    <li><a href="/organizations/{{userOrg.id}}"> {{userOrg.org_name}}</a></li>
+<div class="col-md-4"><h3>My Organizations</h3>
+            <ul ng-repeat="userOrg in uc.userService.userOrgs">
+
+                    <li><a href="#/organizations/{{userOrg.org_id}}">{{userOrg.org_name}}</a></li>
                     
                   </ul>
         </div>
@@ -38,4 +41,6 @@
 </div>
 <br><br><br>
 </div>
+
+
 </div>

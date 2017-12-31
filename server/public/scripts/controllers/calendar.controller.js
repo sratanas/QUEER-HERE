@@ -6,8 +6,11 @@
     vm.getEvents = EventService.getEvents;
     vm.addEvent = EventService.addEvent;
     vm.events = EventService.events;
+    vm.saveEventToProfile = EventService.saveEventToProfile;
+    vm.eventToSave = EventService.eventToSave;
     vm.getEvents();
  
+
 
 
     //These variables MUST be set as a minimum for the calendar to work

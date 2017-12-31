@@ -1,21 +1,21 @@
 <div class="navbar" ng-controller = "UserController as uc">
   <div class="container" ng-hide = "uc.userService.userObject.userName">
-    <ul>
-      <li><a href="#/user">HOME</a></li>
-      <li><a href="#/calendar">CALENDAR</a></li>
-      <li><a href="#/info">TBD</a></li>
-      <li><a href="#/organizations">ORGANIZATIONS</a></li>
+   <ul>
+      <li class = "navList"><a href="#/user">HOME</a></li>
+      <li class = "navList"><a href="#/calendar">CALENDAR</a></li>
+      <li class = "navList"><a href="#/info">TBD</a></li>
+      <li class = "navList"><a href="#/organizations">ORGANIZATIONS</a></li>
      
     </ul>
   </div>
 
   <div class="container" ng-show = "uc.userService.userObject.userName">
       <ul>
-        <li><a href="#/user">My home</a></li>
-        <li><a href="#/calendar">Calendar</a></li>
-        <li><a href="#/info">Info Page</a></li>
-        <li><a href="#/organizations">Organizations</a></li>
-        <li><a href="#/createorg">Create new organization</a></li>
+        <li class = "navList"><a href="#/user">My home</a></li>
+        <li class = "navList"><a href="#/calendar">Calendar</a></li>
+        <li class = "navList"><a href="#/info">Info Page</a></li>
+        <li class = "navList"><a href="#/organizations">Organizations</a></li>
+        <li class = "navList"> <a href="#/createorg">Create new organization</a></li>
       </ul>
     </div>
 

@@ -5,6 +5,8 @@ myApp.service('OrganizationService', ['$http', function($http, $location, calend
 vm.organizations = [];
 vm.newOrg = {};
 vm.userOrgs = [];
+vm.oneOrg = {};
+
 
 vm.getOrgs = function () {
 
@@ -56,32 +58,22 @@ vm.addOrg = function (newOrg) {
 
     });
 };
-// for getting orgs associated with one user
-vm.getUserOrgs = function () {
-    
-        $http({
-            method: 'GET',
-            url: '/organizations/userorgs'
-        }).then(function (response) {
-            console.log('response', response);
-            vm.userOrgs = response.data;
-        
-            
-    
-        });
-    };
+
 
 vm.getClickedOrg = function (clickedOrg){
-
+    console.log('in getClickedOrg'); 
     $http({
         method: 'GET',
         url: '/organizations/' + clickedOrg.id
     }).then(function(response){
         console.log('response', response);
+        // $location.path(clickedOrg)
+        vm.oneOrg = response.data;
 
         
     })
 }
+
 
 
 

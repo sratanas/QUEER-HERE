@@ -2,13 +2,13 @@
               <h3 class="modal-title">Event action occurred!</h3>
             </div>
             <div class="modal-body">
-                <p>Action:
-                    <pre>You did It</pre>
-                </p>
                 <p>Event:
-                    <pre>GO YOU!!!</pre>
+                    <pre>{{vm.event.title}}</pre>
+                </p>
+                <p>Event Details:
+                    <pre>{{vm.event.description}}</pre>
                 </p>
             </div>
             <div class="modal-footer">
-                <button class="btn btn-primary" ng-click="$close()">OK</button>
-            </div> 
+              <button class="btn btn-primary" ng-click="$close()">OK</button>
+           </div> 

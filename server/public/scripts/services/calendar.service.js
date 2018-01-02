@@ -1,4 +1,4 @@
-myApp.service('CalendarService', ['$http', function($http){
+myApp.service('CalendarService', ['$http', function($http, alert){
     console.log('CalendarService loaded');
     var vm = this;
 
@@ -15,9 +15,8 @@ myApp.service('CalendarService', ['$http', function($http){
       });
   };
 
-  
-
-
-
+  vm.newEventClicked = function(event){
+    alert.show('NewEventClicked', event)
+  }
   }]);
   

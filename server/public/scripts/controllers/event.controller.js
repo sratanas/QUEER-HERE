@@ -5,8 +5,6 @@ myApp.controller('EventController',['CalendarService', 'EventService', function(
     vm.getEvents = CalendarService.getEvents;
     vm.saveEventToProfile = EventService.saveEventToProfile;
     vm.eventToSave = EventService.eventToSave;
-    // vm.getUserEvents = EventService.getUserEvents;
 
-    // vm.getUserEvents()
     getEvents();
   }]);

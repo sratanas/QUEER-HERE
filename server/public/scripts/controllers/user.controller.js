@@ -1,4 +1,4 @@
-myApp.controller('UserController',['UserService','EventService', 'OrganizationService','$routeParams',function(UserService, EventService, OrganizationService, $routeParams) {
+myApp.controller('UserController',['UserService','EventService', 'OrganizationService','$routeParams',function(UserService, EventService, OrganizationService, $routeParams, ) {
   console.log('UserController created');
   var vm = this;
   vm.userService = UserService;

@@ -19,10 +19,11 @@
 
 
 
-<div class="col-md-4">
+<div class="col-md-4" ng-controller ="KitchenSinkCtrl as vm">
         <h3>My Events</h3>
         <ul ng-repeat="myEvents in uc.userService.userEvents">
-                <li>{{myEvents.title}}</li>
+        <li><a href="" ng-click="vm.newEventClicked(myEvents)">{{myEvents.title}}</a></li>
+                <!-- <li>{{myEvents.title}}</li> -->
         </ul>
 
 

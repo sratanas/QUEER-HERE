@@ -117,11 +117,11 @@
         <br>
       
         <mwl-calendar
-          events="vm.events"
+          events="vm.EventService.events"
           view="vm.calendarView"
           view-title="vm.calendarTitle"
           view-date="vm.viewDate"
-          on-event-click="vm.eventClicked(calendarEvent)"
+          on-event-click="vm.newEventClicked(calendarEvent)"
           on-event-times-changed="vm.eventTimesChanged(calendarEvent); calendarEvent.startsAt = calendarNewEventStart; calendarEvent.endsAt = calendarNewEventEnd"
           cell-is-open="vm.cellIsOpen"
           day-view-start="06:00"

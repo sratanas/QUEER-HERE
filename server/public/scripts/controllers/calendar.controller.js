@@ -1,5 +1,5 @@
 
-  myApp.controller('KitchenSinkCtrl', function(moment, alert, calendarConfig, EventService) {
+  myApp.controller('KitchenSinkCtrl', function(moment, alert, calendarConfig, EventService, CalendarService) {
     console.log('KitchenSink created');
     var vm = this;
     vm.EventService = EventService;
@@ -8,6 +8,7 @@
     vm.events = EventService.events;
     vm.saveEventToProfile = EventService.saveEventToProfile;
     vm.eventToSave = EventService.eventToSave;
+    vm.newEventClicked = CalendarService.newEventClicked; 
     vm.getEvents();
  
 
@@ -48,6 +49,10 @@
       alert.show('Clicked', event);
     };
 
+    vm.newEventClicked = function(event){
+      alert.show('NewEventClicked', event)
+    }
+
     vm.eventEdited = function(event) {
       alert.show('Edited', event);
     };
@@ -60,6 +65,7 @@
       alert.show('Dropped or resized', event);
     };
 
+    
     vm.toggle = function($event, field, event) {
       $event.preventDefault();
       $event.stopPropagation();

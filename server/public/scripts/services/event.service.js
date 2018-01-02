@@ -4,8 +4,7 @@ myApp.service('EventService', ['$http', function($http, $location, calendarConfi
 
 vm.events = [];
 vm.newEvent = {};
-// vm.eventToSave = {};
-// vm.userEvents = [];
+
 
 vm.getEvents = function () {
     vm.events = [];
@@ -59,21 +58,6 @@ vm.saveEventToProfile = function(eventToSave){
         
     })
 }
-
-//  // for getting events associated with one user
-//  vm.getUserEvents = function () {
-    
-//         $http({
-//             method: 'GET',
-//             url: '/events/userevents'
-//         }).then(function (response) {
-//             console.log('response', response);
-//             vm.userEvents = response.data;
-        
-            
-    
-//         });
-//     };
 
 
 

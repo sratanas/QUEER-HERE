@@ -21,13 +21,14 @@
           <thead>
             <tr>
               <th>UPCOMING EVENTS</th>
+              <th></th>
 
             </tr>
           </thead>
           <tbody>
             <tr ng-repeat="event in vm.EventService.events">
               <td> <strong>{{event.title}} {{event.website}}</strong><br>{{event.description}}
-                <button ng-click = "vm.saveEventToProfile(event.event_id)"> Save to My Events </button>
+                <td> <button ng-click = "vm.saveEventToProfile(event)"> Save to My Events </button></td>
               </td>
 
             </tr>
@@ -39,10 +40,7 @@
 
 
 
-        <!-- <h3 id="upcomingEventsHeader">UPCOMING EVENTS</h3>
-        <ul ng-repeat="event in vm.EventService.events">
-          <li></li>
-        </ul> -->
+ 
       </div>
     </div>
 

@@ -31,7 +31,7 @@ router.get('/logout', function(req, res) {
   res.sendStatus(200);
 });
 
-//For getting orgs associated with one user
+//For getting orgs associated with one user for profile page
 router.get('/userorgs', function (req, res) {
  console.log('Users ID from userorgs',req.user);
   pool.connect(function (errorConnectingToDatabase, client, done) {
@@ -54,7 +54,7 @@ router.get('/userorgs', function (req, res) {
   });
 });
 
-//Get events associated with a user
+//Get events associated with a user for profile page
 router.get('/userevents', function (req, res) {
     console.log('Users ID from eventOrgs',req.user);
      pool.connect(function (errorConnectingToDatabase, client, done) {

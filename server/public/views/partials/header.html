@@ -1,5 +1,5 @@
 <div ng-controller="LoginController as lc">
-    <div class="instructions">
+    <div class="instructions" ng-controller = "UserController as uc">
 
         <div class="row">
             <div class="col-md-8">
@@ -13,7 +13,8 @@
 
             
             
-            <div class="col-md-4">
+            <div class="col-md-4" ng-hide = "uc.userService.userObject.userName">
+                
                 <div class = "pull-right">
                 <h2>Login</h2>
                 <h1 class="lead alert alert-danger" role="alert" ng-if="lc.message != ''">{{lc.message}}</h2>
@@ -34,6 +35,17 @@
                 </div>
             </div>  <!-- end of login column -->
 
+
+
+            <div class="col-md-4" ng-show = "uc.userService.userObject.userName">
+                    <div class = "pull-right">
+                    <h1 id="welcome" class="lead">Welcome, {{uc.userObject.userName}}!</h1>
+                    <button class="btn btn-default" ng-click="uc.userService.logout()">Log Out</button>
+                    <div class = "pull-right">
+                    </div>
+                    </div>
+                </div>  <!-- end of welcome note -->
+                
            
     </div> <!-- end of instructions -->
 

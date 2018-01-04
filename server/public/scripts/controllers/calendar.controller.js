@@ -10,6 +10,7 @@
     vm.saveEventToProfile = EventService.saveEventToProfile;
     vm.eventToSave = EventService.eventToSave;
     vm.newEventClicked = CalendarService.newEventClicked;
+    vm.deleteEventFromProfile = EventService.deleteEventFromProfile;    
     vm.getEvents();
  
 
@@ -34,16 +35,6 @@
 
     vm.cellIsOpen = true;
 
-    // vm.addEvent = function() {
-    //   vm.events.push({
-    //     title: 'New event',
-    //     startsAt: moment().startOf('day').toDate(),
-    //     endsAt: moment().endOf('day').toDate(),
-    //     color: calendarConfig.colorTypes.important,
-    //     draggable: true,
-    //     resizable: true
-    //   });
-    // };
 
     
     vm.eventClicked = function(event) {

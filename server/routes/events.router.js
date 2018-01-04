@@ -48,10 +48,7 @@ router.post('/', function (req, res) {
     })
 })
 
-//click to add event to user profile IN PROGRESS, only working on post
-// How can we return just the one clicked on? only works with LIMIT 1 
-//but that means it only grabs the first one no matter what we click on 
-//in the array.
+//click to add event to user profile 
 router.post('/saveEventToProfile', function (req, res) {
     
     console.log('in save event to profile post');
@@ -61,9 +58,8 @@ router.post('/saveEventToProfile', function (req, res) {
             res.sendStatus(500);
 
         } else {
-            client.query(`WITH my_event AS (INSERT INTO event ("title", "description") VALUES ($1, $2) RETURNING id)
-            INSERT INTO users_events ("user_id", "event_id")
-            VALUES ($3, (SELECT id FROM my_event));`, [req.body.title, req.body.description, req.user.id],
+            client.query(`INSERT INTO users_events ("user_id", "event_id")
+            VALUES ($1, $2);`, [req.user.id, req.body.id],
                 function (errorMakingDatabaseQuery, result) {
                     done();
                     if (errorMakingDatabaseQuery) {
@@ -79,30 +75,27 @@ router.post('/saveEventToProfile', function (req, res) {
 })
 
 //Delete from my events in progress
-router.delete('/saveEventToProfile', function (req, res) {
-    console.log('in save event to profile post');
+router.delete('/deleteEventFromProfile', function (req, res) {
+    console.log('in delete event from profile ');
     pool.connect(function (errorConnectingToDatabase, client, done) {
         if (errorConnectingToDatabase) {
-            console.log('error', errorConnectingToDatabase);
-            res.sendStatus(500);
-
-        } else {
-            client.query(`WITH my_event AS (SELECT * FROM event SOMETHING)
-            DELETE FROM users_events ("user_id", "event_id")
-            VALUES ($1, (SELECT id FROM my_event));`, [req.user.id],
-                function (errorMakingDatabaseQuery, result) {
-                    done();
-                    if (errorMakingDatabaseQuery) {
-                        console.log('error', errorMakingDatabaseQuery);
-                        res.sendStatus(500);
-
-                    } else {
-                        res.sendStatus(201);
-                    }
-                })
-        }
+                console.log('error', errorConnectingToDatabase);
+                res.sendStatus(500);
+    
+          } else {
+                client.query(`DELETE FROM users_events WHERE id = $1`, [req.query.id],
+                    function (errorMakingDatabaseQuery, result) {
+                        done();
+                        if (errorMakingDatabaseQuery) {
+                            console.log('error', errorMakingDatabaseQuery);
+                            res.sendStatus(500);
+    
+                        } else {
+                            res.sendStatus(201);
+                        }
+                    })
+            }
+        })
     })
-})
-   
 
 module.exports = router;

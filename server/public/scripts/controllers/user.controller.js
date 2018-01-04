@@ -9,7 +9,7 @@ myApp.controller('UserController',['UserService','EventService', 'OrganizationSe
   vm.userOrgs = UserService.userOrgs;
   vm.getUserEvents = UserService.getUserEvents;
   vm.userEvents = UserService.userEvents;
-  
+  vm.deleteEventFromProfile = EventService.deleteEventFromProfile; 
   UserService.getUserEvents();
   UserService.getUserOrgs();
 

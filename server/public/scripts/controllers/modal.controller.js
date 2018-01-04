@@ -1,4 +1,4 @@
-myApp.controller('ModalController',['UserService', 'EventService',function(UserService, EventService ) {
+myApp.controller('ModalController',['UserService', 'EventService', 'alert','modalData',function(UserService, EventService, alert, modalData) {
     console.log('ModalController created');
     var vm = this;
     vm.userService = UserService;
@@ -10,8 +10,12 @@ myApp.controller('ModalController',['UserService', 'EventService',function(UserS
     vm.saveEventToProfile = EventService.saveEventToProfile; 
     vm.action = alert.action;
     vm.event = alert.event;
+    vm.modalData = modalData;
+
+   
     UserService.getUserEvents();
     UserService.getUserOrgs();
+
   
   
   

@@ -1,10 +1,19 @@
-myApp.service('alert', function($uibModal) {
+myApp.service('alert', function($http, $uibModal) {
+  console.log('alert loaded');
+  
   
       function show(action, event) {
         if (action === 'NewEventClicked') {
         return $uibModal.open({
           templateUrl: '/views/templates/newModalContent.html',
-          controller: 'ModalController as vm'
+          controller: 'ModalController as vm',
+          resolve: {
+            modalData:{
+              action: action,
+              event: event
+            }
+          }
+          
         });
         } else {
         return $uibModal.open({

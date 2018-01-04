@@ -15,10 +15,11 @@ vm.getEvents = function () {
         console.log('response', response);
         for (var i = 0; i<response.data.length; i++){
             vm.events.push({
+                id: `${response.data[i].id}`,
                 title: `${response.data[i].title}`,
-                startsAt: new Date(`${response.data[i].date}`),
+                startsAt: moment(new Date(`${response.data[i].datetime}`)),
                 endsAt: new Date(`${response.data[i].enddate}`),
-                starttime: new Date(2017,11,26),
+                starttime: (`${response.data[i].starttime}`),
                 color: { 
                     primary: '#e3bc08', // the primary event color (should be darker than secondary)
                     secondary: '#fdf1ba' // the secondary event color (should be lighter than primary)
@@ -58,7 +59,23 @@ vm.saveEventToProfile = function(eventToSave){
     })
 }
 
+vm.deleteEventFromProfile = function(eventToDelete){
+    console.log('delete event clicked');
+    $http({
+        method: 'DELETE',
+        url: '/events/deleteEventFromProfile',
+        params: eventToDelete
+        
+    }).then(function(response){
+        console.log('response', response);
+        
+    })
+    
+}
+
 
 
 }]);
+
+// new Date(`${response.data[i].date}`),
 

@@ -9,6 +9,9 @@
 <div class="container">
         <div class="row">
             <div class="col-md-4">
+                    <div class = "container" >
+                            profile pic goes here
+                    </div>
                    <h3>About me:</h3> 
                    {{uc.userObject.bio}}
                     
@@ -20,23 +23,51 @@
 
 
 <div class="col-md-4" ng-controller ="KitchenSinkCtrl as vm">
-        <h3>My Events</h3>
-        <ul ng-repeat="myEvents in uc.userService.userEvents">
-        <li><a href="" ng-click="vm.newEventClicked(myEvents)">{{myEvents.title}}</a></li>
-                <!-- <li>{{myEvents.title}}</li> -->
-        </ul>
 
 
-</div>
+        <table class="table" id="myEventsTable">
+                <thead>
+                        <tr>
+                           <th>My Events</th>
+                        </tr>
+                </thead>
+
+                <tbody>
+                <tr ng-repeat="myEvents in uc.userService.userEvents">
+                    <td> <a href="" ng-click="vm.newEventClicked(myEvents)">{{myEvents.title}}</a>
+                    <button ng-click = "vm.saveEventToProfile(event)" class = "pull-right"> Remove </button></td>
+                  </tr> 
+                 </tbody>
+        </table>
+
+</div> 
 
 
-<div class="col-md-4"><h3>My Organizations</h3>
-            <ul ng-repeat="userOrg in uc.userService.userOrgs">
+<div class="col-md-4">
+
+
+        <table class="table" id="myEventsTable">
+                        <thead>
+                                <tr>
+                                   <th>My Organizations</th>
+                                </tr>
+                        </thead>
+        
+                        <tbody>
+                        <tr ng-repeat="userOrg in uc.userService.userOrgs">
+                            <td> <a href="#/organizations/{{userOrg.org_id}}">{{userOrg.org_name}}</a>
+                            <button ng-click = "vm.saveEventToProfile(event)" class = "pull-right"> Remove </button></td>
+                          </tr> 
+                         </tbody>
+                </table>
+        
+
+            <!-- <ul ng-repeat="userOrg in uc.userService.userOrgs">
 
                     <li><a href="#/organizations/{{userOrg.org_id}}">{{userOrg.org_name}}</a></li>
                     
                   </ul>
-        </div>
+        </div> -->
         
        
 </div>

@@ -2,6 +2,7 @@
 
 
 <div ng-controller="KitchenSinkCtrl as vm">
+  <div ng-controller = "UserController as uc">
 
   <div class="container">
     <div class="row">
@@ -26,9 +27,9 @@
             </tr>
           </thead>
           <tbody>
-            <tr ng-repeat="event in vm.EventService.events">
-              <td> <strong>{{event.title}} {{event.website}}</strong><br>{{event.description}}
-                <td> <button ng-click = "vm.saveEventToProfile(event)"> Save to My Events </button></td>
+            <tr ng-repeat="event in vm.EventService.events | limitTo:10">
+              <td ng-model="event"> <a href="" ng-click="vm.newEventClicked(event)"><strong>{{event.title}}</strong></a><br>{{event.description | limitTo: 100}}
+                <td ng-show = "uc.userService.userObject.userName"><button ng-click = "vm.saveEventToProfile(event)"> Save to My Events </button></td>
               </td>
 
             </tr>
@@ -52,4 +53,5 @@
     <br>
     <br>
     <br>
+  </div>
   </div>

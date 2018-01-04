@@ -1,4 +1,4 @@
-myApp.service('EventService', ['$http', function($http, $location, calendarConfig){
+myApp.service('EventService', ['$http','$location','calendarConfig','alert', function($http, $location, calendarConfig, alert){
     console.log('Event Serivice loaded');
     var vm = this;
 
@@ -35,7 +35,6 @@ vm.getEvents = function () {
 
 
 vm.addEvent = function (newEvent) {
-
     console.log('Add event button clicked');
     $http({
         method: 'POST',

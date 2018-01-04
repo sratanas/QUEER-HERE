@@ -67,7 +67,6 @@ vm.getClickedOrg = function (clickedOrg){
         url: '/organizations/' + clickedOrg.id
     }).then(function(response){
         console.log('response', response);
-        // $location.path(clickedOrg)
         vm.oneOrg = response.data;
 
         

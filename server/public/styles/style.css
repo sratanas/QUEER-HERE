@@ -167,6 +167,9 @@ li a:hover {
   border-width: 0px;
   border-style: solid;
   margin: 0px;
+  margin-top: 25px;
+  padding: 15px;
+
 }
 
 #mainCalViewChoices{
@@ -200,7 +203,7 @@ li a:hover {
 }
 
 .table th{
-  background-color: rgb(58, 57, 57);
+  background-color:red;
   font-size: 18px;
   color: white;
   letter-spacing: 2px;
@@ -217,4 +220,18 @@ li a:hover {
   font-weight: bold;
   transform: skewY(-6deg);  
   transform-origin: top left;
+}
+
+#eventDescriptionBox {
+  position: relative;
+  overflow: hidden !important;
+  width: 570px;
+  height: 200px;
+  word-wrap: break-word !important;
+  
+  
+}
+
+.modal-body {
+
 }

@@ -1,17 +1,19 @@
 <div class="modal-header"> 
-              <h3 class="modal-title">{{vm.modalData.event.title}} {{vm.modalData.event.starttime}}</h3>
+              <h3 class="modal-title">{{vm.modalData.event.title}}</h3>
             </div>
             <div class="modal-body">
                 <p>When:
-                    <pre> {{vm.modalData.event.startsAt}} </pre>
+                    <div> {{vm.modalData.event.startsAt}}
+                            <br>
+                          {{vm.modalData.event.endsAt}} </div>
                 </p>
                 <p><strong>Event Details:</strong>
                     <div id = "eventDescriptionBox">{{vm.modalData.event.description}}</div>
                 </p>
             </div>
             <div class="modal-footer" ng-controller="KitchenSinkCtrl as vm">
-              <button ng-controller = "UserController as uc" ng-show = "uc.userService.userObject.userName" 
-                class="btn btn-primary" ng-click = "vm.saveEventToProfile(vm.event)"> Save to My Events </button>
+                <button ng-controller = "UserController as uc" ng-show = "uc.userService.userObject.userName" 
+                class="btn btn-primary" ng-click = "vm.saveEventToProfile(vm.modalData)"> Save to My Events </button>
               <button class="btn btn-primary" ng-click="$close()">OK</button>
            </div>
    

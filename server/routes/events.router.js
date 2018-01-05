@@ -10,7 +10,7 @@ router.get('/', function (req, res) {
             console.log('error', errorConnectingToDatabase);
             res.sendStatus(500);
         } else {
-            client.query(`SELECT * FROM event;`, function (errorMakingDatabaseQuery, result) {
+            client.query(`SELECT * FROM event ORDER BY datetime ASC;`, function (errorMakingDatabaseQuery, result) {
                 done();
                 if (errorMakingDatabaseQuery) {
                     console.log('error', errorMakingDatabaseQuery);
@@ -33,7 +33,7 @@ router.post('/', function (req, res) {
             res.sendStatus(500);
 
         } else {
-            client.query(`INSERT INTO event (title, date, enddate) VALUES ($1, $2, $3);`, [newEvent.title, newEvent.date, newEvent.enddate],
+            client.query(`INSERT INTO event (title, datetime, enddatetime, description, color) VALUES ($1, $2, $3, $4, $5);`, [newEvent.title, newEvent.datetime, newEvent.enddatetime, newEvent.description, newEvent.color],
                 function (errorMakingDatabaseQuery, result) {
                     done();
                     if (errorMakingDatabaseQuery) {
@@ -74,7 +74,7 @@ router.post('/saveEventToProfile', function (req, res) {
     })
 })
 
-//Delete from my events in progress
+//Delete from my events 
 router.delete('/deleteEventFromProfile', function (req, res) {
     console.log('in delete event from profile ');
     pool.connect(function (errorConnectingToDatabase, client, done) {

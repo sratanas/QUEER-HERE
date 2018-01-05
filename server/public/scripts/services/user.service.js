@@ -65,6 +65,6 @@ self.getUserOrgs = function () {
         });
     };
 
-   
+
 
 });

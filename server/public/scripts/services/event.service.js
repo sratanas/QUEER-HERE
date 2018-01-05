@@ -1,4 +1,4 @@
-myApp.service('EventService', ['$http','$location','calendarConfig','alert', function($http, $location, calendarConfig, alert){
+myApp.service('EventService', ['$http','$location','calendarConfig','alert', 'UserService', function($http, $location, calendarConfig, alert, UserService){
     console.log('Event Serivice loaded');
     var vm = this;
 
@@ -17,11 +17,10 @@ vm.getEvents = function () {
             vm.events.push({
                 id: `${response.data[i].id}`,
                 title: `${response.data[i].title}`,
-                startsAt: moment(new Date(`${response.data[i].datetime}`)),
-                endsAt: new Date(`${response.data[i].enddate}`),
-                starttime: (`${response.data[i].starttime}`),
+                startsAt: moment(new Date(`${response.data[i].datetime}`)).format('MMM-DD-YYYY, hh:mm'),
+                endsAt: moment(new Date(`${response.data[i].enddatetime}`)).format('MMM-DD-YYYY, hh:mm'),
                 color: { 
-                    primary: '#e3bc08', // the primary event color (should be darker than secondary)
+                    primary: `${response.data[i].color}`, // the primary event color (should be darker than secondary)
                     secondary: '#fdf1ba' // the secondary event color (should be lighter than primary)
                   },
                 draggable: true,
@@ -46,7 +45,7 @@ vm.addEvent = function (newEvent) {
  
     });
 };
-//Saves an event to a table with associated ID. Error, will only save first one.
+//Saves an event to a table with associated ID. Not working in modals now
 vm.saveEventToProfile = function(eventToSave){
     console.log('save event to profile button clicked');
     $http({
@@ -68,6 +67,8 @@ vm.deleteEventFromProfile = function(eventToDelete){
         
     }).then(function(response){
         console.log('response', response);
+        UserService.getUserEvents();
+       
         
     })
     

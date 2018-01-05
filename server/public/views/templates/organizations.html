@@ -31,23 +31,14 @@
 
 
                 <h3>Add an event:</h3>
-                <input type="text" ng-model="vm.newEvent.title" placeholder="Event title">
-                <!-- <input type= "date" ng-model= "vm.newEvent.date"> -->
-               
-                <input type = "time" ng-model="vm.newEvent.starttime">
+                <input type="text" ng-model="vm.newEvent.title" placeholder="Event title">               
                 <br>
-                <!-- <input type= "date" ng-model= "vm.newEvent.enddate"> -->
-                <input type="datetime-local"
-                ng-model="vm.newEvent.date"
-                [name="string"]
-                [min="string"]
-                [max="string"]
-                [ng-min=""]
-                [ng-max=""]
-                [required="string"]
-                [ng-required="string"]
-                [ng-change="string"]>
-                <!-- <input type= "datetime-local" ng-model="vm.newEvent.datetime"> -->
+                start:<input type="datetime-local" ng-model="vm.newEvent.datetime">
+                <br>
+                end: <input type="datetime-local" ng-model="vm.newEvent.enddatetime">                
+                <input type="text" ng-model="vm.newEvent.description" placeholder="description">  
+                <input class="form-control" colorpicker type="text" ng-model="vm.newEvent.color">             
+                
                 
                 <button ng-click="vm.addEvent(vm.newEvent)">Save</button>
                

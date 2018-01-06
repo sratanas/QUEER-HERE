@@ -1,40 +1,61 @@
 <div ng-include="'views/partials/nav.html'"></div>
 
 
-<div class = "container">
-    <div class="row">
-        <div class="col-md-8">
-  <table class="table" id = "orgDetailsTable">
-    <thead>
-      <tr>
-        <th><h2>{{oc.organizations.org_name}}</h2></th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr >
-        <td>{{oc.organizations.website}} <br><br>
-        {{oc.organizations.phone}} <br><br>
-        {{oc.organizations.about}}</td>
+<div class="container">
+  <div class="row">
+    <div class="col-md-8">
+      <table class="table" id="orgDetailsTable">
+        <thead>
+          <tr>
+            <th>
+              <h2>{{oc.organizations.org_name}}</h2>
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>{{oc.organizations.website}}
+              <br>
+              <br> {{oc.organizations.phone}}
+              <br>
+              <br> {{oc.organizations.about}}
+            </td>
 
-      </tr>
+          </tr>
 
-    </tbody>
-  </table>
+        </tbody>
+      </table>
+    </div>
+    <div class="col-md-4">
+
+
+      <table class="table" id="myEventsTable">
+        <thead>
+          <tr>
+            <th>Organization Events</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr ng-repeat="myEvents in uc.userService.userEvents">
+            <td>
+              <a href="" ng-click="">{{myEvents.title}}</a>
+              <button ng-click="" class="pull-right"> Edit </button>
+              <button ng-click="" class="pull-right"> Remove </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+
+
+
+
+
+    </div>
+  </div>
 </div>
-<!-- <div class="col-md-4" ng-if = "oc.UserService.userOrgs">
-    <h3>Add an event:</h3>
-    <input type="text" ng-model="oc.newEvent.title" placeholder="Event title">
-    <input type= "date" ng-model= "oc.newEvent.date">
-    <input type= "date" ng-model= "oc.newEvent.enddate">
-    <input type = "time">
-    
-    <button ng-click="oc.addEvent(oc.newEvent)">Save</button>
-</div>
-</div> -->
-</div>
 <br>
 <br>
 <br>
 <br>
-
-

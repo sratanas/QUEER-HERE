@@ -33,7 +33,15 @@ router.post('/', function (req, res) {
             res.sendStatus(500);
 
         } else {
-            client.query(`INSERT INTO event (title, datetime, enddatetime, description, color) VALUES ($1, $2, $3, $4, $5);`, [newEvent.title, newEvent.datetime, newEvent.enddatetime, newEvent.description, newEvent.color],
+            client.query(`INSERT INTO event (title, datetime, enddatetime, location, description, 
+                    color, lesbian, gay, bi, trans, entertainment, literary, activism, 
+                    healthcare, mental_health, youth, political, legal, support_group, other, org_id) 
+                    VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, 
+                    $15, $16, $17, $18, $19, $20, $21);`, [newEvent.title, newEvent.datetime, 
+                    newEvent.enddatetime, newEvent.location, newEvent.description, newEvent.color,
+                    newEvent.lesbian, newEvent.gay, newEvent.bi,newEvent.trans, newEvent.entertainment, 
+                    newEvent.literary, newEvent.activism, newEvent.healthcare, newEvent.mental_health, 
+                    newEvent.youth, newEvent.political, newEvent.legal, newEvent.support_group, newEvent.other, newEvent.org_id],
                 function (errorMakingDatabaseQuery, result) {
                     done();
                     if (errorMakingDatabaseQuery) {

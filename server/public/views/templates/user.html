@@ -9,6 +9,23 @@
 <div class="container">
         <div class="row">
             <div class="col-md-4">
+
+
+         <table class="table" id="myEventsTable">
+                <thead>
+                        <tr>
+                                <th>My Events</th>
+                        </tr>
+                </thead>
+                        
+                <tbody>
+                        <tr ng-repeat="myEvents in uc.userService.userEvents">
+                                <td> <a href="" ng-click="vm.newEventClicked(myEvents)">{{myEvents.title}}</a>
+                                <button ng-click  = "vm.deleteEventFromProfile(myEvents)" class = "pull-right"> Remove </button></td>
+                        </tr> 
+                </tbody>
+        </table>
+
                     <div class = "container" >
                             profile pic goes here
                     </div>
@@ -28,46 +45,145 @@
         <table class="table" id="myEventsTable">
                 <thead>
                         <tr>
-                           <th>My Events</th>
+                                <th>My Organizations</th>
                         </tr>
                 </thead>
-
-                <tbody>
-                <tr ng-repeat="myEvents in uc.userService.userEvents">
-                    <td> <a href="" ng-click="vm.newEventClicked(myEvents)">{{myEvents.title}}</a>
-                    <button ng-click  = "vm.deleteEventFromProfile(myEvents)" class = "pull-right"> Remove </button></td>
-                  </tr> 
-                 </tbody>
+                
+                 <tbody>
+                        <tr ng-repeat="userOrg in uc.userService.userOrgs">
+                                    <td> <a href="#/organizations/{{userOrg.org_id}}">{{userOrg.org_name}}</a>
+                                    <button ng-click = "" class = "pull-right"> Edit</button></td>
+                        </tr> 
+                </tbody>
         </table>
+                
 
 </div> 
 
 
-<div class="col-md-4">
-
+<div class="col-md-4" ng-controller ="KitchenSinkCtrl as vm">
 
         <table class="table" id="myEventsTable">
-                        <thead>
-                                <tr>
-                                   <th>My Organizations</th>
-                                </tr>
-                        </thead>
-        
-                        <tbody>
-                        <tr ng-repeat="userOrg in uc.userService.userOrgs">
-                            <td> <a href="#/organizations/{{userOrg.org_id}}">{{userOrg.org_name}}</a>
-                            <button ng-click = "vm.saveEventToProfile(event)" class = "pull-right"> Remove </button></td>
-                          </tr> 
-                         </tbody>
-                </table>
-        
+          <thead>
+                <tr>
+                      <th>Add an Event</th>
+                  </tr>
+        </thead>
+                              
+        <tbody>
+                <tr>
 
-            <!-- <ul ng-repeat="userOrg in uc.userService.userOrgs">
 
-                    <li><a href="#/organizations/{{userOrg.org_id}}">{{userOrg.org_name}}</a></li>
-                    
-                  </ul>
-        </div> -->
+                                <!-- ng-options="option.name for option in data.availableOptions track by option.id"
+                                ng-model="data.selectedOption" -->
+
+
+
+                        <td>
+                         <label for="chooseOrg"> Choose an organization: </label>
+                        <select name="chooseOrg" id="chooseOrg" 
+                                 ng-options="userOrg.id as userOrg.org_name for userOrg in uc.userService.userOrgs track by userOrg.id" 
+                                 ng-model="vm.newEvent.org_id">
+                         </select>
+                        <br><br>
+                        <label>Name of event:</label>
+                          <input type="text" ng-model="vm.newEvent.title" placeholder="Event title">               
+                        <br><br>
+                        <label>Start date/time:  </label>
+                         <input type="datetime-local" ng-model="vm.newEvent.datetime"><br>
+                         <label>End date/time:  </label>
+                         <input type="datetime-local" ng-model="vm.newEvent.enddatetime">  
+                         <label>Location:</label>
+                         <input type="text" ng-model="vm.newEvent.location" placeholder="Address">                
+                         <br><br>
+                         <!-- <input type="text" ng-model="vm.newEvent.description" placeholder="description"> 
+                         <br><br>  -->
+
+                         <div class="form-group row">
+                                        <b>Event details:</b>
+                                        <br>
+                                        <div class="col-sm-10">
+                                            <textarea class="form-control" ng-model="vm.newEvent.description" placeholder="Please describe event details"></textarea>
+                                        </div>
+                                    </div>
+                            
+                                    <div class="form-group row">
+                                        
+                                            <b>Check all that apply:</b>
+                                            <br>
+                
+                                        <div class="col-sm-10">
+                                            <div class="form-check">
+                                                <label class="form-check-label">
+                                                    <input class="form-check-input" ng-model="vm.newEvent.gay" type="checkbox" > Gay
+                                                </label>
+                                                <br>
+                                                <label class="form-check-label">
+                                                    <input class="form-check-input" ng-model="vm.newEvent.lesbian" type="checkbox"> Lesbian
+                                                </label>
+                                                <br>
+                                                <label class="form-check-label">
+                                                    <input class="form-check-input" ng-model="vm.newEvent.bi" type="checkbox"> Bi
+                                                </label>
+                                                <br>
+                                                <label class="form-check-label">
+                                                    <input class="form-check-input" ng-model="vm.newEvent.trans" type="checkbox"> Trans
+                                                </label>
+                                                <br>
+                                                <label class="form-check-label">
+                                                    <input class="form-check-input" ng-model="vm.newEvent.entertainment" type="checkbox"> Entertainment
+                                                </label>
+                                                <br>
+                                                <label class="form-check-label">
+                                                    <input class="form-check-input" ng-model="vm.newEvent.literary"type="checkbox"> Literary
+                                                </label>
+                                                <br>
+                                                <label class="form-check-label">
+                                                    <input class="form-check-input" ng-model="vm.newEvent.activism"type="checkbox"> Activism
+                                                </label>
+                                                <br>
+                                                <label class="form-check-label">
+                                                    <input class="form-check-input" ng-model="vm.newEvent.healthcare"type="checkbox"> Healthcare
+                                                </label>
+                                                <br>
+                                                <label class="form-check-label">
+                                                    <input class="form-check-input" ng-model="vm.newEvent.mental_health"type="checkbox"> Mental Health
+                                                </label>
+                                                <br>
+                                                <label class="form-check-label">
+                                                    <input class="form-check-input" ng-model="vm.newEvent.youth" type="checkbox"> Youth
+                                                </label>
+                                                <br>
+                                                <label class="form-check-label">
+                                                    <input class="form-check-input" ng-model="vm.newEvent.political" type="checkbox"> Political
+                                                </label>
+                                                <br>
+                                                <label class="form-check-label">
+                                                    <input class="form-check-input" ng-model="vm.newEvent.legal" type="checkbox"> Legal
+                                                </label>
+                                                <br>
+                                                <label class="form-check-label">
+                                                    <input class="form-check-input" ng-model="vm.newEvent.support_group" type="checkbox"> Support Group
+                                                </label>
+                                                <br>
+                                                <label class="form-check-label">
+                                                    <input class="form-check-input" ng-model="vm.newEvent.other"type="checkbox"> Other
+                                                </label>
+                                                <br>
+
+
+
+
+
+
+                         <input colorpicker type="text" ng-model="vm.newEvent.color" placeholder = "click to pick a color">             
+                         <br><br>   
+                                        
+                        <button ng-click="vm.addEvent(vm.newEvent)">Save</button>            
+                        </td>
+                 </tr> 
+        </tbody>
+</table>
         
        
 </div>

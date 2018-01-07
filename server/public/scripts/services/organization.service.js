@@ -1,11 +1,13 @@
-myApp.service('OrganizationService', ['$http', function($http, $location, calendarConfig){
+myApp.service('OrganizationService', ['$http','$routeParams', function($http, $location, $routeParams){
     console.log('OrganizationService loaded');
     var vm = this;
 
+console.log('routeParams is', $routeParams);
+
+
 vm.organizations = [];
-vm.newOrg = {};
-vm.userOrgs = [];
-vm.oneOrg = {};
+vm.orgDetails = [{details:{}}];
+
 
 
 vm.getOrgs = function () {
@@ -58,20 +60,18 @@ vm.addOrg = function (newOrg) {
 
     });
 };
-
-
-vm.getClickedOrg = function (clickedOrg){
-    console.log('in getClickedOrg'); 
-    $http({
-        method: 'GET',
-        url: '/organizations/' + clickedOrg.id
-    }).then(function(response){
-        console.log('response', response);
-        vm.oneOrg = response.data;
-
-        
-    })
-}
+// Working on changing routeparams to a get request
+// vm.getOrgDetails = function(orgId){
+//     console.log('in getOrgDetails');
+//     $http({
+//         method: 'GET',
+//         url: '/organizations',
+//         params: {id:26}
+//     }).then(function (response) {
+//         console.log('response', response);
+//         vm.orgDetails.details = response.data
+//     })
+// }
 
 
 

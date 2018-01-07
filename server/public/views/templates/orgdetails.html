@@ -1,9 +1,9 @@
 <div ng-include="'views/partials/nav.html'"></div>
-
+<!-- {{oc}} -->
 
 <div class="container">
   <div class="row">
-    <div class="col-md-8">
+    <div class="col-md-7">
       <table class="table" id="orgDetailsTable">
         <thead>
           <tr>
@@ -26,29 +26,32 @@
         </tbody>
       </table>
     </div>
-    <div class="col-md-4">
+    <div class="col-md-5" >
 
 
-      <table class="table" id="myEventsTable">
+      <table class="table" id="myEventsTable" ng-controller = "KitchenSinkCtrl as vm" >
         <thead>
           <tr>
             <th>Organization Events</th>
+            <th></th>
           </tr>
         </thead>
 
+        
         <tbody>
-          <tr ng-repeat="myEvents in uc.userService.userEvents">
-            <td>
-              <a href="" ng-click="">{{myEvents.title}}</a>
-              <button ng-click="" class="pull-right"> Edit </button>
-              <button ng-click="" class="pull-right"> Remove </button>
+          <tr ng-repeat="event in oc.EventService.orgEvents" >
+            <!-- <td><strong>{{events.title}}</strong>
+
+              <a href="" ng-click=""> </a> -->
+            <!-- </td> -->
+            <td ng-model="event"> <a href="" ng-click="vm.newEventClicked(event)"><strong>{{event.title}}</strong></a><br>{{event.description | limitTo: 100}}</td>
+              <td ng-controller = "UserController as uc" ng-show = "uc.userService.userObject.userName"><button ng-controller = "KitchenSinkCtrl as vm" ng-click ="vm.saveEventToProfile(event)"> Save to My Events </button></td>
             </td>
           </tr>
         </tbody>
       </table>
-
-
-
+    
+<!-- 
 
 
 

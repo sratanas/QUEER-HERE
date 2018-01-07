@@ -55,29 +55,29 @@ router.post('/', function (req, res) {
     })
 })
 
+//working on route params
+// router.get('/:id', function (req, res) {
+//     console.log('req.query.id is',req.query.id);
+    
+//     pool.connect(function (errorConnectingToDatabase, client, done) {
+//         if (errorConnectingToDatabase) {
+//             console.log('error', errorConnectingToDatabase);
+//             res.sendStatus(500);
+//         } else {
+//             client.query(`SELECT * FROM organizations WHERE id = $1;`,[req.query.id], function (errorMakingDatabaseQuery, result) {
+//                 done();
+//                 if (errorMakingDatabaseQuery) {
+//                     console.log('error', errorMakingDatabaseQuery);
+//                     res.sendStatus(500);
+//                 } else {
+//                     res.send(result.rows);
+//                 }
+//             });
+//         }
+//     });
+// });
 
 
-// Getting orgs associated with user
-
-router.get('/:id', function (req, res) {
-    let orgToGet = req.params.id;
-    pool.connect(function (errorConnectingToDatabase, client, done) {
-        if (errorConnectingToDatabase) {
-            console.log('error', errorConnectingToDatabase);
-            res.sendStatus(500);
-        } else {
-            client.query(`SELECT * FROM organizations WHERE id = $1;`, [orgToGet], function (errorMakingDatabaseQuery, result) {
-                done();
-                if (errorMakingDatabaseQuery) {
-                    console.log('error', errorMakingDatabaseQuery);
-                    res.sendStatus(500);
-                } else {
-                    res.send(result.rows);
-                }
-            });
-        }
-    });
-});
 
 
 

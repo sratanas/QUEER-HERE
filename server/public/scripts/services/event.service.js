@@ -4,6 +4,7 @@ myApp.service('EventService', ['$http','$location','calendarConfig','alert', 'Us
 
 vm.events = [];
 vm.newEvent = {};
+vm.orgEvents = [];
 
 
 vm.getEvents = function () {
@@ -73,6 +74,22 @@ vm.deleteEventFromProfile = function(eventToDelete){
     })
     
 }
+
+vm.getOrgEvents = function (orgid) {
+    
+        $http({
+            method: 'GET',
+            url: '/events/orgEvents',
+            params: orgid
+        }).then(function (response) {
+            console.log('response', response);
+            vm.orgEvents = response.data;
+        
+            
+    
+        });
+    };
+
 
 
 

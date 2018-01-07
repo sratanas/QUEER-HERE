@@ -106,4 +106,28 @@ router.delete('/deleteEventFromProfile', function (req, res) {
         })
     })
 
+
+//get organization events
+router.get('/orgEvents', function (req, res) {
+    console.log('req.query.id in orgEvents', req.query.id)
+    pool.connect(function (errorConnectingToDatabase, client, done) {
+        if (errorConnectingToDatabase) {
+            console.log('error', errorConnectingToDatabase);
+            res.sendStatus(500);
+        } else {
+            client.query(`SELECT * FROM event
+            JOIN users_orgs ON event.org_id = users_orgs.id
+            WHERE users_orgs.org_id =  $1;`,[req.query.id], function (errorMakingDatabaseQuery, result) {
+                done();
+                if (errorMakingDatabaseQuery) {
+                    console.log('error', errorMakingDatabaseQuery);
+                    res.sendStatus(500);
+                } else {
+                    res.send(result.rows);
+                }
+            });
+        }
+    });
+});
+
 module.exports = router;

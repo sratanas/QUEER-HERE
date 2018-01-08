@@ -2,6 +2,7 @@ myApp.controller('UserController',['UserService','EventService', 'OrganizationSe
   console.log('UserController created');
   var vm = this;
   vm.userService = UserService;
+  vm.EventService = EventService;
   vm.userObject = UserService.userObject;
   vm.OrganizationService = OrganizationService;
   vm.newOrgs = OrganizationService.newOrgs;
@@ -9,7 +10,8 @@ myApp.controller('UserController',['UserService','EventService', 'OrganizationSe
   vm.userOrgs = UserService.userOrgs;
   vm.getUserEvents = UserService.getUserEvents;
   vm.userEvents = UserService.userEvents;
-  vm.deleteEventFromProfile = EventService.deleteEventFromProfile; 
+  vm.deleteEventFromProfile = EventService.deleteEventFromProfile;
+  vm.saveEventToProfile = EventService.saveEventToProfile;
   UserService.getUserEvents();
   UserService.getUserOrgs();
 

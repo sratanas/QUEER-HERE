@@ -1,19 +1,24 @@
 <div class="modal-header"> 
-              <h3 class="modal-title">{{vm.modalData.event.title}}</h3>
+              <h2 class="modal-title">{{vm.modalData.event.title}}</h2>
             </div>
             <div class="modal-body">
-                <p>When:
-                    <div> {{vm.modalData.event.startsAt}}
-                            <br>
-                          {{vm.modalData.event.endsAt}} </div>
+               <p> <h4><strong>When:</strong></h4>
+                    {{vm.modalData.event.startsAt}} <b>to</b> {{vm.modalData.event.endsAt}}</p>
+                         
+                <p> <h4><strong>Where:</strong></h4>
+                            {{vm.modalData.event.location}}
+                        
                 </p>
-                <p><strong>Event Details:</strong>
+                <br>
+                <p><h4><strong>Event Details:</strong></h4>
                     <div id = "eventDescriptionBox">{{vm.modalData.event.description}}</div>
                 </p>
+                <br>
+                <p><h4><strong>Hosted by:</strong></h4> {{vm.modalData.event.org_id}} </p>
             </div>
-            <div class="modal-footer" ng-controller="KitchenSinkCtrl as vm">
-                <button ng-controller = "UserController as uc" ng-show = "uc.userService.userObject.userName" 
-                class="btn btn-primary" ng-click = "vm.saveEventToProfile(vm.modalData)"> Save to My Events </button>
-              <button class="btn btn-primary" ng-click="$close()">OK</button>
+            <div class="modal-footer">
+              <button class="btn btn-success" ng-show = "vm.userService.userObject.userName" ng-click = "vm.saveEventToProfile(vm.modalData.event)"> Save to My Events </button> 
+              <button class="btn btn-primary" ng-click="$close()">CLOSE</button>
            </div>
-   
+
+           

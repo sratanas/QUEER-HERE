@@ -8,6 +8,7 @@
     <div class="row">
         <div class="col-md-1"></div>
       <div class="col-md-5">
+          <br> <br>
         <h2 id="welcomeText">WELCOME!</h2>
         <div class= "container" id="homePageAboutBlurb">
           Queer Here Twin Cities is a place for the queer community and allies to find out about and share events and resources. Check out our public calendar, and register to create and share events!
@@ -16,9 +17,9 @@
       </div>
 
 
-      <div class="col-md-6" id="sidebarEvents">
-
-        <table class="table">
+      <div class="col-md-5" id="sidebarEvents">
+        <br> <br>
+        <table class="table table-striped">
           <thead>
             <tr>
               <th>UPCOMING EVENTS</th>
@@ -28,8 +29,8 @@
           </thead>
           <tbody>
             <tr ng-repeat="event in vm.EventService.events | limitTo:10">
-              <td ng-model="event"> <a href="" ng-click="vm.newEventClicked(event)"><strong>{{event.title}}</strong></a><br>{{event.description | limitTo: 100}}
-                <td ng-show = "uc.userService.userObject.userName"><button ng-click = "vm.saveEventToProfile(event)"> Save to My Events </button></td>
+              <td ng-model="event"> <a href="" ng-click="vm.newEventClicked(event)"><strong>{{event.title}}</strong></a><br><i>{{event.startsAt}}</i><br>{{event.description | limitTo: 100}}
+                <td ng-show = "uc.userService.userObject.userName"><button class="btn btn-success" ng-click = "vm.saveEventToProfile(event)"> Save to My Events </button></td>
               </td>
 
             </tr>
@@ -43,6 +44,8 @@
 
  
       </div>
+      <div class="col-md-1"></div>
+      
     </div>
 
 

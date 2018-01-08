@@ -18,15 +18,17 @@ vm.getEvents = function () {
             vm.events.push({
                 id: `${response.data[i].id}`,
                 title: `${response.data[i].title}`,
-                startsAt: moment(new Date(`${response.data[i].datetime}`)).format('MMM-DD-YYYY, hh:mm'),
-                endsAt: moment(new Date(`${response.data[i].enddatetime}`)).format('MMM-DD-YYYY, hh:mm'),
+                startsAt: moment(new Date(`${response.data[i].datetime}`)).format('MMM-DD-YYYY, hh:mm A'),
+                endsAt: moment(new Date(`${response.data[i].enddatetime}`)).format('MMM-DD-YYYY, hh:mm A'),
                 color: { 
                     primary: `${response.data[i].color}`, // the primary event color (should be darker than secondary)
                     secondary: '#fdf1ba' // the secondary event color (should be lighter than primary)
                   },
+                location: `${response.data[i].location}`,
                 draggable: true,
                 resizable: true,
-                description: `${response.data[i].description}`
+                description: `${response.data[i].description}`,
+                org_id:`${response.data[i].org_id}`
             })
         }
      
@@ -43,6 +45,27 @@ vm.addEvent = function (newEvent) {
         data: newEvent
     }).then(function (response) {
         console.log('response', response);
+        
+        newEvent.title = '';
+        newEvent.datetime = '';
+        newEvent.enddatetime ='';
+        newEvent.location ='';
+        newEvent.description= ''; 
+        newEvent.color = ''; 
+        newEvent.lesbian = '';
+        newEvent.gay = ''; 
+        newEvent.bi = '';
+        newEvent.trans = '';
+        newEvent.entertainment = ''; 
+        newEvent.literary = '';
+        newEvent.activism = ''; 
+        newEvent.healthcare = '';
+        newEvent.mental_health = '';
+        newEvent.youth = '';
+        newEvent.political = ''; 
+        newEvent.legal  = ''; 
+        newEvent.support_group = ''; 
+        newEvent.other = '';
  
     });
 };
@@ -94,6 +117,4 @@ vm.getOrgEvents = function (orgid) {
 
 
 }]);
-
-// new Date(`${response.data[i].date}`),
 

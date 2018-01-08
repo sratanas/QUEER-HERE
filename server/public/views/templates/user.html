@@ -16,8 +16,8 @@
                         
                 <tbody>
                         <tr ng-repeat="myEvents in uc.userService.userEvents">
-                                <td> <a href="" ng-click="vm.newEventClicked(myEvents)">{{myEvents.title}}</a>
-                                <button ng-click  = "vm.deleteEventFromProfile(myEvents)" class = "pull-right"> Remove </button></td>
+                                <td> <a ng-controller="KitchenSinkCtrl as vm" href="" ng-click="vm.newEventClicked(myEvents)">{{myEvents.title}}</a>
+                                <span class = "pull-right"><button class="btn btn-danger" ng-click  = "uc.deleteEventFromProfile(myEvents)" > Remove </button></span></td>
                         </tr> 
                 </tbody>
         </table>
@@ -43,7 +43,7 @@
                  <tbody>
                         <tr ng-repeat="userOrg in uc.userService.userOrgs">
                                     <td> <a href="#/organizations/{{userOrg.org_id}}">{{userOrg.org_name}}</a>
-                                    <button ng-click = "" class = "pull-right"> Edit</button></td>
+                                   <span class = "pull-right"> <button ng-click = "" class = "btn btn-warning"> Edit</button></span></td>
                         </tr> 
                 </tbody>
         </table>
@@ -170,7 +170,7 @@
                          <input colorpicker type="text" ng-model="vm.newEvent.color" placeholder = "click to pick a color">             
                          <br><br>   
                                         
-                        <button ng-click="vm.addEvent(vm.newEvent)">Save</button>            
+                        <button class = "btn btn-primary" ng-click="vm.addEvent(vm.newEvent)">Save</button>            
                         </td>
                  </tr> 
         </tbody>

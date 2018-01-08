@@ -74,7 +74,7 @@ router.get('/userorgs', function (req, res) {
             } else {
                 client.query(`SELECT * FROM event
                 JOIN users_events ON event.id = users_events.event_id
-                WHERE users_events.user_id = $1`,[req.user.id], function (errorMakingDatabaseQuery, result) {
+                WHERE users_events.user_id = $1 ORDER BY datetime ASC`,[req.user.id], function (errorMakingDatabaseQuery, result) {
                     done();
                     if (errorMakingDatabaseQuery) {
                         console.log('error', errorMakingDatabaseQuery);

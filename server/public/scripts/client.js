@@ -15,7 +15,7 @@ myApp.config(function($routeProvider, $locationProvider) {
     })
     .when('/organizations', {
       templateUrl: '/views/templates/organizations.html',
-      controller: 'OrgdetailsController as oc' //change back to OrganizationController as oc, this is for an experiment
+      controller: 'OrgdetailsController as oc' 
     })
     .when('/calendar', {
       templateUrl: '/views/templates/calendar.html',

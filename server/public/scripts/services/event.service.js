@@ -45,7 +45,7 @@ vm.addEvent = function (newEvent) {
         data: newEvent
     }).then(function (response) {
         console.log('response', response);
-        
+        swal("Thank you for adding an event!","","success")
         newEvent.title = '';
         newEvent.datetime = '';
         newEvent.enddatetime ='';
@@ -78,7 +78,7 @@ vm.saveEventToProfile = function(eventToSave){
         data: eventToSave
     }).then(function (response){
         console.log('response', response);
-        
+        swal("Event added!","Find your event listings on your home page.","success")
     })
 }
 
@@ -91,8 +91,8 @@ vm.deleteEventFromProfile = function(eventToDelete){
         
     }).then(function(response){
         console.log('response', response);
+  
         UserService.getUserEvents();
-       
         
     })
     

@@ -35,7 +35,7 @@ vm.addOrg = function (newOrg) {
         console.log('response', response);
 
         
-        alert('Thank you for adding an organization!')
+        swal("Thank you for adding an organization!","","success")
         newOrg.org_name = '';
         newOrg.website = '';
         newOrg.email ='';

@@ -1,24 +1,28 @@
-<div class="modal-header"> 
-              <h2 class="modal-title">{{vm.modalData.event.title}}</h2>
-            </div>
-            <div class="modal-body">
-               <p> <h4><strong>When:</strong></h4>
-                    {{vm.modalData.event.startsAt}} <b>to</b> {{vm.modalData.event.endsAt}}</p>
-                         
-                <p> <h4><strong>Where:</strong></h4>
-                            {{vm.modalData.event.location}}
-                        
-                </p>
-                <br>
-                <p><h4><strong>Event Details:</strong></h4>
-                    <div id = "eventDescriptionBox">{{vm.modalData.event.description}}</div>
-                </p>
-                <br>
-                <p><h4><strong>Hosted by:</strong></h4> {{vm.modalData.event.org_id}} </p>
-            </div>
-            <div class="modal-footer">
-              <button class="btn btn-success" ng-show = "vm.userService.userObject.userName" ng-click = "vm.saveEventToProfile(vm.modalData.event)"> Save to My Events </button> 
-              <button class="btn btn-primary" ng-click="$close()">CLOSE</button>
-           </div>
+<div class="modal-header">
+    <h2 class="modal-title">{{vm.modalData.event.title}}</h2>
+</div>
+<div class="modal-body">
+    <p>
+        <h4> <strong>When:</strong> </h4>
+        {{vm.modalData.event.startsAt}} <b>to</b> {{vm.modalData.event.endsAt}}</p>
 
-           
+    <p>
+        <h4><strong>Where:</strong></h4>
+        {{vm.modalData.event.location}}
+    </p>
+    <br>
+    <p>
+        <h4><strong>Event Details:</strong></h4>
+        <div id="eventDescriptionBox">{{vm.modalData.event.description}}</div>
+    </p>
+    <br>
+    <p>
+        <h4> <strong>Hosted by:</strong></h4> 
+        {{vm.modalData.event.org_id}}
+    </p>
+</div>
+<div class="modal-footer">
+    <button class="btn btn-success" ng-show="vm.userService.userObject.userName" ng-click="vm.saveEventToProfile(vm.modalData.event)">
+    Save to My Events </button>
+    <button class="btn btn-primary" ng-click="$close()">CLOSE</button>
+</div>

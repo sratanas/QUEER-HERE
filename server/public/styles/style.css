@@ -6,18 +6,15 @@ body, html {
 }
 
 .footer {
-  /* position: fixed; */
   height:125px;
   left: 0;
   bottom: 0; 
   width: 100%;
-  /* background-color: #5e5c5c; */
   color: white;
   background-color: -webkit-gradient(linear, left top, left bottom, from(white), to(rgb(58, 57, 57)));
   background-image: -webkit-linear-gradient(top, white, rgb(58, 57, 57));
   background-image: -moz-linear-gradient(top, white, rgb(58, 57, 57));
   background-image: linear-gradient(to bottom, white, rgb(58, 57, 57));
-  /* text-align: center; */
 
 }
 
@@ -45,10 +42,6 @@ body, html {
   height: 165px;
   padding-top: 75px;
   padding-left:30px;
-  /* background-color: -webkit-gradient(linear, left top, left bottom, from(white), to(rgb(58, 57, 57)));
-  background-image: -webkit-linear-gradient(top, white, rgb(58, 57, 57));
-  background-image: -moz-linear-gradient(top, white, rgb(58, 57, 57));
-  background-image: linear-gradient(to bottom, white, rgb(58, 57, 57)); */
 }
 
 .instructions {
@@ -153,15 +146,6 @@ li a:hover {
   height: 300px;
 }
 
-/* .container-fluid {
-  height:300px;
-  background-color: tomato;
-} */
-
-/* .col-md-8 {
-  height:300px;
-  background-color: blueviolet;
-} */
 
 .col-md-4{
   border-width: 0px;
@@ -176,8 +160,7 @@ li a:hover {
   padding: 10px;
   margin:20px;
   margin-top: 35px;
-  /* border-width: 1px;
-  border-style: solid; */
+
 }
 
 

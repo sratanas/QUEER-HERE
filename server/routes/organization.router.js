@@ -55,6 +55,40 @@ router.post('/', function (req, res) {
     })
 })
 
+//Editing org on modal
+router.put('/', function (req, res) {
+    console.log('in router post');
+    var orgToEdit = req.body;
+    pool.connect(function (errorConnectingToDatabase, client, done) {
+        if (errorConnectingToDatabase) {
+            console.log('error', errorConnectingToDatabase);
+            res.sendStatus(500);
+
+        } else {
+            client.query(`UPDATE organizations SET 
+                org_name = $1, website = $2, email = $3, address = $4, phone = $5, about = $6, 
+                lesbian = $7, gay = $8, bi = $9, trans = $10, entertainment = $11, literary = $12, 
+                activism = $13, healthcare = $14, mental_health = $15, youth = $16, political = $17, 
+                legal = $18, support_group = $19, other = $21 WHERE id = $22`
+                [orgToEdit.org_name, orgToEdit.website, orgToEdit.email, orgToEdit.address, orgToEdit.phone, orgToEdit.about, 
+                orgToEdit.lesbian, orgToEdit.gay, orgToEdit.bi, orgToEdit.trans, orgToEdit.entertainment, orgToEdit.literary,
+                orgToEdit.activism, orgToEdit.healthcare, orgToEdit.mental_health, orgToEdit.youth,
+                orgToEdit.political, orgToEdit.legal, orgToEdit.support_group, orgToEdit.other, orgToEdit.id],
+                function (errorMakingDatabaseQuery, result) {
+                    done();
+                    if (errorMakingDatabaseQuery) {
+                        console.log('error', errorMakingDatabaseQuery);
+                        res.sendStatus(500);
+
+                    } else {
+                        res.sendStatus(201);
+                    }
+                })
+        }
+    })
+})
+
+
 //working on route params
 // router.get('/:id', function (req, res) {
 //     console.log('req.query.id is',req.query.id);

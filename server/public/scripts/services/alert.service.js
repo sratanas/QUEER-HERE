@@ -15,7 +15,21 @@ myApp.service('alert', function($http, $uibModal) {
           }
           
         });
-        } else {
+        } else if (action === 'EditOrgClicked'){
+          return $uibModal.open({
+            templateUrl: '/views/templates/editOrgModal.html',
+            controller: 'ModalController as vm',
+            resolve: {
+              modalData:{
+                action: action,
+                event: event
+              }
+            }
+            
+          })
+        }
+        
+        else {
         return $uibModal.open({
           templateUrl: '/views/templates/modalContent.html',
           controller: function() {

@@ -44,9 +44,10 @@ router.post('/', function(req, res, next) {
     client.query(`INSERT INTO users (username, password, bio,lesbian, gay, bi, trans,
       entertainment, literary, activism, healthcare, mental_health, youth, political,
       legal, support_group, other) 
-      VALUES ($1, $2, $3,$4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17) 
+      VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17) 
       RETURNING id`,
-      [saveUser.username, saveUser.password, saveUser.bio, saveUser.lesbian, saveUser.gay, saveUser.bi,saveUser.trans, saveUser.entertainment, saveUser.literary,
+      [saveUser.username, saveUser.password, saveUser.bio, saveUser.lesbian, saveUser.gay, 
+        saveUser.bi,saveUser.trans, saveUser.entertainment, saveUser.literary,
         saveUser.activism, saveUser.healthcare, saveUser.mental_health, saveUser.youth,
         saveUser.political, saveUser.legal, saveUser.support_group, saveUser.other],
         function (err, result) {

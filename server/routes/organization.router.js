@@ -67,7 +67,9 @@ router.put('/', function (req, res) {
             res.sendStatus(500);
 
         } else {
-            client.query(`UPDATE organizations SET org_name = $1 WHERE organizations.id = $2;`,[orgToEdit.org_name, orgToEdit.id],
+            client.query(`UPDATE organizations SET org_name = $1
+            FROM users_orgs WHERE organizations.id = users_orgs.org_id
+            AND users_orgs.id = $2;`,[orgToEdit.org_name, orgToEdit.id],
                 function (errorMakingDatabaseQuery, result) {
                     done();
                     if (errorMakingDatabaseQuery) {
@@ -125,6 +127,10 @@ module.exports = router;
 //     orgToEdit.lesbian, orgToEdit.gay, orgToEdit.bi, orgToEdit.trans, orgToEdit.entertainment, orgToEdit.literary,
 //     orgToEdit.activism, orgToEdit.healthcare, orgToEdit.mental_health, orgToEdit.youth,
 //     orgToEdit.political, orgToEdit.legal, orgToEdit.support_group, orgToEdit.other, orgToEdit.id]
+
+// UPDATE organizations SET org_name = $1
+// FROM users_orgs
+// WHERE users_orgs.org_id = $2;
 
 // UPDATE organizations SET org_name = $1
 // FROM users_orgs

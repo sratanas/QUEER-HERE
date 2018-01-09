@@ -45,13 +45,13 @@
                             <th>My Organizations</th>
                         </tr>
                     </thead>
-
                     <tbody>
                         <tr ng-repeat="userOrg in uc.userService.userOrgs">
                             <td>
                                 <a href="#/organizations/{{userOrg.org_id}}">{{userOrg.org_name}}</a>
                                 <span class="pull-right">
                                     <button ng-click="vm.editOrgClicked(userOrg)" class="btn btn-warning" id = "editButton"> Edit</button>
+                                    <button ng-click="vm.showEvents()" class="btn btn-warning" id = "editButton"> Show Events </button>
                                 </span>
                             </td>
                         </tr>

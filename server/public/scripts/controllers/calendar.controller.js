@@ -45,6 +45,11 @@
       alert.show('NewEventClicked', event)
     }
 
+    vm.editOrgClicked = function(event) {
+      alert.show('EditOrgClicked', event);
+    };
+
+
     vm.eventEdited = function(event) {
       alert.show('Edited', event);
     };

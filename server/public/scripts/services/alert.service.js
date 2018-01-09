@@ -22,10 +22,14 @@ myApp.service('alert', function($http, $uibModal) {
             resolve: {
               modalData:{
                 action: action,
-                event: event
+                event: event,
+                editorg : function(OrganizationService){
+                  return OrganizationService.editOrg();
+                        OrganizationService.organizations;
+
               }
             }
-            
+          }
           })
         }
         
@@ -50,36 +54,3 @@ myApp.service('alert', function($http, $uibModal) {
 });
 
 
-// myApp.factory('alert', function($uibModal) {
-  
-//       function show(action, event) {
-//         if (action === 'NewEventClicked') {
-//         return $uibModal.open({
-//           templateUrl: '/views/templates/newModalContent.html',
-//           controller: function() {
-//             var vm = this;
-//             vm.action = action;
-//             vm.event = event;
-        
-//           },
-//           controllerAs: 'vm'
-//         });
-//         } else {
-//         return $uibModal.open({
-//           templateUrl: '/views/templates/modalContent.html',
-//           controller: function() {
-//             var vm = this;
-//             vm.action = action;
-//             vm.event = event;
-//           },
-//           controllerAs: 'vm'
-//         });
-//       }
-//       }
-  
-//       return {
-//         show: show
-//       };
-
-  
-// });

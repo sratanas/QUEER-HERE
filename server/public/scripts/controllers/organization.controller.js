@@ -1,4 +1,4 @@
-myApp.controller('OrganizationController',['OrganizationService', function(OrganizationService, $routeParams) {
+myApp.controller('OrganizationController',['OrganizationService', '$routeParams','alert', 'modalData', function(OrganizationService, $routeParams, alert, modalData) {
     console.log('Organization controller created');
     var vm = this;
     vm.OrganizationService = OrganizationService;
@@ -8,8 +8,10 @@ myApp.controller('OrganizationController',['OrganizationService', function(Organ
     vm.organizations = OrganizationService.organizations;
     vm.getClickedOrg = OrganizationService.getClickedOrg;
     vm.userOrgs = OrganizationService.userOrgs;
-    vm.oneOrg = OrganizationService.oneOrg;
-
+    vm.editOrg = OrganizationService.editOrg;
+    vm.action = alert.action;
+    vm.event = alert.event;
+    vm.modalData = modalData;
 
     OrganizationService.getOrgs();
 

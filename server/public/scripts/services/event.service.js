@@ -18,8 +18,8 @@ vm.getEvents = function () {
             vm.events.push({
                 id: `${response.data[i].id}`,
                 title: `${response.data[i].title}`,
-                startsAt: moment(new Date(`${response.data[i].datetime}`)).format('MMM-DD-YYYY, hh:mm A'),
-                endsAt: moment(new Date(`${response.data[i].enddatetime}`)).format('MMM-DD-YYYY, hh:mm A'),
+                startsAt: new Date(`${response.data[i].datetime}`),
+                endsAt: new Date(`${response.data[i].enddatetime}`),
                 color: { 
                     primary: `${response.data[i].color}`, // the primary event color (should be darker than secondary)
                     secondary: '#fdf1ba' // the secondary event color (should be lighter than primary)

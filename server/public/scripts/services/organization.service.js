@@ -60,6 +60,20 @@ vm.addOrg = function (newOrg) {
 
     });
 };
+
+vm.editOrg = function(orgToEdit){
+    console.log('edit Org button clicked');
+    
+    $http({
+        method: 'PUT',
+        url:'/organizations',
+        data: orgToEdit
+    }).then(function(response){
+        console.log('response', response);
+    
+        
+    });
+};
 // Working on changing routeparams to a get request
 // vm.getOrgDetails = function(orgId){
 //     console.log('in getOrgDetails');

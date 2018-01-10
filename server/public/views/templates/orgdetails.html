@@ -8,17 +8,17 @@
         <thead>
           <tr>
             <th>
-              <h2>{{oc.organizations.org_name}}</h2>
+              <h2>{{oc.OrganizationService.orgDetails[0].org_name}}</h2>
             </th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td>{{oc.organizations.website}}
+            <td>{{oc.OrganizationService.orgDetails[0].website}}
               <br>
-              <br> {{oc.organizations.phone}}
+              <br> {{oc.OrganizationService.orgDetails[0].phone}}
               <br>
-              <br> {{oc.organizations.about}}
+              <br> {{oc.OrganizationService.orgDetails[0].about}}
             </td>
 
           </tr>
@@ -26,8 +26,10 @@
         </tbody>
       </table>
     </div>
-    <div class="col-md-5" >
 
+
+
+    <div class="col-md-5">
 
       <table class="table" id="myEventsTable" ng-controller = "KitchenSinkCtrl as vm" >
         <thead>

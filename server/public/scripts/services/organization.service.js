@@ -1,4 +1,4 @@
-myApp.service('OrganizationService', ['$http','$routeParams', function($http, $location, $routeParams){
+myApp.service('OrganizationService', ['$http','$routeParams', 'UserService', function($http, $location, $routeParams, UserService){
     console.log('OrganizationService loaded');
     var vm = this;
 
@@ -6,7 +6,7 @@ console.log('routeParams is', $routeParams);
 
 
 vm.organizations = [];
-vm.orgDetails = [{details:{}}];
+vm.orgDetails = [];
 
 
 
@@ -70,22 +70,24 @@ vm.editOrg = function(orgToEdit){
         data: orgToEdit
     }).then(function(response){
         console.log('response', response);
-    
+        // UserService.getUserOrgs();
         
     });
 };
+
 // Working on changing routeparams to a get request
-// vm.getOrgDetails = function(orgId){
-//     console.log('in getOrgDetails');
-//     $http({
-//         method: 'GET',
-//         url: '/organizations',
-//         params: {id:26}
-//     }).then(function (response) {
-//         console.log('response', response);
-//         vm.orgDetails.details = response.data
-//     })
-// }
+vm.getOrgDetails = function(orgId){
+    console.log('in getOrgDetails');
+    $http({
+        method: 'GET',
+        url: '/organizations/orgDetails',
+        params: orgId
+    }).then(
+        function (response) {
+        console.log('response', response);
+        vm.orgDetails = response.data
+    })
+}
 
 
 

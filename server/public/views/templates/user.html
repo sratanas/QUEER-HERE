@@ -49,10 +49,48 @@
                         <tr ng-repeat="userOrg in uc.userService.userOrgs">
                             <td>
                                 <a href="#/organizations/{{userOrg.org_id}}">{{userOrg.org_name}}</a>
+                                
+                                <br>
                                 <span class="pull-right">
                                     <button ng-click="vm.editOrgClicked(userOrg)" class="btn btn-warning" id = "editButton"> Edit</button>
-                                    <button ng-click="vm.showEvents()" class="btn btn-warning" id = "editButton"> Show Events </button>
                                 </span>
+
+                                    
+                                    <a href="" ng-click="isCollapsed = !isCollapsed" > Show Events </a>
+                                <br><br>
+                                    <div uib-collapse="!isCollapsed">
+                                        <!-- <div class="well well"> -->
+
+                                         
+                                                <table class="table">
+                                                        <thead>
+                                                          <tr>
+                                                            <!-- <th>Organization Events</th> -->
+                                                            <th></th>
+                                                          </tr>
+                                                        </thead>
+                                                
+                                                        <tbody>
+                                                          <tr ng-repeat="event in uc.EventService.orgEvents">
+                                                                
+                                                            <td ng-model="event"> <a href="" ><strong>{{event.title}}</strong></a><br><i>{{event.datetime | date:'MMM d, y h:mm a':'-0600'}}</i><br>{{event.description | limitTo: 100}}
+                                                            </td>
+                                                          </tr>
+                                                        </tbody>
+                                                      </table>
+                                                
+
+
+
+
+<!--  -->
+
+
+
+
+
+                                        <!-- </div> -->
+                                    </div>
                             </td>
                         </tr>
                     </tbody>

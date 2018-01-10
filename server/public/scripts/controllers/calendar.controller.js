@@ -1,5 +1,6 @@
 
-  myApp.controller('KitchenSinkCtrl', function(moment, alert, calendarConfig, EventService, CalendarService, UserService) {
+  myApp.controller('KitchenSinkCtrl',['moment', 'alert', 'calendarConfig', 'EventService', 'CalendarService', 'UserService', 
+  function(moment, alert, calendarConfig, EventService, CalendarService, UserService) {
     console.log('KitchenSink created');
     var vm = this;
     vm.EventService = EventService;
@@ -10,7 +11,9 @@
     vm.saveEventToProfile = EventService.saveEventToProfile;
     vm.eventToSave = EventService.eventToSave;
     vm.newEventClicked = CalendarService.newEventClicked;
-    vm.deleteEventFromProfile = EventService.deleteEventFromProfile;    
+    vm.deleteEventFromProfile = EventService.deleteEventFromProfile;   
+    vm.getOrgEvents = EventService.getOrgEvents;
+    vm.orgEvents = EventService.orgEvents; 
     vm.getEvents();
  
 
@@ -89,4 +92,4 @@
 
     };
 
-  });
+  }]);

@@ -67,9 +67,15 @@ router.put('/', function (req, res) {
             res.sendStatus(500);
 
         } else {
-            client.query(`UPDATE organizations SET org_name = $1
+            client.query(`UPDATE organizations SET org_name = $1, website = $2, email = $3, address = $4, phone = $5, about = $6, 
+            lesbian = $7, gay = $8, bi = $9, trans = $10, entertainment = $11, literary = $12, 
+            activism = $13, healthcare = $14, mental_health = $15, youth = $16, political = $17, 
+            legal = $18, support_group = $19, other = $20
             FROM users_orgs WHERE organizations.id = users_orgs.org_id
-            AND users_orgs.id = $2;`,[orgToEdit.org_name, orgToEdit.id],
+            AND users_orgs.id = $21;`,[orgToEdit.org_name, orgToEdit.website, orgToEdit.email, orgToEdit.address, orgToEdit.phone, orgToEdit.about, 
+                orgToEdit.lesbian, orgToEdit.gay, orgToEdit.bi, orgToEdit.trans, orgToEdit.entertainment, orgToEdit.literary,
+                orgToEdit.activism, orgToEdit.healthcare, orgToEdit.mental_health, orgToEdit.youth,
+                orgToEdit.political, orgToEdit.legal, orgToEdit.support_group, orgToEdit.other, orgToEdit.id],
                 function (errorMakingDatabaseQuery, result) {
                     done();
                     if (errorMakingDatabaseQuery) {
@@ -85,27 +91,29 @@ router.put('/', function (req, res) {
 })
 
 
-//working on route params
-// router.get('/:id', function (req, res) {
-//     console.log('req.query.id is',req.query.id);
+// working on route params
+router.get('/orgDetails/', function (req, res) {
+    console.log('req.query.id is',req.query.id);
+    console.log('in orgDetails');
     
-//     pool.connect(function (errorConnectingToDatabase, client, done) {
-//         if (errorConnectingToDatabase) {
-//             console.log('error', errorConnectingToDatabase);
-//             res.sendStatus(500);
-//         } else {
-//             client.query(`SELECT * FROM organizations WHERE id = $1;`,[req.query.id], function (errorMakingDatabaseQuery, result) {
-//                 done();
-//                 if (errorMakingDatabaseQuery) {
-//                     console.log('error', errorMakingDatabaseQuery);
-//                     res.sendStatus(500);
-//                 } else {
-//                     res.send(result.rows);
-//                 }
-//             });
-//         }
-//     });
-// });
+    
+    pool.connect(function (errorConnectingToDatabase, client, done) {
+        if (errorConnectingToDatabase) {
+            console.log('error', errorConnectingToDatabase);
+            res.sendStatus(500);
+        } else {
+            client.query(`SELECT * FROM organizations WHERE id = $1;`,[req.query.id], function (errorMakingDatabaseQuery, result) {
+                done();
+                if (errorMakingDatabaseQuery) {
+                    console.log('error', errorMakingDatabaseQuery);
+                    res.sendStatus(500);
+                } else {
+                    res.send(result.rows);
+                }
+            });
+        }
+    });
+});
 
 
 
@@ -115,23 +123,3 @@ module.exports = router;
 
 
 
-
-
-// WITH org_edit AS (UPDATE organizations SET 
-//     org_name = $1, website = $2, email = $3, address = $4, phone = $5, about = $6, 
-//     lesbian = $7, gay = $8, bi = $9, trans = $10, entertainment = $11, literary = $12, 
-//     activism = $13, healthcare = $14, mental_health = $15, youth = $16, political = $17, 
-//     legal = $18, support_group = $19, other = $21 WHERE id = $22 RETURNING *)
-//     SELECT * FROM org_edit;`
-//     [orgToEdit.org_name, orgToEdit.website, orgToEdit.email, orgToEdit.address, orgToEdit.phone, orgToEdit.about, 
-//     orgToEdit.lesbian, orgToEdit.gay, orgToEdit.bi, orgToEdit.trans, orgToEdit.entertainment, orgToEdit.literary,
-//     orgToEdit.activism, orgToEdit.healthcare, orgToEdit.mental_health, orgToEdit.youth,
-//     orgToEdit.political, orgToEdit.legal, orgToEdit.support_group, orgToEdit.other, orgToEdit.id]
-
-// UPDATE organizations SET org_name = $1
-// FROM users_orgs
-// WHERE users_orgs.org_id = $2;
-
-// UPDATE organizations SET org_name = $1
-// FROM users_orgs
-// WHERE users_orgs.org_id = $2;

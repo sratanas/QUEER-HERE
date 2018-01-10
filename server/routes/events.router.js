@@ -107,7 +107,7 @@ router.delete('/deleteEventFromProfile', function (req, res) {
     })
 
 
-//get organization events
+//get organization events in process
 router.get('/orgEvents', function (req, res) {
     console.log('req.query.id in orgEvents', req.query.id)
     pool.connect(function (errorConnectingToDatabase, client, done) {
@@ -129,5 +129,7 @@ router.get('/orgEvents', function (req, res) {
         }
     });
 });
+
+
 
 module.exports = router;

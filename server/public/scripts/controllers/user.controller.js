@@ -1,4 +1,5 @@
-myApp.controller('UserController',['UserService','EventService', 'OrganizationService','$routeParams',function(UserService, EventService, OrganizationService, $routeParams, ) {
+myApp.controller('UserController',['UserService','EventService', 'OrganizationService','$routeParams',
+function(UserService, EventService, OrganizationService, $routeParams, ) {
   console.log('UserController created');
   var vm = this;
   vm.userService = UserService;
@@ -12,8 +13,11 @@ myApp.controller('UserController',['UserService','EventService', 'OrganizationSe
   vm.userEvents = UserService.userEvents;
   vm.deleteEventFromProfile = EventService.deleteEventFromProfile;
   vm.saveEventToProfile = EventService.saveEventToProfile;
+  vm.getOrgEvents = EventService.getOrgEvents;
+  vm.orgEvents = EventService.orgEvents;
   UserService.getUserEvents();
   UserService.getUserOrgs();
+  
 
 
 

@@ -32,6 +32,22 @@ myApp.service('alert', function($http, $uibModal) {
           }
           })
         }
+        else if (action === 'EditEventClicked'){
+          return $uibModal.open({
+            templateUrl: '/views/modals/editEventModal.html',
+            controller: 'ModalController as vm',
+            resolve: {
+              modalData:{
+                action: action,
+                event: event,
+                editevent : function(EventService){
+                  return EventService.editEvent();
+
+              }
+            }
+          }
+          })
+        }
         
         else {
         return $uibModal.open({

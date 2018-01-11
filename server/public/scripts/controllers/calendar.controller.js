@@ -37,10 +37,14 @@
 
     vm.newEventClicked = function(event){
       alert.show('NewEventClicked', event)
-    }
+    };
 
     vm.editOrgClicked = function(event) {
       alert.show('EditOrgClicked', event);
+    };
+
+    vm.editEventClicked = function(event){
+      alert.show('EditEventClicked', event)
     };
 
 

@@ -11,11 +11,13 @@ function(UserService, EventService, alert, OrganizationService, modalData) {
     vm.saveEventToProfile = EventService.saveEventToProfile;
     vm.editOrg = OrganizationService.editOrg;
     vm.action = alert.action;
-    vm.event = alert.event;
     vm.modalData = modalData;
 
-
-   
+    if (vm.modalData.event && vm.modalData.event.datetime && vm.modalData.event.enddatetime) {
+      vm.modalData.event.datetime = new Date(vm.modalData.event.datetime);
+      vm.modalData.event.enddatetime = new Date(vm.modalData.event.enddatetime);
+    }
+       
     UserService.getUserEvents();
     UserService.getUserOrgs();
 

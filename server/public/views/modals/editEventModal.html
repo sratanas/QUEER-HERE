@@ -1,0 +1,137 @@
+<div class="modal-header">
+        <h2 class="modal-title">EDITING: {{vm.modalData.event.title}}</h2>
+    </div>
+
+    <div class="modal-body">
+
+            <form>
+        
+                <div class="form-group row">
+                    <label for="orgInputName" class="col-sm-2 col-form-label">Event Title</label>
+                    <div class="col-sm-10">
+                        <input type="text" ng-model="vm.modalData.event.title" class="form-control" id="eventInputTitle">
+                    </div>
+                </div>
+        
+                <div class="form-group row">
+                    <label for="orgInputWebsite" class="col-sm-2 col-form-label">Start date/time</label>
+                    <div class="col-sm-10">
+                        <input type="datetime-local" ng-model="vm.modalData.event.datetime" class="form-control"  id="eventInputDateTime">
+                    </div>
+                </div>
+               
+
+                <div class="form-group row">
+                    <label for="orgInputAddress" class="col-sm-2 col-form-label">End date/time</label>
+                    <div class="col-sm-10">
+                        <input type="datetime-local" ng-model="vm.modalData.event.enddatetime" class="form-control"  id="orgInputAddress" >
+                    </div>
+                </div>
+        
+                <div class="form-group row">
+                        <label for="orgInputlocation" class="col-sm-2 col-form-label">Location</label>
+                        <div class="col-sm-10">
+                            <input type="location" ng-model="vm.modalData.event.location" class="form-control" id="orgInputlocation" >
+                        </div>
+                    </div>
+        
+                <div class="form-group row">
+                    <label for="orgInputdescription" class="col-sm-2 col-form-label">Event details</label>
+                    <div class="col-sm-10">
+                        <textarea ng-model="vm.modalData.event.description" class="form-control" id="orgInputdescription" placeholder="Event details"></textarea>
+                    </div>
+                </div>
+        
+                <div class="form-group row">
+                    <label for="orgInputColor" class="col-sm-2 col-form-label">Color</label>
+                    <div class="col-sm-10">
+                        <input colorpicker type="text" ng-model="vm.modalData.event.color" id="orgInputColor" placeholder="">
+                    </div>
+                </div>
+                
+                <div class="form-group row">
+                    <div class="col-sm-2">
+                        <b>Check all that apply:</b>
+                    </div>
+                    <div class="col-sm-10">
+                        <div class="form-check">
+                            <label class="form-check-label">
+                                <input class="form-check-input" ng-model="vm.modalData.event.gay" type="checkbox" > Gay
+                            </label>
+                            <br>
+                            <label class="form-check-label">
+                                <input class="form-check-input" ng-model="vm.modalData.event.lesbian" type="checkbox"> Lesbian
+                            </label>
+                            <br>
+                            <label class="form-check-label">
+                                <input class="form-check-input" ng-model="vm.modalData.event.bi" type="checkbox"> Bi
+                            </label>
+                            <br>
+                            <label class="form-check-label">
+                                <input class="form-check-input" ng-model="vm.modalData.event.trans" type="checkbox"> Trans
+                            </label>
+                            <br>
+                            <label class="form-check-label">
+                                <input class="form-check-input" ng-model="vm.modalData.event.entertainment" type="checkbox"> Entertainment
+                            </label>
+                            <br>
+                            <label class="form-check-label">
+                                <input class="form-check-input" ng-model="vm.modalData.event.literary" type="checkbox"> Literary
+                            </label>
+                            <br>
+                            <label class="form-check-label">
+                                <input class="form-check-input" ng-model="vm.modalData.event.activism" type="checkbox"> Activism
+                            </label>
+                            <br>
+                            <label class="form-check-label">
+                                <input class="form-check-input" ng-model="vm.modalData.event.healthcare" type="checkbox"> Healthcare
+                            </label>
+                            <br>
+                            <label class="form-check-label">
+                                <input class="form-check-input" ng-model="vm.modalData.event.mental_health" type="checkbox"> Mental Health
+                            </label>
+                            <br>
+                            <label class="form-check-label">
+                                <input class="form-check-input" ng-model="vm.modalData.event.youth" type="checkbox"> Youth
+                            </label>
+                            <br>
+                            <label class="form-check-label">
+                                <input class="form-check-input" ng-model="vm.modalData.event.political" type="checkbox">Political
+                            </label>
+                            <br>
+                            <label class="form-check-label">
+                                <input class="form-check-input" ng-model="vm.modalData.event.legal" type="checkbox"> Legal
+                            </label>
+                            <br>
+                            <label class="form-check-label">
+                                <input class="form-check-input" ng-model="vm.modalData.event.support_group" type="checkbox"> Support Group
+                            </label>
+                            <br>
+                            <label class="form-check-label">
+                                <input class="form-check-input" ng-model="vm.modalData.event.other" type="checkbox"> Other
+                            </label>
+                            <br>
+        
+                        </div>
+                    </div>
+                </div>
+        
+        
+        
+        
+               
+        
+                <br>
+                <br>
+    
+        <!-- End of form -->
+    
+    
+    
+    </div>
+    <div class="modal-footer">
+        <button type = "button" class="btn btn-info" ng-click="vm.editOrg(vm.modalData.event)">
+       Save edits</button>
+        <button class="btn btn-primary" ng-click="$close()">CLOSE</button>
+    </div>
+    

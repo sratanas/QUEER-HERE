@@ -5,7 +5,7 @@ myApp.service('alert', function($http, $uibModal) {
       function show(action, event) {
         if (action === 'NewEventClicked') {
         return $uibModal.open({
-          templateUrl: '/views/templates/newModalContent.html',
+          templateUrl: '/views/modals/eventInfoModal.html',
           controller: 'ModalController as vm',
           resolve: {
             modalData:{
@@ -17,7 +17,7 @@ myApp.service('alert', function($http, $uibModal) {
         });
         } else if (action === 'EditOrgClicked'){
           return $uibModal.open({
-            templateUrl: '/views/templates/editOrgModal.html',
+            templateUrl: '/views/modals/editOrgModal.html',
             controller: 'ModalController as vm',
             resolve: {
               modalData:{
@@ -35,7 +35,7 @@ myApp.service('alert', function($http, $uibModal) {
         
         else {
         return $uibModal.open({
-          templateUrl: '/views/templates/modalContent.html',
+          templateUrl: '/views/modals/modalContent.html',
           controller: function() {
             var vm = this;
             vm.action = action;

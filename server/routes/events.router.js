@@ -107,7 +107,7 @@ router.delete('/deleteEventFromProfile', function (req, res) {
     })
 
 
-//get organization events in process
+//get organization events
 router.get('/orgEvents', function (req, res) {
     console.log('req.query.id in orgEvents', req.query.id)
     pool.connect(function (errorConnectingToDatabase, client, done) {
@@ -130,6 +130,43 @@ router.get('/orgEvents', function (req, res) {
         }
     });
 });
+
+//Editing event on modal in progres
+router.put('/', function (req, res) {
+    console.log('in router post');
+    var eventToEdit = req.body;
+    console.log('req.body in put', req.body);
+    
+    pool.connect(function (errorConnectingToDatabase, client, done) {
+        if (errorConnectingToDatabase) {
+            console.log('error', errorConnectingToDatabase);
+            res.sendStatus(500);
+
+        } else {
+            client.query(
+            `UPDATE event SET title = $1, datetime = $2, enddatetime = $3, location = $4, description = $5, color = $6, 
+            lesbian = $7, gay = $8, bi = $9, trans = $10, entertainment = $11, literary = $12, 
+            activism = $13, healthcare = $14, mental_health = $15, youth = $16, political = $17, 
+            legal = $18, support_group = $19, other = $20
+            FROM users_orgs WHERE users_orgs.id = event.org_id
+            AND event.id = $21;`,
+            [eventToEdit.org_name, eventToEdit.website, eventToEdit.email, eventToEdit.address, eventToEdit.phone, eventToEdit.about, 
+                eventToEdit.lesbian, eventToEdit.gay, eventToEdit.bi, eventToEdit.trans, eventToEdit.entertainment, eventToEdit.literary,
+                eventToEdit.activism, eventToEdit.healthcare, eventToEdit.mental_health, eventToEdit.youth,
+                eventToEdit.political, eventToEdit.legal, eventToEdit.support_group, eventToEdit.other, eventToEdit.id],
+                function (errorMakingDatabaseQuery, result) {
+                    done();
+                    if (errorMakingDatabaseQuery) {
+                        console.log('error', errorMakingDatabaseQuery);
+                        res.sendStatus(500);
+
+                    } else {
+                        res.sendStatus(200);
+                    }
+                })
+        }
+    })
+})
 
 
 

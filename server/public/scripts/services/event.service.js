@@ -107,7 +107,7 @@ vm.getOrgEvents = function (orgid) {
     return $http({
             method: 'GET',
             url: '/events/orgEvents',
-            params: {orgid}
+            params: {orgid: orgid}
         }).then(function (response) {
             console.log('getOrgEvents response', response);
             vm.orgEvents.list = response.data;
@@ -116,6 +116,20 @@ vm.getOrgEvents = function (orgid) {
     
         });
     };
+
+
+vm.editEvent = function(eventToEdit){
+     console.log('edit event button clicked');
+        
+    $http({
+        method: 'PUT',
+        url:'/events',
+        data: eventToEdit
+    }).then(function(response){
+        console.log('edit Event response', response);
+            
+    });
+};
 
 vm.criteriaChanged = function (criteria) {
     console.log(criteria);

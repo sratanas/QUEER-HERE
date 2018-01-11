@@ -1,10 +1,10 @@
-myApp.service('EventService', ['$http','$location','calendarConfig','alert', 'UserService', function($http, $location, calendarConfig, alert, UserService){
+myApp.service('EventService', ['$http','$location','calendarConfig','alert', 'UserService','filterFilter', 
+function($http, $location, calendarConfig, alert, UserService, filterFilter){
     console.log('Event Serivice loaded');
     var vm = this;
 
 vm.events = [];
-vm.newEvent = {};
-vm.orgEvents = [];
+vm.orgEvents = {list:[]};
 
 
 vm.getEvents = function () {
@@ -28,7 +28,9 @@ vm.getEvents = function () {
                 draggable: true,
                 resizable: true,
                 description: `${response.data[i].description}`,
-                org_id:`${response.data[i].org_id}`
+                org_id:`${response.data[i].org_id}`,
+                gay: false,
+                lesbian: false
             })
         }
      
@@ -45,6 +47,8 @@ vm.addEvent = function (newEvent) {
         data: newEvent
     }).then(function (response) {
         console.log('response', response);
+        vm.newEvent = {gay: false, lesbian: false}
+
         swal("Thank you for adding an event!","","success")
         newEvent.title = '';
         newEvent.datetime = '';
@@ -100,20 +104,29 @@ vm.deleteEventFromProfile = function(eventToDelete){
 
 vm.getOrgEvents = function (orgid) {
     
-        $http({
+    return $http({
             method: 'GET',
             url: '/events/orgEvents',
-            params: orgid
+            params: {orgid}
         }).then(function (response) {
-            console.log('response', response);
-            vm.orgEvents = response.data;
+            console.log('getOrgEvents response', response);
+            vm.orgEvents.list = response.data;
         
-            
+            return response.data;
     
         });
     };
 
+vm.criteriaChanged = function (criteria) {
+    console.log(criteria);
 
+    vm.filteredEvents = filterFilter(vm.events, criteria)
+    // vm.getEvents();
+    console.log('vm.events', vm.events);
+    
+    console.log('EVENTS', vm.filteredEvents);
+        
+    }
 
 
 }]);

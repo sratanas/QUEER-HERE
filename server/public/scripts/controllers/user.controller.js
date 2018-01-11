@@ -13,10 +13,16 @@ function(UserService, EventService, OrganizationService, $routeParams, ) {
   vm.userEvents = UserService.userEvents;
   vm.deleteEventFromProfile = EventService.deleteEventFromProfile;
   vm.saveEventToProfile = EventService.saveEventToProfile;
-  vm.getOrgEvents = EventService.getOrgEvents;
+  vm.getOrgEvents = function (orgid, userOrg){
+    EventService.getOrgEvents(orgid).then(function(eventList){
+      userOrg.events = eventList;
+    });
+  };
   vm.orgEvents = EventService.orgEvents;
   UserService.getUserEvents();
   UserService.getUserOrgs();
+
+  
   
 
 

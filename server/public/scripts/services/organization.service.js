@@ -77,7 +77,7 @@ vm.editOrg = function(orgToEdit){
     });
 };
 
-// Working on changing routeparams to a get request
+//Gets the details for the individual organization page
 vm.getOrgDetails = function(orgId){
     console.log('in getOrgDetails');
     $http({
@@ -91,7 +91,22 @@ vm.getOrgDetails = function(orgId){
     })
 }
 
-
+//Deletes an entire organization
+vm.deleteOrg = function(orgToDelete){
+    console.log('delete org clicked');
+    console.log('orgToDelete', orgToDelete);
+    
+    $http({
+        method: 'DELETE',
+        url: '/organizations/deleteOrg',
+        params: orgToDelete
+        
+    }).then(function(response){
+        console.log('response', response);
+        
+    })
+    
+}
 
 
 }]);

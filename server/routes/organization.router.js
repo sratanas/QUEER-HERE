@@ -94,9 +94,7 @@ router.put('/', function (req, res) {
 // working on route params
 router.get('/orgDetails/', function (req, res) {
     console.log('req.query.id is',req.query.id);
-    console.log('in orgDetails');
-    
-    
+    console.log('in orgDetails');   
     pool.connect(function (errorConnectingToDatabase, client, done) {
         if (errorConnectingToDatabase) {
             console.log('error', errorConnectingToDatabase);
@@ -115,6 +113,29 @@ router.get('/orgDetails/', function (req, res) {
     });
 });
 
+//Deletes an entire organizations (in modal)
+router.delete('/deleteOrg', function (req, res) {
+    console.log('in delete org');
+    pool.connect(function (errorConnectingToDatabase, client, done) {
+        if (errorConnectingToDatabase) {
+                console.log('error', errorConnectingToDatabase);
+                res.sendStatus(500);
+    
+          } else {
+                client.query(`DELETE FROM users_orgs WHERE id = $1`, [req.query.id],
+                    function (errorMakingDatabaseQuery, result) {
+                        done();
+                        if (errorMakingDatabaseQuery) {
+                            console.log('error', errorMakingDatabaseQuery);
+                            res.sendStatus(500);
+    
+                        } else {
+                            res.sendStatus(200);
+                        }
+                    })
+            }
+        })
+    })
 
 
 

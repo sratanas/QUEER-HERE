@@ -135,7 +135,7 @@ router.get('/orgEvents', function (req, res) {
     });
 });
 
-//Editing event on modal in progres
+//Editing event on modal
 router.put('/', function (req, res) {
     console.log('in router post');
     var eventToEdit = req.body;
@@ -170,6 +170,31 @@ router.put('/', function (req, res) {
         }
     })
 })
+
+//Deletes an entire event (in modal)
+router.delete('/deleteEvent', function (req, res) {
+    console.log('in delete event from profile ');
+    pool.connect(function (errorConnectingToDatabase, client, done) {
+        if (errorConnectingToDatabase) {
+                console.log('error', errorConnectingToDatabase);
+                res.sendStatus(500);
+    
+          } else {
+                client.query(`DELETE FROM event WHERE id = $1`, [req.query.id],
+                    function (errorMakingDatabaseQuery, result) {
+                        done();
+                        if (errorMakingDatabaseQuery) {
+                            console.log('error', errorMakingDatabaseQuery);
+                            res.sendStatus(500);
+    
+                        } else {
+                            res.sendStatus(200);
+                        }
+                    })
+            }
+        })
+    })
+
 
 
 

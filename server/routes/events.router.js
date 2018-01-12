@@ -115,9 +115,13 @@ router.get('/orgEvents', function (req, res) {
             console.log('error', errorConnectingToDatabase);
             res.sendStatus(500);
         } else {
-            client.query(`SELECT * FROM event
+            client.query(`
+            SELECT event.id, event.title, event.color, event.description, event.datetime, event.enddatetime, event.location,
+            event.lesbian, event.gay, event.bi, event.trans, event.entertainment, event.literary, event.activism, event.healthcare, event.mental_health, event.youth, event.legal, event.political, event.support_group, event.other, event.org_id
+            FROM event
             JOIN users_orgs ON event.org_id = users_orgs.id
-            WHERE users_orgs.org_id =  $1 ORDER BY datetime ASC;`,[req.query.orgid], 
+            WHERE users_orgs.org_id = $1
+            ORDER BY datetime ASC;`,[req.query.orgid], 
             function (errorMakingDatabaseQuery, result) {
                 done();
                 if (errorMakingDatabaseQuery) {
@@ -148,9 +152,8 @@ router.put('/', function (req, res) {
             lesbian = $7, gay = $8, bi = $9, trans = $10, entertainment = $11, literary = $12, 
             activism = $13, healthcare = $14, mental_health = $15, youth = $16, political = $17, 
             legal = $18, support_group = $19, other = $20
-            FROM users_orgs WHERE users_orgs.id = event.org_id
-            AND event.id = $21;`,
-            [eventToEdit.org_name, eventToEdit.website, eventToEdit.email, eventToEdit.address, eventToEdit.phone, eventToEdit.about, 
+            WHERE id = $21;`,
+                [eventToEdit.title, eventToEdit.datetime, eventToEdit.enddatetime, eventToEdit.location, eventToEdit.description, eventToEdit.color, 
                 eventToEdit.lesbian, eventToEdit.gay, eventToEdit.bi, eventToEdit.trans, eventToEdit.entertainment, eventToEdit.literary,
                 eventToEdit.activism, eventToEdit.healthcare, eventToEdit.mental_health, eventToEdit.youth,
                 eventToEdit.political, eventToEdit.legal, eventToEdit.support_group, eventToEdit.other, eventToEdit.id],

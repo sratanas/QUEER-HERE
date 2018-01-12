@@ -70,6 +70,8 @@ vm.editOrg = function(orgToEdit){
         data: orgToEdit
     }).then(function(response){
         console.log('response', response);
+        console.log('org to edit', orgToEdit);
+        
         // UserService.getUserOrgs();
         
     });

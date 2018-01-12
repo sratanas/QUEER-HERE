@@ -37,6 +37,8 @@
 
     vm.newEventClicked = function(event){
       alert.show('NewEventClicked', event)
+      console.log('newEventClicked', event);
+      
     };
 
     vm.editOrgClicked = function(event) {

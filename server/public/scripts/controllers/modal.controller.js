@@ -10,7 +10,7 @@ function(UserService, EventService, alert, OrganizationService, modalData) {
     vm.userEvents = UserService.userEvents;
     vm.saveEventToProfile = EventService.saveEventToProfile;
     vm.editOrg = OrganizationService.editOrg;
-    vm.action = alert.action;
+    vm.editEvent = EventService.editEvent;
     vm.modalData = modalData;
 
     if (vm.modalData.event && vm.modalData.event.datetime && vm.modalData.event.enddatetime) {

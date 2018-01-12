@@ -29,8 +29,20 @@ vm.getEvents = function () {
                 resizable: true,
                 description: response.data[i].description,
                 org_id:response.data[i].org_id,
-                gay: false,
-                lesbian: false
+                gay: response.data[i].gay,
+                lesbian: response.data[i].lesbian,
+                bi :response.data[i].bi,
+                trans: response.data[i].trans,
+                entertainment: response.data[i].entertainment, 
+                literary: response.data[i].literary,
+                activism: response.data[i].activism, 
+                healthcare: response.data[i].healthcare,
+                mental_health: response.data[i].mental_health,
+                youth: response.data[i].youth,
+                political: response.data[i].political,
+                legal: response.data[i].legal, 
+                support_group: response.data[i].support_group, 
+                other: response.data[i].other,
             })
         }
      
@@ -38,6 +50,7 @@ vm.getEvents = function () {
     });
 };
 
+vm.newEvent
 
 vm.addEvent = function (newEvent) {
     console.log('Add event button clicked');
@@ -47,7 +60,6 @@ vm.addEvent = function (newEvent) {
         data: newEvent
     }).then(function (response) {
         console.log('response', response);
-        vm.newEvent = {gay: false, lesbian: false}
 
         swal("Thank you for adding an event!","","success")
         newEvent.title = '';

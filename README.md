@@ -1,4 +1,4 @@
-# Name of Project
+# QUEER HERE
 
 Queer Here Twin Cities is a calendar and event sharing platform for the Queer community in the Twin Cities. This technology is meant to fill a gap and increase connections for the community as well as allies. Registered users are able to create a profile, create organizations and create events for those organization which will be shared to a public calendar. Users are also able to save events they may be interested in to their personal profile.
 

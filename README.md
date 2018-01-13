@@ -1,10 +1,16 @@
 # Name of Project
 
-One Paragraph of project description goes here. Link to the live version of the app if it's hosted on Heroku.
+Queer Here Twin Cities is a calendar and event sharing platform for the Queer community in the Twin Cities. This technology is meant to fill a gap and increase connections for the community as well as allies. Registered users are able to create a profile, create organizations and create events for those organization which will be shared to a public calendar. Users are also able to save events they may be interested in to their personal profile.
 
 ## Built With
 
-List technologies and frameworks here
+PostgreSQL
+Express.js
+AngularJS
+Node.js
+Bootstrap
+Bootstrap Angular Calendar
+SweetAlert
 
 ## Getting Started
 
@@ -20,7 +26,7 @@ Link to software that is required to install the app (e.g. node).
 
 ### Installing
 
-Steps to get the development environment running.
+npm install
 
 ```sql
 CREATE TABLE "users" (
@@ -57,9 +63,9 @@ Add additional notes about how to deploy this on a live system
 
 ## Authors
 
-* Name of author(s)
+* Stephanie Ratanas
 
 
 ## Acknowledgments
 
-* Hat tip to anyone who's code was used
+* [Angular Bootstrap Calendar](https://github.com/mattlewis92/angular-bootstrap-calendar)

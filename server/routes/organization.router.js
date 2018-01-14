@@ -38,9 +38,9 @@ router.post('/', function (req, res) {
                 INSERT INTO users_orgs ("user_id", "org_id")
                 VALUES ($21, (SELECT id FROM new_org));`,  
                 [newOrg.org_name, newOrg.website, newOrg.email, newOrg.address, newOrg.phone, newOrg.about, 
-                newOrg.lesbian, newOrg.gay, newOrg.bi,newOrg.trans, newOrg.entertainment, newOrg.literary,
-                newOrg.activism, newOrg.healthcare, newOrg.mental_health, newOrg.youth,
-                newOrg.political, newOrg.legal, newOrg.support_group, newOrg.other, req.user.id],
+                !!newOrg.lesbian, !!newOrg.gay, !!newOrg.bi, !!newOrg.trans, !!newOrg.entertainment, !!newOrg.literary,
+                !!newOrg.activism, !!newOrg.healthcare, !!newOrg.mental_health, !!newOrg.youth,
+                !!newOrg.political, !!newOrg.legal, !!newOrg.support_group, !!newOrg.other, req.user.id],
                 function (errorMakingDatabaseQuery, result) {
                     done();
                     if (errorMakingDatabaseQuery) {

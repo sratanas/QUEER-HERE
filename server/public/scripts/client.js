@@ -37,7 +37,8 @@ myApp.config(function($routeProvider, $locationProvider) {
           return UserService.getuser();
         }
       }
-    }).when('/createorg', {
+    })
+    .when('/createorg', {
       templateUrl: '/views/templates/createorg.html',
       controller: 'OrganizationController as vm',
       resolve: {

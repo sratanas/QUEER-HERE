@@ -1,4 +1,6 @@
+<header ng-include="'/views/partials/header.html'"></header>
 <div ng-include="'views/partials/nav.html'"></div>
+
 <div ng-controller="UserController as uc">
 
 
@@ -7,7 +9,7 @@
             <div class="col-md-4">
 
 
-                <table class="table" id="myEventsTable">
+                <table class="table table-responsive" id="myEventsTable">
                     <thead>
                         <tr>
                             <th>My Events</th>
@@ -39,7 +41,7 @@
             <div class="col-md-4" ng-controller="KitchenSinkCtrl as vm">
 
 
-                <table class="table" id="myEventsTable">
+                <table class="table table-responsive" id="myEventsTable">
                     <thead>
                         <tr>
                             <th>My Organizations</th>
@@ -90,7 +92,7 @@
 
             <div class="col-md-4" ng-controller="KitchenSinkCtrl as vm">
 
-                <table class="table" id="myEventsTable">
+                <table class="table table-responsive" id="myEventsTable">
                     <thead>
                         <tr>
                             <th>Add an Event</th>

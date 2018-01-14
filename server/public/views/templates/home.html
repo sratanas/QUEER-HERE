@@ -1,13 +1,27 @@
+<!-- <img id = "homepageImage"src="images/lowryrainbow.png"> -->
+
+
+<div class="jumbotron jumbotron-fluid">
+    <div class="container-fluid">
+        <a href="#/"><img id= "homeLogo" src="images/qhlogoLGds.png"></a> 
+
+    </div>
+    
+  </div>
+
+<!-- <header ng-include="'/views/partials/header.html'"></header> -->
 <div ng-include="'views/partials/nav.html'"></div>
 
 
 <div ng-controller="KitchenSinkCtrl as vm">
   <div ng-controller = "UserController as uc">
 
+ 
+
+
   <div class="container">
     <div class="row">
-        <div class="col-md-1"></div>
-      <div class="col-md-5">
+      <div class="col-md-4">
           <br> <br>
         <h2 id="welcomeText">WELCOME!</h2>
         <div class= "container" id="homePageAboutBlurb">
@@ -17,7 +31,7 @@
       </div>
 
 
-      <div class="col-md-5" id="sidebarEvents">
+      <div class="col-md-6" id="sidebarEvents">
         <br> <br>
         <table class="table table-striped">
           <thead>
@@ -29,7 +43,7 @@
           </thead>
           <tbody>
             <tr ng-repeat="event in vm.EventService.events | limitTo:10">
-              <td ng-model="event"> <a href="" ng-click="vm.newEventClicked(event)"><strong>{{event.title}}</strong></a><br><i>{{event.startsAt}}</i><br>{{event.description | limitTo: 100}}
+              <td ng-model="event"> <a href="" ng-click="vm.newEventClicked(event)"><strong>{{event.title}}</strong></a><br><i>{{event.startsAt| date:'MMM d, y h:mm a':'-0600'}}</i><br>{{event.description | limitTo: 100}}
                 <td ng-show = "uc.userService.userObject.userName"><button class="btn btn-success" ng-click = "vm.saveEventToProfile(event)"> Save to My Events </button></td>
               </td>
 
@@ -38,13 +52,47 @@
           </tbody>
         </table>
 
-
-
-
-
  
       </div>
-      <div class="col-md-1"></div>
+      <div class="col-md-2">
+          <div id = "loginHomePage">
+              <div ng-hide = "uc.userService.userObject.userName">
+                  
+                  <div class = "pull-right">
+                  <h2>Login</h2>
+                  <h1 class="lead alert alert-danger" role="alert" ng-if="lc.message != ''">{{lc.message}}</h2>
+                      <form ng-submit="lc.login()">
+                          <div>
+                              <label for="username">Username:</label>
+                              <input type="text" ng-model="lc.user.username" />
+                          </div>
+                          <div>
+                              <label for="password">Password:</label>
+                              <input type="password" ng-model="lc.user.password" />
+                          </div>
+                          <div>
+                              <input class="btn btn-default" type="submit" name="submit" value="Log In" />
+                              <a href="#register">Register</a>
+                          </div>
+                      </form>
+                  </div>
+              </div>  
+              
+              
+<!--               
+              <div class="col-md-2" ng-show = "uc.userService.userObject.userName">
+                      <div class = "pull-right">
+                      <h1 id="welcome" class="lead">Welcome, {{uc.userObject.userName}}!</h1>
+                      <button class="btn btn-default" ng-click="uc.userService.logout()">Log Out</button>
+                      <div class = "pull-right">
+                      </div>
+                      </div>
+                  </div>  -->
+                  <!-- end of login column -->
+              
+                </div>
+              
+      </div>
       
     </div>
 

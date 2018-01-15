@@ -5,7 +5,7 @@ myApp.service('OrganizationService', ['$http','$routeParams', 'UserService', fun
 
 vm.organizations = [];
 vm.orgDetails = [];
-vm.newOrg = []
+vm.newOrg = {}
 vm.orgImg = {}
 
 
@@ -24,37 +24,37 @@ vm.getOrgs = function () {
 };
 
 
-vm.addOrg = function (newOrg) {
+vm.addOrg = function () {
     console.log('Add org button clicked');
     $http({
         method: 'POST',
         url: '/organizations',
-        data: newOrg
+        data: vm.newOrg
     }).then(function (response) {
         console.log('response', response);
 
         
         swal("Thank you for adding an organization!","","success")
-        newOrg.org_name = '';
-        newOrg.website = '';
-        newOrg.email ='';
-        newOrg.address ='';
-        newOrg.phone = ''; 
-        newOrg.about = ''; 
-        newOrg.lesbian = '';
-        newOrg.gay = ''; 
-        newOrg.bi = '';
-        newOrg.trans = '';
-        newOrg.entertainment = ''; 
-        newOrg.literary = '';
-        newOrg.activism = ''; 
-        newOrg.healthcare = '';
-        newOrg.mental_health = '';
-        newOrg.youth = '';
-        newOrg.political = ''; 
-        newOrg.legal  = ''; 
-        newOrg.support_group = ''; 
-        newOrg.other = '';
+        vm.newOrg.org_name = '';
+        vm.newOrg.website = '';
+        vm.newOrg.email ='';
+        vm.newOrg.address ='';
+        vm.newOrg.phone = ''; 
+        vm.newOrg.about = ''; 
+        vm.newOrg.lesbian = '';
+        vm.newOrg.gay = ''; 
+        vm.newOrg.bi = '';
+        vm.newOrg.trans = '';
+        vm.newOrg.entertainment = ''; 
+        vm.newOrg.literary = '';
+        vm.newOrg.activism = ''; 
+        vm.newOrg.healthcare = '';
+        vm.newOrg.mental_health = '';
+        vm.newOrg.youth = '';
+        vm.newOrg.political = ''; 
+        vm.newOrg.legal  = ''; 
+        vm.newOrg.support_group = ''; 
+        vm.newOrg.other = '';
     
 
     });
@@ -73,8 +73,8 @@ vm.uploadOrgLogo = function(){
         circle:true}
       }).then(function(response) {
         vm.newOrg.url = response.filesUploaded[0].url;
-        vm.newOrg.orgImg = vm.newOrg.url;
-        console.log('org_logo', vm.newOrg.orgImg);
+        vm.newOrg.org_logo = vm.newOrg.url;
+        console.log('org_logo', vm.newOrg.org_logo);
         
 
         // handleFilestack(response);

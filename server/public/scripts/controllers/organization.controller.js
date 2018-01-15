@@ -16,6 +16,7 @@ function(OrganizationService, $routeParams, alert, UserService, EventService) {
     vm.org_logo = OrganizationService.org_logo;
     vm.newOrg.orgImg = OrganizationService.newOrg.orgImg;
     vm.orgImg = OrganizationService.orgImg;
+    vm.newOrg = OrganizationService.newOrg;
     
     // vm.action = alert.action;
     // vm.event = alert.event;

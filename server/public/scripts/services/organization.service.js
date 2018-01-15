@@ -2,12 +2,11 @@ myApp.service('OrganizationService', ['$http','$routeParams', 'UserService', fun
     console.log('OrganizationService loaded');
     var vm = this;
 
-console.log('routeParams is', $routeParams);
-
 
 vm.organizations = [];
 vm.orgDetails = [];
-
+vm.newOrg = []
+vm.orgImg = {}
 
 
 vm.getOrgs = function () {
@@ -61,6 +60,31 @@ vm.addOrg = function (newOrg) {
     });
 };
 
+vm.uploadOrgLogo = function(){
+    var fsClient = filestack.init('AufWFCyjkTHCHrYYMIuDyz');
+    console.log('uploadOrgLogo clicked');
+    
+    function openPicker() {
+      fsClient.pick({
+        fromSources:["local_file_system","imagesearch","facebook","instagram","dropbox"],
+        transformations:{
+        crop:{      force:true,
+        aspectRatio:1},
+        circle:true}
+      }).then(function(response) {
+        vm.newOrg.url = response.filesUploaded[0].url;
+        vm.newOrg.orgImg = vm.newOrg.url;
+        console.log('org_logo', vm.newOrg.orgImg);
+        
+
+        // handleFilestack(response);
+      });
+    }
+    openPicker();
+}
+
+
+
 vm.editOrg = function(orgToEdit){
     console.log('edit Org button clicked');
     
@@ -70,7 +94,7 @@ vm.editOrg = function(orgToEdit){
         data: orgToEdit
     }).then(function(response){
         console.log('response', response);
-        console.log('org to edit', orgToEdit);
+        swal("Edits Saved!","","success")
         
         // UserService.getUserOrgs();
         
@@ -91,20 +115,39 @@ vm.getOrgDetails = function(orgId){
     })
 }
 
+
+
 //Deletes an entire organization
 vm.deleteOrg = function(orgToDelete){
     console.log('delete org clicked');
-    console.log('orgToDelete', orgToDelete);
+    swal({
+        title: "Are you sure?",
+        text: "Once deleted, this organization and all its events will be gone.",
+        icon: "warning",
+        buttons: true,
+        dangerMode: true,
+      })
+      .then((willDelete) => {
+        if (willDelete) {
+            $http({
+                method: 'DELETE',
+                url: '/organizations/deleteOrg',
+                params: orgToDelete
+                
+            }).then(function(response){
+                console.log('response', response);
+                
+            })
+          swal("Organization deleted", {
+            icon: "success",
+          });
+
+        } else {
+          swal("Organization not deleted");
+        }
+      });
     
-    $http({
-        method: 'DELETE',
-        url: '/organizations/deleteOrg',
-        params: orgToDelete
-        
-    }).then(function(response){
-        console.log('response', response);
-        
-    })
+
     
 }
 

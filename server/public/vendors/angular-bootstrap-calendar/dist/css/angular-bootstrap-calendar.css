@@ -493,7 +493,7 @@ mwl-calendar .cal-week-box {
 mwl-calendar span[data-cal-date] {
   font-size: 1.2em;
   font-weight: normal;
-  opacity: 0.5;
+  opacity: 0.50;
   transition: all 0.3s ease-in-out;
   -webkit-transition: all 0.1s ease-in-out;
   -moz-transition: all 0.1s ease-in-out;
@@ -555,7 +555,7 @@ mwl-calendar .cal-day-tick {
 mwl-calendar .cal-slide-box {
   border-top: 0px solid #8c8c8c;
 }
-mwl-calendar .cal-slide-content {
+mwl-calendar .cal-slide-conteƒnt {
   padding: 20px;
   color: #ffffff;
   background-color: #555555;

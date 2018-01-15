@@ -4,7 +4,7 @@
 <div class="modal-body">
     <p>
         <h4> <strong>When:</strong> </h4>
-        {{vm.modalData.event.startsAt | date:'MMM d, y h:mm a':'-0600'}} <b>to</b> {{vm.modalData.event.endsAt | date:'MMM d, y h:mm a':'-0600'}}</p>
+        {{vm.modalData.event.startsAt | date:'MMM d, y h:mm a':'-0600'}} {{vm.modalData.event.datetime | date:'MMM d, y h:mm a'}} <b>to</b> {{vm.modalData.event.endsAt | date:'MMM d, y h:mm a':'-0600'}} {{vm.modalData.event.enddatetime | date:'MMM d, y h:mm a'}}</p>
 
     <p>
         <h4><strong>Where:</strong></h4>

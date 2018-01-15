@@ -13,6 +13,8 @@
     vm.deleteEventFromProfile = EventService.deleteEventFromProfile;   
     vm.getOrgEvents = EventService.getOrgEvents;
     vm.orgEvents = EventService.orgEvents; 
+    vm.includeEvent = EventService.includeEvent;
+    vm.eventFilter = EventService.eventFilter;
 
    
     // vm.filteredEvents = EventService.filteredEvents;

@@ -173,7 +173,7 @@ router.put('/', function (req, res) {
 
 //Deletes an entire event (in modal)
 router.delete('/deleteEvent', function (req, res) {
-    console.log('in delete event from profile ');
+    console.log('in delete event');
     pool.connect(function (errorConnectingToDatabase, client, done) {
         if (errorConnectingToDatabase) {
                 console.log('error', errorConnectingToDatabase);

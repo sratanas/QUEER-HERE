@@ -4,19 +4,35 @@
 
 <div class = "container">
         <div class="row">
-                <div class="col-md-4" "col-xs-12">
+                <div class="col-md-9" "col-xs-12">
+                  <br><br>
+                  <h2>ORGANIZATIONS</h2>
+                    <br> <br>
+                    <table class="table" id = "orgTable">
+                  
+                      <tbody>
+                        <tr ng-repeat="orgs in oc.OrganizationService.organizations | filter:search:strict">
+                          <td> <div id = "orgTableLogo"><img id = "orgLogoPage" src={{orgs.org_logo}}></div>  </td>   
+                            <td><strong><a href="#/organizations/{{orgs.id}}">  {{orgs.org_name}}</a></strong>
+                          <br>{{orgs.about | limitTo: 200}} <a href="#/organizations/{{orgs.id}}">...click for more.</a>
+                          </td>
+            
+                        </tr>
+            
+                      </tbody>
+                    </table>
+         </div>
+         <div class="col-md-3" "col-xs-12">
+           <br><br><br><br> 
+           <!-- <label>Gay <input type="checkbox" ng-model="search.gay"></label><br> -->
+           
+           <label><h3>Search organizations:</h3> <input ng-model="search.$"></label> <br>
 
-
-
-<ul ng-repeat="orgs in oc.OrganizationService.organizations">
-        <li><strong><a href="#/organizations/{{orgs.id}}"> {{orgs.org_name}}</a></strong>
-            <!-- {{orgs.about | limitTo: 100}} -->
-        </li>
-      </ul>
-
-
+          </div>
     </div>
-  </div>
+
+
 </div>
+
 
 

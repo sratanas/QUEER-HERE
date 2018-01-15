@@ -14,6 +14,8 @@ function(UserService, EventService, OrganizationService, $routeParams, alert) {
   vm.deleteEventFromProfile = EventService.deleteEventFromProfile;
   vm.saveEventToProfile = EventService.saveEventToProfile;
   vm.editEvent = EventService.editEvent;
+  vm.organizations = OrganizationService.organizations;
+  vm.deleteEvent = EventService.deleteEvent;
 
   vm.getOrgEvents = function (orgid, userOrg){
     EventService.getOrgEvents(orgid).then(function(eventList){

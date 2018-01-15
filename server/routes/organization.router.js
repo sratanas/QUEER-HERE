@@ -32,15 +32,15 @@ router.post('/', function (req, res) {
 
         } else {
             client.query(`WITH new_org AS (INSERT INTO organizations 
-                (org_name, website, email, address, phone, about, lesbian, gay, bi, trans, entertainment, literary, activism, healthcare, mental_health, youth, political, legal, support_group, other) 
-                VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20)
+                (org_name, website, email, address, phone, about, lesbian, gay, bi, trans, entertainment, literary, activism, healthcare, mental_health, youth, political, legal, support_group, other, org_logo) 
+                VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20, $21)
                 RETURNING id)
                 INSERT INTO users_orgs ("user_id", "org_id")
-                VALUES ($21, (SELECT id FROM new_org));`,  
+                VALUES ($22, (SELECT id FROM new_org));`,  
                 [newOrg.org_name, newOrg.website, newOrg.email, newOrg.address, newOrg.phone, newOrg.about, 
                 !!newOrg.lesbian, !!newOrg.gay, !!newOrg.bi, !!newOrg.trans, !!newOrg.entertainment, !!newOrg.literary,
                 !!newOrg.activism, !!newOrg.healthcare, !!newOrg.mental_health, !!newOrg.youth,
-                !!newOrg.political, !!newOrg.legal, !!newOrg.support_group, !!newOrg.other, req.user.id],
+                !!newOrg.political, !!newOrg.legal, !!newOrg.support_group, !!newOrg.other, newOrg.org_logo, req.user.id],
                 function (errorMakingDatabaseQuery, result) {
                     done();
                     if (errorMakingDatabaseQuery) {
@@ -54,6 +54,7 @@ router.post('/', function (req, res) {
         }
     })
 })
+
 
 //Editing org on modal
 router.put('/', function (req, res) {
@@ -122,7 +123,9 @@ router.delete('/deleteOrg', function (req, res) {
                 res.sendStatus(500);
     
           } else {
-                client.query(`DELETE FROM users_orgs WHERE id = $1`, [req.query.id],
+                client.query(`DELETE FROM "organizations"
+                USING users_orgs WHERE users_orgs.org_id = organizations.id
+                AND users_orgs.id = $1;`, [req.query.id],
                     function (errorMakingDatabaseQuery, result) {
                         done();
                         if (errorMakingDatabaseQuery) {

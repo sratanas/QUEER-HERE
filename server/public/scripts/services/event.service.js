@@ -144,6 +144,38 @@ vm.editEvent = function(eventToEdit){
     });
 };
 
+
+vm.deleteEvent = function(eventToDelete){
+    swal({
+        title: "Are you sure?",
+        text: "Once deleted, you will not be able to recover this event",
+        icon: "warning",
+        buttons: true,
+        dangerMode: true,
+      })
+      .then((willDelete) => {
+        if (willDelete) {
+            $http({
+                method: 'DELETE',
+                url: '/events/deleteEvent',
+                params: eventToDelete
+                
+            }).then(function(response){
+                console.log('response', response);
+                
+            })
+          swal("Event deleted", {
+            icon: "success",
+          });
+        } 
+      });
+    
+
+    
+}
+
+
+
 vm.criteriaChanged = function (criteria) {
     console.log(criteria);
 
@@ -153,7 +185,7 @@ vm.criteriaChanged = function (criteria) {
     
     console.log('EVENTS', vm.filteredEvents);
         
-    }
+ }
 
 
 }]);

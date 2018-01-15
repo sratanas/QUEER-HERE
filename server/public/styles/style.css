@@ -3,6 +3,7 @@ body, html {
   padding: 0;
   font-family: sans-serif;
   font-size: 14px;
+  background-color:white;
 }
 
 .footer {
@@ -18,10 +19,24 @@ body, html {
 
 }
 
+/* #homePageAboutBlurb {
+  height: 325px;
+  width: 700px;
+  background-color:tomato;
+  border-radius:5%;
+  text-align: left;
+  vertical-align: top;
+  display: table-cell;
+  font-size: 18px;
+  padding:35px;
+  font-weight: bold;
+  color: black;
+} */
+
 #homePageAboutBlurb {
   height: 325px;
   width: 325px;
-  background-color:tomato;
+  background-color: orange;
   border-radius: 100%;
   text-align: center;
   vertical-align: middle;
@@ -30,8 +45,39 @@ body, html {
   padding:35px;
   font-weight: bold;
   color: black;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
+#homePageBlurb2 {
+  height: 325px;
+  width: 325px;
+  background-color: yellow;
+  border-radius: 100%;
+  text-align: center;
+  vertical-align: middle;
+  display: table-cell;
+  font-size: 18px;
+  padding:35px;
+  font-weight: bold;
+  color: black;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+#loginHomePage{
+  height: 325px;
+  width: 325px;
+  background-color:rgb(25, 167, 12);
+  border-radius: 100%;
+  text-align: center;
+  vertical-align: middle;
+  display: table-cell;
+  font-size: 18px;
+  padding:35px;
+  font-weight: bold;
+  color: black;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+}
 
 .instructions .container h1 {
   font-size: 32px;
@@ -180,6 +226,8 @@ li a:hover {
 }
 .table {
   background-color: white;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+ 
 }
 
 .table th{
@@ -187,7 +235,9 @@ li a:hover {
   font-size: 18px;
   color: white;
   letter-spacing: 2px;
+
 }
+
 
 .table a {
   color: black;
@@ -195,11 +245,61 @@ li a:hover {
 }
 
 
+
 #orgDetailsTable th{
   letter-spacing: 2px;
   background-color: white !important;
   color: black !important;
 
+}
+#orgTableHead{
+  background-color: white;
+  font-size: 18px;
+  color: black !important;
+  letter-spacing: 2px;
+}
+
+#orgTable td{
+  border-top: none !important;
+  padding: 10px;
+  margin: 0px;
+}
+
+#orgTableLogo{
+  height: 20px;
+  width: 20px;
+  border-radius: 100%;
+  text-align: center;
+  vertical-align: middle;
+  display: table-cell;
+  font-size: 14px;
+  font-weight: bold;
+  color: black;
+  margin-right:25px;
+
+}
+
+#orgLogoPage{
+  height: 75px;
+  width: 75px;
+  margin:10px;
+  border-radius: 100%
+}
+
+#orgDetailsLogo {
+  height: 200px;
+  width: 200px;
+  border-radius: 100%;
+  margin-bottom:10px;
+  
+}
+
+#orgDetailsTitle {
+  font-size: 24px;
+  vertical-align: top;
+  display: table-cell;
+  padding-bottom:90px;
+  
 }
 
 #welcomeText {
@@ -210,7 +310,7 @@ li a:hover {
 
 #eventDescriptionBox {
   position: relative;
-  overflow: hidden !important;
+  overflow: scroll !important;
   width: 570px;
   height: 200px;
   word-wrap: break-word !important;
@@ -261,9 +361,9 @@ li a:hover {
     transform: skewY(-6deg);  
     transform-origin: top left;
     display: block;
-    margin-left:200px;
+    margin-left:150px;
     margin-right: auto;
-    margin-top: 250px;
+    margin-top: 300px;
     margin-bottom: 0px;
     
   }

@@ -75,9 +75,7 @@ vm.uploadOrgLogo = function(){
         vm.newOrg.url = response.filesUploaded[0].url;
         vm.newOrg.org_logo = vm.newOrg.url;
         console.log('org_logo', vm.newOrg.org_logo);
-        
 
-        // handleFilestack(response);
       });
     }
     openPicker();

@@ -21,9 +21,10 @@ router.get('/', function (req, res) {
         }
     });
 });
-//Adding new org and attaching to user
+//Adding new org and attaching to user  //Add is authenticated if statement
 router.post('/', function (req, res) {
     console.log('in router post');
+    if(req.isAuthenticated()) {
     var newOrg = req.body;
     pool.connect(function (errorConnectingToDatabase, client, done) {
         if (errorConnectingToDatabase) {
@@ -52,15 +53,16 @@ router.post('/', function (req, res) {
                     }
                 })
         }
-    })
-})
+     })
+}})
+
 
 
 //Editing org on modal
 router.put('/', function (req, res) {
     console.log('in router post');
+    if(req.isAuthenticated()) {
     var orgToEdit = req.body;
-    console.log('req.body in put', req.body);
     
     pool.connect(function (errorConnectingToDatabase, client, done) {
         if (errorConnectingToDatabase) {
@@ -89,7 +91,7 @@ router.put('/', function (req, res) {
                 })
         }
     })
-})
+}});
 
 
 // working on route params
@@ -117,6 +119,7 @@ router.get('/orgDetails/', function (req, res) {
 //Deletes an entire organizations (in modal)
 router.delete('/deleteOrg', function (req, res) {
     console.log('in delete org');
+    if(req.isAuthenticated()) {
     pool.connect(function (errorConnectingToDatabase, client, done) {
         if (errorConnectingToDatabase) {
                 console.log('error', errorConnectingToDatabase);
@@ -138,7 +141,7 @@ router.delete('/deleteOrg', function (req, res) {
                     })
             }
         })
-    })
+    }});
 
 
 

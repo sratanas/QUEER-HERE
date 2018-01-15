@@ -1,7 +1,6 @@
 <header ng-include="'/views/partials/header.html'"></header>
 <div ng-include="'views/partials/nav.html'"></div>
 
-<div ng-controller="UserController as uc">
 
 
     <div class="container">
@@ -112,11 +111,14 @@
                                 <input type="text" ng-model="vm.newEvent.title" placeholder="Event title">
                                 <br>
                                 <br>
+                                <br>
                                 <label>Start date/time: </label>
                                 <input type="datetime-local" ng-model="vm.newEvent.datetime">
                                 <br>
+                                <br>
                                 <label>End date/time: </label>
                                 <input type="datetime-local" ng-model="vm.newEvent.enddatetime">
+                                <br><br>
                                 <label>Location:</label>
                                 <input type="text" ng-model="vm.newEvent.location" placeholder="Address">
                                 <br>
@@ -213,4 +215,3 @@
                 </div>
 
 
-                </div>

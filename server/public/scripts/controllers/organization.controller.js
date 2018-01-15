@@ -12,16 +12,11 @@ function(OrganizationService, $routeParams, alert, UserService, EventService) {
     vm.editOrg = OrganizationService.editOrg;
     vm.getUserOrgs = UserService.getUserOrgs;
     vm.orgEvents = EventService.orgEvents;
+
+    //For filestack
     vm.uploadOrgLogo = OrganizationService.uploadOrgLogo;
-    vm.org_logo = OrganizationService.org_logo;
-    vm.newOrg.orgImg = OrganizationService.newOrg.orgImg;
-    vm.orgImg = OrganizationService.orgImg;
+    vm.org_logo = OrganizationService.org_logo;  
     vm.newOrg = OrganizationService.newOrg;
-    
-    // vm.action = alert.action;
-    // vm.event = alert.event;
-    // vm.modalData = modalData;
-    
 
     OrganizationService.getOrgs();
     UserService.getUserOrgs();

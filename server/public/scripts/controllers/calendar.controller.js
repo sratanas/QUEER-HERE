@@ -5,6 +5,8 @@
     var vm = this;
     vm.EventService = EventService;
     vm.UserService = UserService;
+
+  
     vm.getEvents = EventService.getEvents;
     vm.addEvent = EventService.addEvent;
     vm.events = EventService.events;
@@ -13,7 +15,6 @@
     vm.deleteEventFromProfile = EventService.deleteEventFromProfile;   
     vm.getOrgEvents = EventService.getOrgEvents;
     vm.orgEvents = EventService.orgEvents; 
-    vm.includeEvent = EventService.includeEvent;
     vm.eventFilter = EventService.eventFilter;
 
    

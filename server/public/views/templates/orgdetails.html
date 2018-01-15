@@ -8,7 +8,7 @@
       <table class="table" id="orgDetailsTable">
         <thead>
           <tr>
-            <th width = "30%"> <img id = "orgDetailsLogo" src = "{{oc.OrganizationService.orgDetails[0].org_logo}}">                          </th>
+            <th width = "30%"> <img id = "orgDetailsLogo" src = "{{oc.OrganizationService.orgDetails[0].org_logo}}"></th>
             <th><span id = "orgDetailsTitle">{{oc.OrganizationService.orgDetails[0].org_name}}</span>
                   
               </th>
@@ -17,8 +17,9 @@
         <tbody>
           <tr>
             <td colspan = "2">{{oc.OrganizationService.orgDetails[0].website}}
-              <br>
               <br> {{oc.OrganizationService.orgDetails[0].phone}}
+              <br>
+              <br> {{oc.OrganizationService.orgDetails[0].email}}              
               <br>
               <br> {{oc.OrganizationService.orgDetails[0].address}}
               <br>

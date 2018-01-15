@@ -19,20 +19,6 @@ body, html {
 
 }
 
-/* #homePageAboutBlurb {
-  height: 325px;
-  width: 700px;
-  background-color:tomato;
-  border-radius:5%;
-  text-align: left;
-  vertical-align: top;
-  display: table-cell;
-  font-size: 18px;
-  padding:35px;
-  font-weight: bold;
-  color: black;
-} */
-
 #homePageAboutBlurb {
   height: 325px;
   width: 325px;
@@ -250,6 +236,7 @@ li a:hover {
   letter-spacing: 2px;
   background-color: white !important;
   color: black !important;
+  padding:20px;
 
 }
 #orgTableHead{
@@ -259,9 +246,9 @@ li a:hover {
   letter-spacing: 2px;
 }
 
-#orgTable td{
+#orgDetailsTable td{
   border-top: none !important;
-  padding: 10px;
+  padding: 20px;
   margin: 0px;
 }
 
@@ -370,4 +357,15 @@ li a:hover {
 
   #loginHomePage {
     margin-right:30px;
+  }
+
+  #createOrgUpload{
+    height: 75px;
+    width: 75px;
+    margin:10px;
+    border-radius: 100%;
+    border-style: solid;
+    border-color: black;
+
+    
   }

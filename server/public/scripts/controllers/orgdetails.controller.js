@@ -4,11 +4,6 @@ function(OrganizationService, UserService, $routeParams, $http, EventService) {
     var vm = this;
     vm.OrganizationService = OrganizationService;
     vm.EventService = EventService;
-    vm.getOrgs = OrganizationService.getOrgs;
-    vm.organizations = OrganizationService.organizations;
-    vm.getClickedOrg = OrganizationService.getClickedOrg;
-    vm.userOrgs = UserService.userOrgs;
-    vm.events = EventService.events
     vm.orgDetails = OrganizationService.orgDetails;
     vm.getOrgEvents = EventService.getOrgEvents;
     vm.orgEvents = EventService.orgEvents;

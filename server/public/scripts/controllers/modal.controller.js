@@ -9,10 +9,18 @@ function(UserService, EventService, alert, OrganizationService, modalData) {
     vm.getUserEvents = UserService.getUserEvents;
     vm.userEvents = UserService.userEvents;
     vm.saveEventToProfile = EventService.saveEventToProfile;
+
+    //delete and edit orgs and events
     vm.editOrg = OrganizationService.editOrg;
+    vm.deleteOrg = OrganizationService.deleteOrg    
     vm.editEvent = EventService.editEvent;
     vm.deleteEvent = EventService.deleteEvent;
-    vm.deleteOrg = OrganizationService.deleteOrg
+
+    //for filestack
+    vm.uploadOrgLogo = OrganizationService.uploadOrgLogo;
+    vm.org_logo = OrganizationService.org_logo;  
+    vm.newOrg = OrganizationService.newOrg;
+
     vm.modalData = modalData;
 
     if (vm.modalData.event && vm.modalData.event.datetime && vm.modalData.event.enddatetime) {

@@ -15,11 +15,11 @@ myApp.config(function($routeProvider, $locationProvider) {
     })
     .when('/organizations', {
       templateUrl: '/views/templates/organizations.html',
-      controller: 'OrgdetailsController as oc' 
+      controller: 'OrganizationController as oc' 
     })
     .when('/calendar', {
       templateUrl: '/views/templates/calendar.html',
-      controller: 'LoginController as lc'
+      controller: 'KitchenSinkCtrl as vm'
     })
     .when('/registerthankyou', {
       templateUrl: '/views/templates/registerthankyou.html',

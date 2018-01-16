@@ -16,10 +16,13 @@ function(UserService, EventService, OrganizationService, $routeParams, alert) {
   vm.editEvent = EventService.editEvent;
   vm.organizations = OrganizationService.organizations;
   vm.deleteEvent = EventService.deleteEvent;
+  vm.getOrgEvents = EventService.getOrgEvents;
+  // vm.orgEvents = EventService.orgEvents
 
+  // Promise working DO NOT DELETE
   vm.getOrgEvents = function (orgid, userOrg){
     EventService.getOrgEvents(orgid).then(function(eventList){
-      userOrg.events = eventList;
+      userOrg.events = eventList; 
     });
   };
 

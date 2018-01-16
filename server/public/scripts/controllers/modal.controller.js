@@ -10,11 +10,18 @@ function(UserService, EventService, alert, OrganizationService, modalData) {
     vm.userEvents = UserService.userEvents;
     vm.saveEventToProfile = EventService.saveEventToProfile;
 
+    //For getting and adding admins
+    vm.getUsers = UserService.getUsers;
+
     //delete and edit orgs and events
     vm.editOrg = OrganizationService.editOrg;
     vm.deleteOrg = OrganizationService.deleteOrg    
     vm.editEvent = EventService.editEvent;
     vm.deleteEvent = EventService.deleteEvent;
+
+    //For adding an admin
+    vm.addAdmin = OrganizationService.addAdmin;
+    vm.userToAdd = OrganizationService.userToAdd;
 
     //for filestack
     vm.uploadOrgLogo = OrganizationService.uploadOrgLogo;
@@ -30,6 +37,7 @@ function(UserService, EventService, alert, OrganizationService, modalData) {
        
     UserService.getUserEvents();
     UserService.getUserOrgs();
+    UserService.getUsers();
 
   
   

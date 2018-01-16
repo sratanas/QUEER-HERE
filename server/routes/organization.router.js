@@ -60,7 +60,7 @@ router.post('/', function (req, res) {
 
 //Editing org on modal
 router.put('/', function (req, res) {
-    console.log('in router post');
+    console.log('editing org on modal');
     if(req.isAuthenticated()) {
     var orgToEdit = req.body;
     
@@ -144,9 +144,34 @@ router.delete('/deleteOrg', function (req, res) {
     }});
 
 
+//In progress, adding an admin to an organization
+router.post('/addAdmin', function (req, res) {
+    if(req.isAuthenticated()) {
+    var userToAdd = req.body;
+    console.log('in addAdmin', req.body);
+    
+    pool.connect(function (errorConnectingToDatabase, client, done) {
+        if (errorConnectingToDatabase) {
+            console.log('error', errorConnectingToDatabase);
+            res.sendStatus(500);
+
+        } else {
+            client.query(`INSERT INTO users_orgs ("user_id", "org_id")
+            VALUES ((SELECT id FROM users WHERE users.username = $1), (SELECT id FROM organizations WHERE organizations.id = $2));`,
+            [userToAdd.userId, userToAdd.orgId],
+                function (errorMakingDatabaseQuery, result) {
+                    done();
+                    if (errorMakingDatabaseQuery) {
+                        console.log('error', errorMakingDatabaseQuery);
+                        res.sendStatus(500);
+
+                    } else {
+                        res.sendStatus(200);
+                    }
+                })
+        }
+    })
+}});
 
 
 module.exports = router;
-
-
-

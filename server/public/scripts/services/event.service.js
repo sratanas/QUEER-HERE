@@ -113,9 +113,9 @@ vm.deleteEventFromProfile = function(eventToDelete){
     })
     
 }
-
+//one that works DO NOT DELETE
 vm.getOrgEvents = function (orgid) {
-    
+    console.log('orgid', orgid);
     return $http({
             method: 'GET',
             url: '/events/orgEvents',
@@ -123,12 +123,26 @@ vm.getOrgEvents = function (orgid) {
         }).then(function (response) {
             console.log('getOrgEvents response', response);
             vm.orgEvents.list = response.data;
-        
+            
             return response.data;
     
         });
     };
 
+// experimenting without promise 
+    // vm.getOrgEvents = function (orgid) {
+        
+    //    $http({
+    //             method: 'GET',
+    //             url: '/events/orgEvents',
+    //             params: {orgid: orgid}
+    //         }).then(function (response) {
+    //             console.log('getOrgEvents response', response);
+    //             vm.orgEvents.list = response.data;
+                    
+    //         });
+    //     };
+    
 
 vm.editEvent = function(eventToEdit){
      console.log('edit event button clicked');

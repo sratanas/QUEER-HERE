@@ -1,5 +1,5 @@
 <div class="modal-header">
-    <h2 class="modal-title">HELLO WORLD</h2>
+    <h2 class="modal-title"> {{vm.modalData.event.org_name}} </h2>
 </div>
 <div class="modal-body">
         <form>
@@ -49,7 +49,7 @@
             <div class="form-group row">
                     <label for="uploadLogo" class="col-sm-2 col-form-label">Upload logo</label>
                         <div class="col-sm-10">
-                         <button class="btn btn-primary" ng-click = "vm.modalData.event.uploadOrgLogo(vm.modalData.event.org_logo)" ng-model="vm.newOrg.org_logo" 
+                         <button class="btn btn-primary" ng-click = "vm.uploadOrgLogo(vm.modalData.event.newOrg.org_logo)" ng-model="vm.newOrg.org_logo" 
                          id="orgInputImgUrl">Click to upload</button>
                          <img id="createOrgUpload" src = "{{vm.modalData.event.org_logo}}">
                         </div>
@@ -122,6 +122,13 @@
                 </div>
             </div>
     
+            <div class="form-group row">
+                    <label for="addAdmin" class="col-sm-2 col-form-label">Add an admin:</label>
+                    <div class="col-sm-10">
+                        <input type="text" ng-model="vm.users.username" placeholder="Enter a username">
+                        <button class = "btn btn-primary" ng-click = "vm.addAdmin(vm.users.username, vm.modalData.event.id)">ADD </button>
+                    </div>
+            </div>         {{vm.users.username}}  {{vm.modalData.event.id}}
        <br><br>
 
     <!-- End of form -->

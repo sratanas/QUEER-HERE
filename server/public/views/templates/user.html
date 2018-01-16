@@ -57,25 +57,23 @@
                                 <span class="pull-right">
                                     <button ng-click="vm.editOrgClicked(userOrg)" class="btn btn-warning" id = "editButton"> Edit org</button>
                                 </span>
-
-                                <a href="" ng-click="isCollapsed = !isCollapsed; uc.getOrgEvents(userOrg.org_id, userOrg)"> Show Events </a>
+                              
+                                <a href="" ng-click="isCollapsed = !isCollapsed; uc.getOrgEvents(userOrg.id, userOrg)"> Show Events </a>
                                 <br><br>
+                                
                                     <div uib-collapse="!isCollapsed">
                                         <!-- <div class="well well"> -->
 
                                          
                                                 <table class="table" id = "dropdownEventsTable">
-
-                                                
                                                         <tbody>
-                                                          <tr ng-repeat="event in userOrg.events">
-                                                                
+                                                          <tr ng-repeat="event in userOrg.events">   
                                                             <td ng-model="event"> <a href="" ng-click="vm.newEventClicked(event);"><strong>{{event.title}}</strong></a><br><i>{{event.datetime | date:'MMM d, y h:mm a':'-0600'}}</i><br>{{event.description | limitTo: 100}}
                                                                 <span class="pull-right">
                                                                         <button ng-click="vm.editEventClicked(event)" class="btn btn-warning" id = "editButton"> Edit event</button>
                                                                     </span>
-                                                            </td>
-                                                          </tr>
+                                                            </td>                                                         
+                                                         </tr>
                                                         </tbody>
                                                       </table>     
 

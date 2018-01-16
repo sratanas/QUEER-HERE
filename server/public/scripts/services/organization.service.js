@@ -6,7 +6,8 @@ myApp.service('OrganizationService', ['$http','$routeParams', 'UserService', fun
 vm.organizations = [];
 vm.orgDetails = [];
 vm.newOrg = {}
-vm.orgImg = {}
+vm.orgImg = {};
+// vm.userToAdd = {};
 
 
 vm.getOrgs = function () {
@@ -143,11 +144,23 @@ vm.deleteOrg = function(orgToDelete){
         } else {
           swal("Organization not deleted");
         }
-      });
-    
-
-    
+      });   
 }
 
+vm.addAdmin = function(userToAdd,orgToAdd){
+    console.log('in addAdmin');
+    $http({
+        method: 'POST',
+        url: '/organizations/addAdmin',
+        data: {
+            userId: userToAdd,
+            orgId: orgToAdd
+        }
+    }).then(
+        function (response) {
+        console.log('user To Add', userToAdd);
+        console.log('response from addAdmin', response);
+    })
+}
 
 }]);

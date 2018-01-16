@@ -109,7 +109,7 @@ router.delete('/deleteEventFromProfile', function (req, res) {
 
 //get organization events
 router.get('/orgEvents', function (req, res) {
-    console.log('req.query.id in orgEvents', req.query.id)
+    console.log('req.query.id in orgEvents', req.query)
     pool.connect(function (errorConnectingToDatabase, client, done) {
         if (errorConnectingToDatabase) {
             console.log('error', errorConnectingToDatabase);
@@ -120,7 +120,8 @@ router.get('/orgEvents', function (req, res) {
             event.lesbian, event.gay, event.bi, event.trans, event.entertainment, event.literary, event.activism, event.healthcare, event.mental_health, event.youth, event.legal, event.political, event.support_group, event.other, event.org_id
             FROM event
             JOIN users_orgs ON event.org_id = users_orgs.id
-            WHERE users_orgs.org_id = $1
+            JOIN organizations ON users_orgs.org_id = organizations.id
+            WHERE organizations.id = $1
             ORDER BY datetime ASC;`,[req.query.orgid], 
             function (errorMakingDatabaseQuery, result) {
                 done();

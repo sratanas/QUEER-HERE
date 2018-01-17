@@ -163,4 +163,37 @@ vm.addAdmin = function(userToAdd,orgToAdd){
     })
 }
 
+//Removes and admin from an organization
+vm.removeAdmin = function(adminToRemove, orgFrom){
+    console.log('delete org clicked');
+    swal({
+        title: "Are you sure?",
+        icon: "warning",
+        buttons: true,
+        dangerMode: true,
+      })
+      .then((willDelete) => {
+        if (willDelete) {
+            $http({
+                method: 'DELETE',
+                url: '/organizations/removeAdmin',
+                params: {
+                    adminToRemove,
+                    orgFrom
+                }
+                
+            }).then(function(response){
+                console.log('response', response);
+                
+            })
+          swal("Admin deleted", {
+            icon: "success",
+          });
+
+        } else {
+          swal("Admin not deleted");
+        }
+      });   
+}
+
 }]);

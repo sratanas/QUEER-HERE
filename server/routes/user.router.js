@@ -8,7 +8,7 @@ router.get('/', function(req, res) {
   // check if logged in
   if(req.isAuthenticated()) {
     // send back user object from database
-    console.log('logged in', req.user);
+    // console.log('logged in', req.user);
     var userInfo = {
       id : req.user.id,
       username : req.user.username,
@@ -34,7 +34,7 @@ router.get('/logout', function(req, res) {
 
 //For getting orgs associated with one user for profile page
 router.get('/userorgs', function (req, res) {
- console.log('Users ID from userorgs',req.user);
+//  console.log('Users ID from userorgs',req.user);
  if(req.isAuthenticated()) {
   pool.connect(function (errorConnectingToDatabase, client, done) {
       if (errorConnectingToDatabase) {

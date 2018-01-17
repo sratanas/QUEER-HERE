@@ -122,22 +122,37 @@
                 </div>
             </div>
     
-            <div class="form-group row">
-                    <label for="addAdmin" class="col-sm-2 col-form-label">Add an admin:</label>
-                    <div class="col-sm-10">
-                        <input type="text" ng-model="vm.users.username" placeholder="Enter a USERNAME">
-                        <button class = "btn btn-primary" ng-click = "vm.addAdmin(vm.users.username, vm.modalData.event.id)">ADD </button>
-                        <strong> [Usernames are case-sensitive.]</strong>
-                    </div>
-            </div>
+<div class = "container">
+    <div class = "row">
+        <div class = "col-sm-2">
             <strong>Administrators:</strong>
             <br><br>
-            <ul ng-repeat = "admins in vm.orgAdmins.list">
-                <li>
-                        &nbsp;&nbsp;&nbsp;&nbsp;<strong>{{admins.username}}</strong>  <button class = "btn btn-danger">Remove</button>
+            <table class = "table" id = "adminsModalTable">
+            <tr ng-repeat = "admins in vm.orgAdmins.list">
+                <td>
+                       <strong>{{admins.username}}</strong>   
+                </td>
+                <td>
+                        <button class = "btn btn-danger" ng-click = "vm.removeAdmin(admins.id, vm.modalData.event.id)">Remove</button>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class = "col-sm-1"></div>
+    <div class = "col-sm-4">
+            <label>Add an admin:</label>
+            <br>
+            <br>
+                <div class="col-sm-10">
+                    <input type="text" ng-model="vm.users.username" placeholder="Enter a USERNAME"><br><br>
+                    <strong> [Usernames are case-sensitive.]</strong>
                     <br><br>
-                </li>
-            </ul>
+                    <button class = "btn btn-primary" ng-click = "vm.addAdmin(vm.users.username, vm.modalData.event.id)">ADD </button>
+                    <br>
+                </div>
+            </div>
+        </div>
+     </div>
 <!-- {{vm.orgAdmins.list}} -->
 
     <!-- End of form -->

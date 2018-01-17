@@ -117,6 +117,8 @@ router.get('/orgDetails/', function (req, res) {
 
 //Deletes an entire organizations (in modal)
 router.delete('/deleteOrg', function (req, res) {
+    console.log('req.query.id is', req.query.id);
+    
     console.log('in delete org');
     if(req.isAuthenticated()) {
     pool.connect(function (errorConnectingToDatabase, client, done) {
@@ -127,7 +129,7 @@ router.delete('/deleteOrg', function (req, res) {
           } else {
                 client.query(`DELETE FROM "organizations"
                 USING users_orgs WHERE users_orgs.org_id = organizations.id
-                AND users_orgs.id = $1;`, [req.query.id],
+                AND organizations.id = $1;`, [req.query.id],
                     function (errorMakingDatabaseQuery, result) {
                         done();
                         if (errorMakingDatabaseQuery) {
@@ -171,6 +173,36 @@ router.post('/addAdmin', function (req, res) {
         }
     })
 }});
+
+//Deletes an admin from an organization (in modal) IN PROGRESS, needs two parameters
+router.delete('/removeAdmin', function (req, res) {
+    console.log('req.query.id is', req.query.orgFrom, req.query.adminToRemove);
+    
+    console.log('in delete admin');
+    if(req.isAuthenticated()) {
+    pool.connect(function (errorConnectingToDatabase, client, done) {
+        if (errorConnectingToDatabase) {
+                console.log('error', errorConnectingToDatabase);
+                res.sendStatus(500);
+    
+          } else {
+                client.query(`DELETE FROM users_orgs
+                WHERE users_orgs.org_id = $1
+                AND users_orgs.id = $2;`, [req.query.orgFrom, req.query.adminToRemove],
+                    function (errorMakingDatabaseQuery, result) {
+                        done();
+                        if (errorMakingDatabaseQuery) {
+                            console.log('error', errorMakingDatabaseQuery);
+                            res.sendStatus(500);
+    
+                        } else {
+                            res.sendStatus(200);
+                        }
+                    })
+            }
+        })
+    }});
+
 
 
 module.exports = router;

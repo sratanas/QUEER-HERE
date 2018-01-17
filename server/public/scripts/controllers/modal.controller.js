@@ -22,9 +22,10 @@ function(UserService, EventService, alert, OrganizationService, modalData) {
     vm.editEvent = EventService.editEvent;
     vm.deleteEvent = EventService.deleteEvent;
 
-    //For adding an admin
+    //For adding/removing an admin
     vm.addAdmin = OrganizationService.addAdmin;
     vm.userToAdd = OrganizationService.userToAdd;
+    vm.removeAdmin = OrganizationService.removeAdmin;
 
     //for filestack
     vm.uploadOrgLogo = OrganizationService.uploadOrgLogo;

@@ -139,7 +139,7 @@ router.get('/getOrgAdmins', function (req, res) {
              } else {
                  client.query(`SELECT * FROM users
                  JOIN users_orgs ON users.id = users_orgs.user_id
-                 WHERE users_orgs.org_id = $1;`[req.query.orgId], function (errorMakingDatabaseQuery, result) {
+                 WHERE users_orgs.org_id = $1;`,[req.query.orgId], function (errorMakingDatabaseQuery, result) {
                      done();
                      if (errorMakingDatabaseQuery) {
                          console.log('error', errorMakingDatabaseQuery);

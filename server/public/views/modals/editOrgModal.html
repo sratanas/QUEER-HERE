@@ -130,9 +130,12 @@
                         <strong> [Usernames are case-sensitive.]</strong>
                     </div>
             </div>
+            <strong>Administrators:</strong>
+            <br><br>
             <ul ng-repeat = "admins in vm.orgAdmins.list">
                 <li>
-                    {{admins.username}}
+                        &nbsp;&nbsp;&nbsp;&nbsp;<strong>{{admins.username}}</strong>  <button class = "btn btn-danger">Remove</button>
+                    <br><br>
                 </li>
             </ul>
 <!-- {{vm.orgAdmins.list}} -->

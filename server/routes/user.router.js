@@ -128,7 +128,36 @@ router.get('/getUsers', function (req, res) {
  
        });
  
-   
+//getting admin users for one org
+router.get('/getOrgAdmins', function (req, res) {
+        console.log('in getOrgAdmins, req.query.orgId is', req.query.orgId);
+        if(req.isAuthenticated()) {
+         pool.connect(function (errorConnectingToDatabase, client, done) {
+             if (errorConnectingToDatabase) {
+                 console.log('error', errorConnectingToDatabase);
+                 res.sendStatus(500);
+             } else {
+                 client.query(`SELECT * FROM users
+                 JOIN users_orgs ON users.id = users_orgs.user_id
+                 WHERE users_orgs.org_id = $1;`[req.query.orgId], function (errorMakingDatabaseQuery, result) {
+                     done();
+                     if (errorMakingDatabaseQuery) {
+                         console.log('error', errorMakingDatabaseQuery);
+                         res.sendStatus(500);
+                     } else {
+                         res.send(result.rows);
+                     }
+                 });
+             }
+         });
+    } else{
+         // failure best handled on the server. do redirect here.
+         console.log('not logged in');
+         // should probably be res.sendStatus(403) and handled client-side, esp if this is an AJAX request (which is likely with AngularJS)
+         res.send(false);
+       }
+ 
+       });  
 
 
 module.exports = router;

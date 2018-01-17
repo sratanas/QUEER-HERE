@@ -12,6 +12,9 @@ function(UserService, EventService, alert, OrganizationService, modalData) {
 
     //For getting and adding admins
     vm.getUsers = UserService.getUsers;
+    vm.users = UserService.users;
+    vm.getOrgAdmins = UserService.getOrgAdmins;
+    vm.orgAdmins = UserService.orgAdmins;
 
     //delete and edit orgs and events
     vm.editOrg = OrganizationService.editOrg;
@@ -38,6 +41,7 @@ function(UserService, EventService, alert, OrganizationService, modalData) {
     UserService.getUserEvents();
     UserService.getUserOrgs();
     UserService.getUsers();
+    UserService.getOrgAdmins(modalData.event.id)
 
   
   

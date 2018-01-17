@@ -21,7 +21,7 @@ router.get('/', function (req, res) {
         }
     });
 });
-//Adding new org and attaching to user  //Add is authenticated if statement
+//Adding new org and attaching to user  
 router.post('/', function (req, res) {
     console.log('in router post');
     if(req.isAuthenticated()) {
@@ -94,7 +94,6 @@ router.put('/', function (req, res) {
 }});
 
 
-// working on route params
 router.get('/orgDetails/', function (req, res) {
     console.log('req.query.id is',req.query.id);
     console.log('in orgDetails');   

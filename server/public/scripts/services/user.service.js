@@ -5,7 +5,7 @@ myApp.service('UserService', function($http, $location){
   self.userOrgs = [];
   self.eventToSave = {};
   self.userEvents = [];
-//   self.users = [];
+  self.orgAdmins = {list:[]};
   
 
   self.getuser = function(){
@@ -80,5 +80,17 @@ self.getUserOrgs = function () {
             });
         };
 
+    self.getOrgAdmins = function (orgId){
+
+        $http({
+            method: 'GET',
+            url: '/user/getOrgAdmins',
+            params: {orgId: orgId}
+        }).then(function(response){
+            console.log('response from getOrgAdmins', response);
+            self.orgAdmins.list = response.data;
+            
+        })
+    }
 });
 

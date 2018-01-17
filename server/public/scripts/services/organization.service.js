@@ -158,7 +158,7 @@ vm.addAdmin = function(userToAdd,orgToAdd){
         }
     }).then(
         function (response) {
-        console.log('user To Add', userToAdd);
+        swal("You added " + userToAdd + " as an Admin!","success") 
         console.log('response from addAdmin', response);
     })
 }

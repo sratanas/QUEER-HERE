@@ -17,7 +17,8 @@ function(UserService, EventService, OrganizationService, $routeParams, alert) {
   vm.organizations = OrganizationService.organizations;
   vm.deleteEvent = EventService.deleteEvent;
   vm.getOrgEvents = EventService.getOrgEvents;
-  // vm.orgEvents = EventService.orgEvents
+
+
 
   // Promise working DO NOT DELETE
   vm.getOrgEvents = function (orgid, userOrg){

@@ -158,7 +158,7 @@ vm.addAdmin = function(userToAdd,orgToAdd){
         }
     }).then(
         function (response) {
-        swal("You added " + userToAdd + " as an Admin!","success") 
+        swal("You added " + userToAdd + " as an Admin!","","success") 
         console.log('response from addAdmin', response);
     })
 }
@@ -193,7 +193,8 @@ vm.removeAdmin = function(adminToRemove, orgFrom){
         } else {
           swal("Admin not deleted");
         }
-      });   
+      });
+      
 }
 
 }]);

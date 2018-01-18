@@ -139,6 +139,7 @@ vm.editEvent = function(eventToEdit){
         url:'/events',
         data: eventToEdit
     }).then(function(response){
+        swal("Edits Saved!","","success")
         console.log('edit Event response', response);
         console.log('EventtoEdit', eventToEdit);
         

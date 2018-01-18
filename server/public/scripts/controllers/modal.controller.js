@@ -32,6 +32,8 @@ function(UserService, EventService, alert, OrganizationService, modalData) {
     vm.org_logo = OrganizationService.org_logo;  
     vm.newOrg = OrganizationService.newOrg;
 
+    
+
     vm.modalData = modalData;
 
     if (vm.modalData.event && vm.modalData.event.datetime && vm.modalData.event.enddatetime) {

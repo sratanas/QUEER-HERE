@@ -38,12 +38,13 @@ myApp.service('UserService', function($http, $location){
 
   // for getting orgs associated with one user
 self.getUserOrgs = function () {
+    console.log('in getuserOrgs');
     
         $http({
             method: 'GET',
             url: '/user/userorgs'
         }).then(function (response) {
-            console.log('response', response);
+            console.log('response from getUserOrgs', response);
             self.userOrgs = response.data;
         
             

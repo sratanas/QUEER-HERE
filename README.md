@@ -39,8 +39,13 @@ CREATE TABLE "users" (
 
 ![Queer Here landing page](https://github.com/sratanas/QUEER-HERE/blob/master/server/public/images/RMlandingpage.png "Queer Here landing page")
 
+<br>
+<br>
+
 ![Queer Here dashboard](https://github.com/sratanas/QUEER-HERE/blob/master/server/public/images/RMdashboard.png "Queer Here dashboard")
 
+<br>
+<br>
 ![Queer Here calendar view](https://github.com/sratanas/QUEER-HERE/blob/master/server/public/images/RMcalendar.png "Queer Here calendar view")
 
 ## Documentation

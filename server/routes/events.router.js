@@ -3,7 +3,7 @@ var router = express.Router();
 var path = require('path');
 var pool = require('../modules/pool');
 
-
+//get all events
 router.get('/', function (req, res) {
     pool.connect(function (errorConnectingToDatabase, client, done) {
         if (errorConnectingToDatabase) {
@@ -25,7 +25,7 @@ router.get('/', function (req, res) {
 
 //Adding a new event, need to add other fields and connect to organization.
 router.post('/', function (req, res) {
-    console.log('in router post');
+    console.log('in router post, req.body.id is', req.body.id);
     var newEvent = req.body;
     pool.connect(function (errorConnectingToDatabase, client, done) {
         if (errorConnectingToDatabase) {
@@ -109,7 +109,7 @@ router.delete('/deleteEventFromProfile', function (req, res) {
 
 //get organization events
 router.get('/orgEvents', function (req, res) {
-    console.log('req.query.id in orgEvents', req.query)
+    console.log('req.query.orgid in orgEvents', req.query.orgid)
     pool.connect(function (errorConnectingToDatabase, client, done) {
         if (errorConnectingToDatabase) {
             console.log('error', errorConnectingToDatabase);
@@ -117,12 +117,11 @@ router.get('/orgEvents', function (req, res) {
         } else {
             client.query(`
             SELECT event.id, event.title, event.color, event.description, event.datetime, event.enddatetime, event.location,
-            event.lesbian, event.gay, event.bi, event.trans, event.entertainment, event.literary, event.activism, event.healthcare, event.mental_health, event.youth, event.legal, event.political, event.support_group, event.other, event.org_id
+            event.lesbian, event.gay, event.bi, event.trans, event.entertainment, event.literary, event.activism, event.healthcare, event.mental_health, event.youth, event.legal, event.political, event.support_group, event.other, event.org_id, users_orgs.user_id
             FROM event
-            JOIN users_orgs ON event.org_id = users_orgs.id
-            JOIN organizations ON users_orgs.org_id = organizations.id
-            WHERE organizations.id = $1
-            ORDER BY datetime ASC;`,[req.query.orgid], 
+            JOIN users_orgs ON event.org_id = users_orgs.org_id
+            WHERE users_orgs.org_id = $1 AND users_orgs.user_id = $2
+            ORDER BY datetime ASC;`,[req.query.orgid, req.user.id], 
             function (errorMakingDatabaseQuery, result) {
                 done();
                 if (errorMakingDatabaseQuery) {
@@ -135,6 +134,30 @@ router.get('/orgEvents', function (req, res) {
         }
     });
 });
+
+router.get('/orgDetailsEvents', function (req, res) {
+    console.log('orDetailsEvents req.query', req.query);
+    
+    pool.connect(function (errorConnectingToDatabase, client, done) {
+        if (errorConnectingToDatabase) {
+            console.log('error', errorConnectingToDatabase);
+            res.sendStatus(500);
+        } else {
+            client.query(`SELECT * FROM event
+            WHERE org_id = $1
+             ORDER BY datetime ASC;`,[req.query.id], function (errorMakingDatabaseQuery, result) {
+                done();
+                if (errorMakingDatabaseQuery) {
+                    console.log('error', errorMakingDatabaseQuery);
+                    res.sendStatus(500);
+                } else {
+                    res.send(result.rows);
+                }
+            });
+        }
+    });
+});
+
 
 //Editing event on modal
 router.put('/', function (req, res) {

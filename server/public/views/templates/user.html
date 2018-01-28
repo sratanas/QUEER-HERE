@@ -68,7 +68,9 @@
                                                 <table class="table" id = "dropdownEventsTable">
                                                         <tbody>
                                                           <tr ng-repeat="event in userOrg.events">   
-                                                            <td ng-model="event"> <a href="" ng-click="vm.newEventClicked(event);"><strong>{{event.title}}</strong></a><br><i>{{event.datetime | date:'MMM d, y h:mm a':'-0600'}}</i><br>{{event.description | limitTo: 100}}
+                                                            <td ng-model="event"> <a href="" ng-click="vm.newEventClicked(event);">
+                                                                <strong>{{event.title}}</strong></a><br><i>{{event.datetime | date:'MMM d, y h:mm a':'-0600'}}</i>
+                                                                <br>{{event.description | limitTo: 100}}
                                                                 <span class="pull-right">
                                                                         <button ng-click="vm.editEventClicked(event)" class="btn btn-warning" id = "editButton"> Edit event</button>
                                                                     </span>

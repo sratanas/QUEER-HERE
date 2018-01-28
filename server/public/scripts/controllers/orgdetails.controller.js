@@ -7,13 +7,17 @@ function(OrganizationService, UserService, $routeParams, $http, EventService) {
     vm.orgDetails = OrganizationService.orgDetails;
     vm.getOrgEvents = EventService.getOrgEvents;
     vm.orgEvents = EventService.orgEvents;
+    vm.getOrgDetailsEvents = EventService.getOrgDetailsEvents;
+    vm.orgDetailsEvents = EventService.orgDetailsEvents;
     
 
-    EventService.getOrgEvents($routeParams.id);
+    // EventService.getOrgEvents($routeParams.id);
 
     OrganizationService.getOrgDetails($routeParams);
 
     OrganizationService.getOrgs();
+
+    EventService.getOrgDetailsEvents($routeParams)
     
 
   }]);

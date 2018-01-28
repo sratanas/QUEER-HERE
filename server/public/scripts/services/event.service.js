@@ -5,6 +5,7 @@ function($http, $location, calendarConfig, alert, UserService, filterFilter){
 
 vm.events = [];
 vm.orgEvents = {list:[]};
+vm.orgDetailsEvents = {list:[]};
 
 
 vm.getEvents = function () {
@@ -128,6 +129,20 @@ vm.getOrgEvents = function (orgid) {
     
         });
     };
+
+vm.getOrgDetailsEvents = function (orgid){
+    console.log('orgid from getOrgDetailsEvents');
+    $http({
+        method: 'GET',
+        url:'/events/orgDetailsEvents',
+        params: orgid
+    }).then(function(response){
+        console.log('orgDetailsEvents response', response);
+        vm.orgDetailsEvents.list = response.data;
+        
+    })
+    
+}
 
 
 

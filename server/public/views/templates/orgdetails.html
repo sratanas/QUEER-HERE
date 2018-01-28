@@ -50,7 +50,7 @@
 
         
         <tbody>
-          <tr ng-repeat="event in oc.EventService.orgEvents.list" >
+          <tr ng-repeat="event in oc.EventService.orgDetailsEvents.list" >
 
             <td ng-model="event"> <a href="" ng-click="vm.newEventClicked(event)"><strong>{{event.title}}</strong></a><br><i>{{event.datetime | date:'MMM d, y h:mm a':'-0600'}}</i><br>{{event.description | limitTo: 100}}</td>
               <td ng-controller = "UserController as uc" ng-show = "uc.userService.userObject.userName"><button class="btn btn-success" ng-click ="uc.saveEventToProfile(event)"> Save to My Events </button></td>

@@ -46,6 +46,7 @@ CREATE TABLE "users" (
 
 <br>
 <br>
+
 ![Queer Here calendar view](https://github.com/sratanas/QUEER-HERE/blob/master/server/public/images/RMcalendar.png "Queer Here calendar view")
 
 ## Documentation

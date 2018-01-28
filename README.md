@@ -37,7 +37,11 @@ CREATE TABLE "users" (
 
 ## Screen Shots
 
-![alt text](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "Logo Title Text 1")
+![Queer Here landing page](https://github.com/sratanas/QUEER-HERE/blob/master/server/public/images/RMlandingpage.png "Queer Here landing page")
+
+![Queer Here dashboard](https://github.com/sratanas/QUEER-HERE/blob/master/server/public/images/RMdashboard.png "Queer Here dashboard")
+
+![Queer Here calendar view](https://github.com/sratanas/QUEER-HERE/blob/master/server/public/images/RMcalendar.png "Queer Here calendar view")
 
 ## Documentation
 
@@ -47,14 +51,22 @@ CREATE TABLE "users" (
 
 High level list of items completed.
 
+- [x] Landing page view with upcoming events, welcome message and login.
 - [x] Calendar view: Accessible to unregistered users.
 - [x] Login and user dashboard: Registered users are able to log in, save events from the main calendar and other organizations to their own profile, create organizations, and create events for those organziations.
+- [x] Organization creation form.
+- [x] Event creation form with organization reference drop down.
+- [x] Individual organization views using $routeParams.
+
+
 
 ### Next Steps
 
 Features that you would like to add at some point in the future.
 
-- [ ] Feature c
+- [ ] Increase responsiveness to make better for mobile.
+- [ ] Incorporate Google Maps API for event locations and directions.
+
 
 ## Authors
 

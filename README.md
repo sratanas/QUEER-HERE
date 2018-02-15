@@ -66,12 +66,12 @@ High level list of items completed.
 
 
 
-### Next Steps
+<!-- ### Next Steps
 
 Features that you would like to add at some point in the future.
 
 - [ ] Increase responsiveness to make better for mobile.
-- [ ] Incorporate Google Maps API for event locations and directions.
+- [ ] Incorporate Google Maps API for event locations and directions. -->
 
 
 ## Authors

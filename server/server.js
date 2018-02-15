@@ -12,7 +12,7 @@ var registerRouter = require('./routes/register.router');
 var eventRouter = require('./routes/events.router')
 var organizationRouter = require('./routes/organization.router')
 
-var port = process.env.PORT || 5000;
+var port = process.env.PORT || 3000;
 
 // Body parser middleware
 app.use(bodyParser.json());
